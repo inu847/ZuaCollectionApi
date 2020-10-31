@@ -1,5 +1,5 @@
 @extends('layouts.global')
- @section('title') Manage Order
+ @section('title') Add Order
      
  @endsection
  @section('content')
@@ -10,16 +10,17 @@
     @endif
 
  <div class="m-l-40">
-    <h3 class="box-title m-b-0">View Orders</h3>
+    <h3 class="box-title m-b-0">Create New Orders</h3>
     <p class="text-muted m-b-30 font-13"> Use Bootstrap's predefined grid classes for horizontal form </p>
  </div>
- <div class="col-md-6">
-    <div class="white-box">
-        <form class="form-horizontal m-t-25"
+ <form class=""
                 enctype="multipart/form-data"
                 action="{{route('baju.store')}}"
                 method="POST">
                 @csrf
+ <div class="col-md-6">
+    <div class="white-box form-horizontal m-t-10 p-b-35">
+        
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nama*</label>
                 <div class="col-sm-9">
@@ -132,12 +133,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
 
 
 
-
-
+        <div class="col-md-6">
+            <div class="white-box form-horizontal m-t-10 p-b-20">
                 <div class="form-group">
                     <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
                     <div class="col-sm-9">
@@ -230,12 +233,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-4">
-                    <input class="btn btn-danger waves-effect waves-light" type="submit" value="save"/>
+                <div class="col-sm-offset-3 waves-effect">
+                    <input class="btn btn-danger waves-light p-t-5 p-b-5 p-l-30 p-r-30 m-l-15" type="submit" value="save" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif;" />
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-</div>
+
+</form>
  @endsection

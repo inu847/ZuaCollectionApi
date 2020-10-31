@@ -40,8 +40,8 @@
       @foreach($table as $tbl)
         <tr>
           <td>{{$tbl->title}}</td>
-          <td>{{$tbl->kategori->[0]}}</td>
-          <td>{{$tbl->jenis_ukuran[1]}}</td>
+          <td>{{$tbl->kategori}}</td>
+          <td>{{$tbl->jenis_ukuran}}</td>
           <td>{{$tbl->lingkar_badan}}</td>
           <td>{{$tbl->lingkar_pinggang}}</td>
           <td>{{$tbl->lingkar_pinggul}}</td>
