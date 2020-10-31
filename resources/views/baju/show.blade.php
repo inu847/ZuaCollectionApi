@@ -13,7 +13,7 @@
             <table class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle">
                 <thead>
                     <tr >
-                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" class="p-l-20"> {{$baju->title}} </th>
+                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" class="p-l-20">{{('Pakaian ')}} {{$baju->title}} </th>
                         <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Ukuran</th>
                         <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Action</th>
                     </tr>

@@ -13,8 +13,29 @@
   <div class="row">
     <div class="col-lg-12">
         <div class="white-box">
-            <h3 class="box-title m-b-0">Responsive Table </h3>
-            <p class="text-muted m-b-20">Create responsive tables by wrapping any <code>.table</code> in <code>.table-responsive </code></p>
+            {{-- <div class="row">
+                <div class="col-md-6">
+                    <form action="{{route('baju.index')}}">
+                        <div class="input-group mb-3">
+                            <input
+                            value="{{Request::get('title')}}"
+                            name="title"
+                            class="form-control col-md-10"
+                            type="text"
+                            placeholder="Filter Berdasarkan Nama"/>
+                            <div class="input-group-append">
+                                <input
+                                type="submit"
+                                value="Filter"
+                                class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> --}}
+                              
+            <h3 class="box-title m-b-0">List Order </h3>
+            <p class="text-muted m-b-20">Tekan <code>detail</code> untuk melihat info ukuran.</p>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -33,7 +54,8 @@
                             <td>{{$tbl->title}}</td>
                             <td>{{$tbl->kategori}}</td>
                             <td>{{$tbl->jenis_ukuran}}</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->format('l, d M Y H:i:s')}}</span> </td>
+                            {{-- masukkan code ini untuk waktu H:i:s --}}
+                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->format('l, d M Y')}}</span> </td>
                             <td>
                                 <div class="label label-table label-success">Paid</div>
                             </td>

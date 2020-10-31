@@ -11,10 +11,13 @@ class BajuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $table = \App\Models\Baju::paginate(10);
-
+        $filterKeyword = $request->get('title');
+        if($filterKeyword){
+            $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%");
+           }
         return view('baju.index', ['table' => $table]);
     }
 
