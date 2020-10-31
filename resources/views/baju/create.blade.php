@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Kategori*</label>
                 <div class="col-sm-9">
-                    <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori[]"">
+                    <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori[]">
                         <option>Pilih Kategori</option>
                         <option id="atasan_wanita" value="atasan_wanita">Atasan Wanita</option>
                         <option id="hem" value="hem">Hem</option>

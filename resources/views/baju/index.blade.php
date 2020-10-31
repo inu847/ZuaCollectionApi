@@ -10,58 +10,45 @@
   {{session('status')}}
 </div>
 @endif
-<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th><b>Name</b></th>
-        <th><b>Kategori</b></th>
-        <th><b>jenis_ukuran</b></th>
-        <th><b>lingkar_badan</b></th>
-        <th><b>lingkar_pinggang</b></th>
-        <th><b>lingkar_pinggul</b></th>
-        <th><b>lingkar_pipa</b></th>
-        <th><b>lingkar_paha</b></th>
-        <th><b>lingkar_lutut</b></th>
-        <th><b>lebar_muka</b></th>
-        <th><b>lebar_punggung</b></th>
-        <th><b>lebar_lengan</b></th>
-        <th><b>lebar_ban_lengan</b></th>
-        <th><b>panjang_punggung</b></th>
-        <th><b>panjang_muka</b></th>
-        <th><b>panjang_baju</b></th>
-        <th><b>panjang_lengan</b></th>
-        <th><b>panjang_rok</b></th>
-        <th><b>panjang_celana</b></th>
-        <th><b>panjang_krah</b></th>
-        <th><b>Waktu</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($table as $tbl)
-        <tr>
-          <td>{{$tbl->title}}</td>
-          <td>{{$tbl->kategori}}</td>
-          <td>{{$tbl->jenis_ukuran}}</td>
-          <td>{{$tbl->lingkar_badan}}</td>
-          <td>{{$tbl->lingkar_pinggang}}</td>
-          <td>{{$tbl->lingkar_pinggul}}</td>
-          <td>{{$tbl->lingkar_pipa}}</td>
-          <td>{{$tbl->lingkar_paha}}</td>
-          <td>{{$tbl->lingkar_lutut}}</td>
-          <td>{{$tbl->lebar_muka}}</td>
-          <td>{{$tbl->lebar_punggung}}</td>
-          <td>{{$tbl->lebar_lengan}}</td>
-          <td>{{$tbl->lebar_ban_lengan}}</td>
-          <td>{{$tbl->panjang_punggung}}</td>
-          <td>{{$tbl->panjang_muka}}</td>
-          <td>{{$tbl->panjang_baju}}</td>
-          <td>{{$tbl->panjang_lengan}}</td>
-          <td>{{$tbl->panjang_rok}}</td>
-          <td>{{$tbl->panjang_celana}}</td>
-          <td>{{$tbl->panjang_krah}}</td>
-          <td>{{$tbl->created_at}}</td>
-        </tr>
-      @endforeach 
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="white-box">
+            <h3 class="box-title m-b-0">Responsive Table </h3>
+            <p class="text-muted m-b-20">Create responsive tables by wrapping any <code>.table</code> in <code>.table-responsive </code></p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Kategori</th>
+                            <th>Jenis Ukuran</th>                            
+                            <th>Waktu Pesan</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($table as $tbl)
+                        <tr>
+                            <td>{{$tbl->title}}</td>
+                            <td>{{$tbl->kategori}}</td>
+                            <td>{{$tbl->jenis_ukuran}}</td>
+                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->format('l, d M Y H:i:s')}}</span> </td>
+                            <td>
+                                <div class="label label-table label-success">Paid</div>
+                            </td>
+                            <td>
+                              <a href="{{route('baju.show', [$tbl->id])}}"
+                                  class="btn btn-primary btn-sm">Detail</a>
+                                  <a href="{{route('baju.edit', [$tbl->id])}}"
+                                    class="btn btn-info btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

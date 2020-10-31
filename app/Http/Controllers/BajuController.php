@@ -70,7 +70,9 @@ class BajuController extends Controller
      */
     public function show($id)
     {
-        //
+        $baju = \App\Models\Baju::findOrFail($id);
+
+        return view('baju.show', ['baju' => $baju]);
     }
 
     /**
@@ -81,7 +83,9 @@ class BajuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $baju = \App\Models\Baju::findOrFail($id);
+        
+        return view('baju.update', ['baju' => $baju]);
     }
 
     /**
@@ -93,7 +97,53 @@ class BajuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $title = $request->get('name');
+        $kategori = json_encode($request->get('kategori'));
+        $jenis_ukuran = json_encode($request->get('jenis_ukuran'));
+        $lingkar_badan = $request->get('lingkar_badan');
+        $lingkar_pinggang = $request->get('lingkar_pinggang');
+        $lingkar_pinggul = $request->get('lingkar_pinggul');
+        $lingkar_pipa = $request->get('lingkar_pipa');
+        $lingkar_paha = $request->get('lingkar_paha');
+        $lingkar_lutut = $request->get('lingkar_lutut');
+        $lebar_muka = $request->get('lebar_muka');
+        $lebar_punggung = $request->get('lebar_punggung');
+        $lebar_lengan = $request->get('lebar_lengan');
+        $lebar_ban_lengan = $request->get('lebar_ban_lengan');
+        $panjang_punggung = $request->get('panjang_punggung');
+        $panjang_muka = $request->get('panjang_muka');
+        $panjang_baju = $request->get('panjang_baju');
+        $panjang_lengan = $request->get('panjang_lengan');
+        $panjang_rok = $request->get('panjang_rok');
+        $panjang_celana = $request->get('panjang_celana');
+        $panjang_krah = $request->get('panjang_krah');
+
+        $baju = \App\Models\Baju::findOrFail($id);
+
+        $baju->title = $title;
+        $baju->kategori = $kategori;
+        $baju->jenis_ukuran = $jenis_ukuran;
+        $baju->lingkar_badan = $lingkar_badan;
+        $baju->lingkar_pinggang = $lingkar_pinggang;
+        $baju->lingkar_pinggul = $lingkar_pinggul;
+        $baju->lingkar_pipa = $lingkar_pipa;
+        $baju->lingkar_paha = $lingkar_paha;
+        $baju->lingkar_lutut = $lingkar_lutut;
+        $baju->lebar_muka = $lebar_muka;
+        $baju->lebar_punggung = $lebar_punggung;
+        $baju->lebar_lengan = $lebar_lengan;
+        $baju->lebar_ban_lengan = $lebar_ban_lengan;
+        $baju->panjang_punggung = $panjang_punggung;
+        $baju->panjang_muka = $panjang_muka;
+        $baju->panjang_baju = $panjang_baju;
+        $baju->panjang_lengan = $panjang_lengan;
+        $baju->panjang_rok = $panjang_rok;
+        $baju->panjang_celana = $panjang_celana;
+        $baju->panjang_krah = $panjang_krah;
+        
+        $baju->save();
+        return redirect()->route('baju.index')->with('status', 'Update Data Success');
     }
 
     /**
