@@ -42,7 +42,7 @@
                 <label class="col-sm-3 control-label">Kategori*</label>
                 <div class="col-sm-9">
                 <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori[]">
-                        <option value="{{$baju->kategori}}">{{$baju->kategori}}</option>
+                        <option id="atasan_wanita" value="atasan_wanita">{{$baju->kategori}}</option>
                         <option id="atasan_wanita" value="atasan_wanita">Atasan Wanita</option>
                         <option id="hem" value="hem">Hem</option>
                         <option id="safari" value="safari">Safari</option>
@@ -60,7 +60,7 @@
                 <label class="col-sm-3 control-label">Jenis Ukuran*</label>
                 <div class="col-sm-9">
                     <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran[]">
-                        <option>Pilih Kategori</option>
+                        <option id="ukuran_badan" value="ukuran_badan">{{$baju->jenis_ukuran}}</option>
                         <option id="ukuran_badan" value="ukuran_badan">Ukuran Badan</option>
                         <option id="baju_jadi" value="baju_jadi">Baju Jadi</option>
                     </select>
