@@ -57,13 +57,35 @@
                             {{-- masukkan code ini untuk waktu H:i:s --}}
                             <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->format('l, d M Y')}}</span> </td>
                             <td>
-                                <div class="label label-table label-success">Paid</div>
-                            </td>
+                            
+                                @if($tbl->status == "PROCESS")
+                                <div class="label label-table label-info">{{$tbl->status}}</div>
+                                @else
+                                <div class="label label-table label-success">{{$tbl->status}}</div>
+                                @endif
+                               </td>
+                               
+                            
                             <td>
-                              <a href="{{route('baju.show', [$tbl->id])}}"
-                                  class="btn btn-primary btn-sm">Detail</a>
-                                  <a href="{{route('baju.edit', [$tbl->id])}}"
-                                    class="btn btn-info btn-sm">Edit</a>
+                                <a href="{{route('baju.show', [$tbl->id])}}"
+                                  class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
+                                <a href="{{route('baju.edit', [$tbl->id])}}"
+                                    class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                    {{-- <form
+                                    onsubmit="return confirm('Delete this user permanently?')"
+                                    class="d-inline"
+                                    action="{{route('baju.destroy', [$tbl->id])}}"
+                                    method="POST">
+                                    @csrf
+                                    <input
+                                    type="hidden"
+                                    name="_method"
+                                    value="DELETE">
+                                    <input
+                                    type="submit"
+                                    value="Delete"
+                                    class="btn btn-danger btn-sm">
+                                    </form> --}}
                             </td>
                         </tr>
                         @endforeach 

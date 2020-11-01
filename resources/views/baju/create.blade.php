@@ -33,15 +33,15 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Kategori*</label>
                 <div class="col-sm-9">
-                    <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori[]">
-                        <option>Pilih Kategori</option>
-                        <option id="atasan_wanita" value="atasan_wanita">Atasan Wanita</option>
-                        <option id="hem" value="hem">Hem</option>
-                        <option id="safari" value="safari">Safari</option>
-                        <option id="semi_safari" value="semi_safari">Semi Safari</option>
-                        <option id="rok" value="rok">Rok</option>
-                        <option id="gamis" value="gamis">Gamis</option>
-                        <option id="celana" value="celana">Celana</option>
+                    <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori">
+                        <option value="Atasan Wanita">Pilih Kategori</option>
+                        <option id="atasan_wanita" value="Atasan Wanita">Atasan Wanita</option>
+                        <option id="hem" value="Hem">Hem</option>
+                        <option id="safari" value="Safari">Safari</option>
+                        <option id="semi_safari" value="Semi Safari">Semi Safari</option>
+                        <option id="rok" value="Rok">Rok</option>
+                        <option id="gamis" value="Gamis">Gamis</option>
+                        <option id="celana" value="Celana">Celana</option>
                     </select>
                     <div class="invalid-feedback">
                         {{$errors->first('ketegori')}}
@@ -51,10 +51,10 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Jenis Ukuran*</label>
                 <div class="col-sm-9">
-                    <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran[]">
-                        <option>Pilih Kategori</option>
-                        <option id="ukuran_badan" value="ukuran_badan">Ukuran Badan</option>
-                        <option id="baju_jadi" value="baju_jadi">Baju Jadi</option>
+                    <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran">
+                        <option value="Ukuran Badan">Pilih Kategori</option>
+                        <option id="ukuran_badan" value="Ukuran Badan">Ukuran Badan</option>
+                        <option id="baju_jadi" value="Baju Jadi">Baju Jadi</option>
                     </select>
                     <div class="invalid-feedback">
                         {{$errors->first('jenis_ukuran')}}
@@ -234,7 +234,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 waves-effect">
-                    <input class="btn btn-danger waves-light p-t-5 p-b-5 p-l-30 p-r-30 m-l-15" type="submit" value="save" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif;" />
+                    <input class="btn btn-danger waves-light m-l-15 m-t-5" type="submit" value="save" />
                 </div>
             </div>
         </div>

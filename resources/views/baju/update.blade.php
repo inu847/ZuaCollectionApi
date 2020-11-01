@@ -41,15 +41,15 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Kategori*</label>
                 <div class="col-sm-9">
-                <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori[]">
-                        <option id="atasan_wanita" value="atasan_wanita">{{$baju->kategori}}</option>
-                        <option id="atasan_wanita" value="atasan_wanita">Atasan Wanita</option>
-                        <option id="hem" value="hem">Hem</option>
-                        <option id="safari" value="safari">Safari</option>
-                        <option id="semi_safari" value="semi_safari">Semi Safari</option>
-                        <option id="rok" value="rok">Rok</option>
-                        <option id="gamis" value="gamis">Gamis</option>
-                        <option id="celana" value="celana">Celana</option>
+                    <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori">
+                        <option value="{{$baju->kategori}}">{{$baju->kategori}}</option>
+                        <option id="atasan_wanita" value="Atasan Wanita">Atasan Wanita</option>
+                        <option id="hem" value="Hem">Hem</option>
+                        <option id="safari" value="Safari">Safari</option>
+                        <option id="semi_safari" value="Semi Safari">Semi Safari</option>
+                        <option id="rok" value="Rok">Rok</option>
+                        <option id="gamis" value="Gamis">Gamis</option>
+                        <option id="celana" value="Celana">Celana</option>
                     </select>
                     <div class="invalid-feedback">
                         {{$errors->first('ketegori')}}
@@ -59,13 +59,26 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Jenis Ukuran*</label>
                 <div class="col-sm-9">
-                    <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran[]">
-                        <option id="ukuran_badan" value="ukuran_badan">{{$baju->jenis_ukuran}}</option>
-                        <option id="ukuran_badan" value="ukuran_badan">Ukuran Badan</option>
-                        <option id="baju_jadi" value="baju_jadi">Baju Jadi</option>
+                    <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran">
+                        <option id="ukuran_badan" value="{{$baju->jenis_ukuran}}">{{$baju->jenis_ukuran}}</option>
+                        <option id="ukuran_badan" value="Ukuran Badan">Ukuran Badan</option>
+                        <option id="baju_jadi" value="Baju Jadi">Baju Jadi</option>
                     </select>
                     <div class="invalid-feedback">
                         {{$errors->first('jenis_ukuran')}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Status</label>
+                <div class="col-sm-9">
+                    <div class="checkbox checkbox-info checkbox-circle float-left">
+                        <input {{$baju->status == "PROCESS" ? "checked" : ""}} value="PROCESS" id="PROCESS" type="checkbox" name="status" checked>
+                        <label for="PROCESS">PROCESS</label>
+                    </div>
+                    <div class="checkbox checkbox-success checkbox-circle">
+                        <input {{$baju->status == "SUCCESS" ? "checked" : ""}} value="SUCCESS" id="SUCCESS" type="checkbox" name="status" checked>
+                        <label for="SUCCESS">SUCCESS</label>
                     </div>
                 </div>
             </div>

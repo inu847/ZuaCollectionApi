@@ -16,8 +16,8 @@ class CreateBajuTable extends Migration
         Schema::create('bajus', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('kategori');
-            $table->string('jenis_ukuran');
+            $table->enum("kategori", ["Atasan Wanita", "Hem", "Safari", "Semi Safari", "Rok", "Gamis", "Celana"]);
+            $table->enum('jenis_ukuran', ["Ukuran Badan", "Baju Jadi"]);
             $table->integer('lingkar_badan');
             $table->integer('lingkar_pinggang');
             $table->integer('lingkar_pinggul');
@@ -35,6 +35,7 @@ class CreateBajuTable extends Migration
             $table->integer('lingkar_lutut');
             $table->integer('panjang_krah');
             $table->integer('lebar_ban_lengan');
+            $table->enum("status", ["PROCESS", "SUCCESS"]);
             $table->timestamps();
         });
     }
