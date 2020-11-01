@@ -42,6 +42,7 @@ class BajuController extends Controller
         $new_clothes = new \App\Models\Baju;
         $new_clothes->title = $request->get('name');
         $new_clothes->kategori = ($request->get('kategori'));
+        $new_clothes->status = ($request->get('status'));
         $new_clothes->jenis_ukuran = ($request->get('jenis_ukuran'));
         $new_clothes->lingkar_badan = $request->get('lingkar_badan');
         $new_clothes->lingkar_pinggang = $request->get('lingkar_pinggang');

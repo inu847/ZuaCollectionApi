@@ -70,6 +70,9 @@
                     </div>
                 </div>
             </div>
+            
+            <input type="hidden" value="PROCESS" id="PROCESS" name="status">
+                                    
             <div class="form-group">
                 <label for="lingkar_pinggang" class="col-sm-3 control-label">Lingkar Pinggang*</label>
                 <div class="col-sm-9">
