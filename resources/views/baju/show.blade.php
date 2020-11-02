@@ -9,8 +9,8 @@
     <div class="col-lg-12">
         <div class="white-box">
             <div style="float: left;">
-            <h3 class="box-title m-b-0">Column Toggle Table</h3>
-            <p class="text-muted m-b-20">The Column Toggle Table allows the user to select which columns they want to be visible.</p>
+            <h3 class="box-title m-b-0">Detail Order</h3>
+            <p class="text-muted m-b-20">Sesuaikan ukuran dibawah. jika ada kesalahan data silahkan tekan tombol edit disebelah.</p>
             </div>
             <div style="float: right; margin-top: 30px;">
             <a href="{{route('baju.edit', [$baju->id])}}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>

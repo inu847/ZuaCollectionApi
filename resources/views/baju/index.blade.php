@@ -13,29 +13,41 @@
   <div class="row">
     <div class="col-lg-12">
         <div class="white-box">
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <form action="{{route('baju.index')}}">
-                        <div class="input-group mb-3">
-                            <input
-                            value="{{Request::get('title')}}"
-                            name="title"
-                            class="form-control col-md-10"
-                            type="text"
-                            placeholder="Filter Berdasarkan Nama"/>
-                            <div class="input-group-append">
+
+            <div style="float: left; margin-right: 350px;">
+                <h3 class="box-title m-b-0">List Order </h3>
+                <p class="text-muted m-b-20">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+            </div>
+            <div class="row m-t-15">
+                        <form action="{{route('baju.index')}}">
+                            <div class="col-md-3 m-b-15">
                                 <input
-                                type="submit"
-                                value="Filter"
-                                class="btn btn-primary">
+                                    value="{{Request::get('title')}}"
+                                    name="title"
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="Filter berdasarkan Nama"/>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </div> --}}
-                              
-            <h3 class="box-title m-b-0">List Order </h3>
-            <p class="text-muted m-b-20">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+                                <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
+                                value="PROCESS"
+                                name="status"
+                                type="radio"
+                                class="m-l-20 "
+                                id="process">
+                                <label for="process" class="m-r-5">Process</label>
+                                <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
+                                value="SUCCESS"
+                                name="status"
+                                type="radio"
+                                id="success">
+                                <label for="success" class="m-r-5">Success</label>
+                            
+                            <input type="submit"
+                           value="Filter"
+                           class="btn btn-primary fa fa-search">    
+                           </form>                
+            </div>
+            <br>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -71,6 +83,8 @@
                                   class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
                                 <a href="{{route('baju.edit', [$tbl->id])}}"
                                     class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                <a href=""
+                                        class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a>
                                     {{-- <form
                                     onsubmit="return confirm('Delete this user permanently?')"
                                     class="d-inline"
@@ -90,6 +104,14 @@
                         </tr>
                         @endforeach 
                     </tbody>
+                    <tfoot>
+                        <tr class="text-right">
+                        <td colspan=10>
+                            {{$table->appends(Request::all())->links()}}
+                        </td>
+                        </tr>
+                       </tfoot>
+                       
                 </table>
             </div>
         </div>

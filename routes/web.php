@@ -28,4 +28,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('price', BajuController::class);
 Route::resource('baju', BajuController::class);
