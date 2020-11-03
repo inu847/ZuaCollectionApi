@@ -36,6 +36,7 @@ class CreateBajuTable extends Migration
             $table->integer('panjang_krah');
             $table->integer('lebar_ban_lengan');
             $table->enum("status", ["PROCESS", "SUCCESS"]);
+            $table->integer('invoice')->nullable();
             $table->timestamps();
         });
     }

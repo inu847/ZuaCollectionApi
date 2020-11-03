@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="lingkar_badan" class="col-sm-3 control-label">Lingkar Badan</label>
                 <div class="col-sm-9">
-                <input value="{{old('lingkar_badan')}}" type="text" class="form-control {{$errors->first('lingkar_badan') ? "is-invalid": ""}}" id="lingkar_badan" name="lingkar_badan" placeholder="Lingkar Badan"> 
+                <input value="{{old('lingkar_badan')}}" type="number" class="form-control {{$errors->first('lingkar_badan') ? "is-invalid": ""}}" id="lingkar_badan" name="lingkar_badan" placeholder="Lingkar Badan"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_badan')}}
                     </div>
@@ -76,7 +76,7 @@
             <div class="form-group">
                 <label for="lingkar_pinggang" class="col-sm-3 control-label">Lingkar Pinggang*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lingkar_pinggang')}}" type="text" class="form-control {{$errors->first('lingkar_pinggang') ? "is-invalid": ""}}" id="lingkar_pinggang" name="lingkar_pinggang" placeholder="Lingkar Pinggang"> 
+                    <input value="{{old('lingkar_pinggang')}}" type="number" class="form-control {{$errors->first('lingkar_pinggang') ? "is-invalid": ""}}" id="lingkar_pinggang" name="lingkar_pinggang" placeholder="Lingkar Pinggang"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_pinggang')}}
                     </div>
@@ -85,7 +85,7 @@
             <div class="form-group">
                 <label for="lingkar_pinggul" class="col-sm-3 control-label">Lingkar Pinggul*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lingkar_pinggul')}}" type="text" class="form-control {{$errors->first('lingkar_pinggul') ? "is-invalid": ""}}" id="lingkar_pinggul" name="lingkar_pinggul" placeholder="Lingkar Pinggul"> 
+                    <input value="{{old('lingkar_pinggul')}}" type="number" class="form-control {{$errors->first('lingkar_pinggul') ? "is-invalid": ""}}" id="lingkar_pinggul" name="lingkar_pinggul" placeholder="Lingkar Pinggul"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_pinggul')}}
                     </div>
@@ -94,7 +94,7 @@
             <div class="form-group">
                 <label for="lingkar_pipa" class="col-sm-3 control-label">Lingkar Pipa*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lingkar_pipa')}}" type="text" class="form-control {{$errors->first('lingkar_pipa') ? "is-invalid": ""}}" id="lingkar_pipa" name="lingkar_pipa" placeholder="Lingkar Pipa"> 
+                    <input value="{{old('lingkar_pipa')}}" type="number" class="form-control {{$errors->first('lingkar_pipa') ? "is-invalid": ""}}" id="lingkar_pipa" name="lingkar_pipa" placeholder="Lingkar Pipa"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_pipa')}}
                     </div>
@@ -103,7 +103,7 @@
             <div class="form-group">
                 <label for="lingkar_paha" class="col-sm-3 control-label">Lingkar Paha*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lingkar_paha')}}" type="text" class="form-control {{$errors->first('lingkar_paha') ? "is-invalid": ""}}" id="lingkar_paha" name="lingkar_paha" placeholder="Lingkar Paha"> 
+                    <input value="{{old('lingkar_paha')}}" type="number" class="form-control {{$errors->first('lingkar_paha') ? "is-invalid": ""}}" id="lingkar_paha" name="lingkar_paha" placeholder="Lingkar Paha"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_paha')}}
                     </div>
@@ -112,7 +112,7 @@
             <div class="form-group">
                 <label for="lingkar_lutut" class="col-sm-3 control-label">Lingkar Lutut*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lingkar_lutut')}}" type="text" class="form-control {{$errors->first('lingkar_lutut') ? "is-invalid": ""}}" id="lingkar_lutut" name="lingkar_lutut" placeholder="Lingkar Lutut"> 
+                    <input value="{{old('lingkar_lutut')}}" type="number" class="form-control {{$errors->first('lingkar_lutut') ? "is-invalid": ""}}" id="lingkar_lutut" name="lingkar_lutut" placeholder="Lingkar Lutut"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lingkar_lutut')}}
                     </div>
@@ -121,7 +121,7 @@
             <div class="form-group">
                 <label for="lebar_muka" class="col-sm-3 control-label">Lebar Muka*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lebar_muka')}}" type="text" class="form-control {{$errors->first('lebar_muka') ? "is-invalid": ""}}" id="lebar_muka" name="lebar_muka" placeholder="Lebar Muka"> 
+                    <input value="{{old('lebar_muka')}}" type="number" class="form-control {{$errors->first('lebar_muka') ? "is-invalid": ""}}" id="lebar_muka" name="lebar_muka" placeholder="Lebar Muka"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lebar_muka')}}
                     </div>
@@ -130,7 +130,7 @@
             <div class="form-group">
                 <label for="lebar_punggung" class="col-sm-3 control-label">Lebar Punggung*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lebar_punggung')}}" type="text" class="form-control {{$errors->first('lebar_punggung') ? "is-invalid": ""}}" id="lebar_punggung" name="lebar_punggung" placeholder="Lebar Punggung"> 
+                    <input value="{{old('lebar_punggung')}}" type="number" class="form-control {{$errors->first('lebar_punggung') ? "is-invalid": ""}}" id="lebar_punggung" name="lebar_punggung" placeholder="Lebar Punggung"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lebar_punggung')}}
                     </div>
@@ -147,7 +147,7 @@
                 <div class="form-group">
                     <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
                     <div class="col-sm-9">
-                        <input value="{{old('lebar_lengan')}}" type="text" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
+                        <input value="{{old('lebar_lengan')}}" type="number" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
                         <div class="invalid-feedback">
                             {{$errors->first('lebar_lengan')}}
                         </div>
@@ -156,7 +156,7 @@
             <div class="form-group">
                 <label for="lebar_ban_lengan" class="col-sm-3 control-label">Lebar Ban Lengan*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('lebar_ban_lengan')}}" type="text" class="form-control {{$errors->first('lebar_ban_lengan') ? "is-invalid": ""}}" id="lebar_ban_lengan" name="lebar_ban_lengan" placeholder="Lebar Ban Lengan"> 
+                    <input value="{{old('lebar_ban_lengan')}}" type="number" class="form-control {{$errors->first('lebar_ban_lengan') ? "is-invalid": ""}}" id="lebar_ban_lengan" name="lebar_ban_lengan" placeholder="Lebar Ban Lengan"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lebar_ban_lengan')}}
                     </div>
@@ -165,7 +165,7 @@
             <div class="form-group">
                 <label for="panjang_punggung" class="col-sm-3 control-label">Panjang Punggung*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_punggung')}}" type="text" class="form-control {{$errors->first('panjang_punggung') ? "is-invalid": ""}}" id="panjang_punggung" name="panjang_punggung" placeholder="Panjang Punggung"> 
+                    <input value="{{old('panjang_punggung')}}" type="number" class="form-control {{$errors->first('panjang_punggung') ? "is-invalid": ""}}" id="panjang_punggung" name="panjang_punggung" placeholder="Panjang Punggung"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_punggung')}}
                     </div>
@@ -174,7 +174,7 @@
             <div class="form-group">
                 <label for="panjang_muka" class="col-sm-3 control-label">Panjang Muka*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_muka')}}" type="text" class="form-control {{$errors->first('panjang_muka') ? "is-invalid": ""}}" id="panjang_muka" name="panjang_muka" placeholder="Panjang Muka"> 
+                    <input value="{{old('panjang_muka')}}" type="number" class="form-control {{$errors->first('panjang_muka') ? "is-invalid": ""}}" id="panjang_muka" name="panjang_muka" placeholder="Panjang Muka"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_muka')}}
                     </div>
@@ -183,7 +183,7 @@
             <div class="form-group">
                 <label for="panjang_baju" class="col-sm-3 control-label">Panjang Baju*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_baju')}}" type="text" class="form-control {{$errors->first('panjang_baju') ? "is-invalid": ""}}" id="panjang_baju" name="panjang_baju" placeholder="Panjang Baju"> 
+                    <input value="{{old('panjang_baju')}}" type="number" class="form-control {{$errors->first('panjang_baju') ? "is-invalid": ""}}" id="panjang_baju" name="panjang_baju" placeholder="Panjang Baju"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_baju')}}
                     </div>
@@ -192,7 +192,7 @@
             <div class="form-group">
                 <label for="panjang_lengan" class="col-sm-3 control-label">Panjang Lengan*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_lengan')}}" type="text" class="form-control {{$errors->first('panjang_lengan') ? "is-invalid": ""}}" id="panjang_lengan" name="panjang_lengan" placeholder="Panjang Lengan"> 
+                    <input value="{{old('panjang_lengan')}}" type="number" class="form-control {{$errors->first('panjang_lengan') ? "is-invalid": ""}}" id="panjang_lengan" name="panjang_lengan" placeholder="Panjang Lengan"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_lengan')}}
                     </div>
@@ -201,7 +201,7 @@
             <div class="form-group">
                 <label for="panjang_rok" class="col-sm-3 control-label">Panjang Rok*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_rok')}}" type="text" class="form-control {{$errors->first('panjang_rok') ? "is-invalid": ""}}" id="panjang_rok" name="panjang_rok" placeholder="Panjang Rok"> 
+                    <input value="{{old('panjang_rok')}}" type="number" class="form-control {{$errors->first('panjang_rok') ? "is-invalid": ""}}" id="panjang_rok" name="panjang_rok" placeholder="Panjang Rok"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_rok')}}
                     </div>
@@ -210,7 +210,7 @@
             <div class="form-group">
                 <label for="panjang_celana" class="col-sm-3 control-label">Panjang Celana*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_celana')}}" type="text" class="form-control {{$errors->first('panjang_celana') ? "is-invalid": ""}}" id="panjang_celana" name="panjang_celana" placeholder="Panjang Celana"> 
+                    <input value="{{old('panjang_celana')}}" type="number" class="form-control {{$errors->first('panjang_celana') ? "is-invalid": ""}}" id="panjang_celana" name="panjang_celana" placeholder="Panjang Celana"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_celana')}}
                     </div>
@@ -219,13 +219,15 @@
             <div class="form-group">
                 <label for="panjang_krah" class="col-sm-3 control-label">Panjang Krah*</label>
                 <div class="col-sm-9">
-                    <input value="{{old('panjang_krah')}}" type="text" class="form-control {{$errors->first('panjang_krah') ? "is-invalid": ""}}" id="panjang_krah" name="panjang_krah" placeholder="Panjang Krah"> 
+                    <input value="{{old('panjang_krah')}}" type="number" class="form-control {{$errors->first('panjang_krah') ? "is-invalid": ""}}" id="panjang_krah" name="panjang_krah" placeholder="Panjang Krah"> 
                     <div class="invalid-feedback">
                         {{$errors->first('panjang_krah')}}
                     </div>
                 </div>
             </div>
             
+            <input value="0" type="hidden" class="form-control {{$errors->first('invoice') ? "is-invalid": ""}}" id="invoice" name="invoice"> 
+                    
             
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">

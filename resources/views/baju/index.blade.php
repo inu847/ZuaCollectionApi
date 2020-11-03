@@ -14,40 +14,47 @@
     <div class="col-lg-12">
         <div class="white-box">
 
-            <div style="float: left; margin-right: 350px;">
-                <h3 class="box-title m-b-0">List Order </h3>
-                <p class="text-muted m-b-20">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+            <div class="header m-l-10 m-b-10">
+                <h3 class="box-title m-b-0 text-left">List Order </h3>
+                <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
             </div>
-            <div class="row m-t-15">
-                        <form action="{{route('baju.index')}}">
-                            <div class="col-md-3 m-b-15">
-                                <input
-                                    value="{{Request::get('title')}}"
-                                    name="title"
-                                    class="form-control"
-                                    type="text"
-                                    placeholder="Filter berdasarkan Nama"/>
-                            </div>
-                                <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
-                                value="PROCESS"
-                                name="status"
-                                type="radio"
-                                class="m-l-20 "
-                                id="process">
-                                <label for="process" class="m-r-5">Process</label>
-                                <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
-                                value="SUCCESS"
-                                name="status"
-                                type="radio"
-                                id="success">
-                                <label for="success" class="m-r-5">Success</label>
-                            
-                            <input type="submit"
-                           value="Filter"
-                           class="btn btn-primary fa fa-search">    
-                           </form>                
-            </div>
+
+            
+                
+                    <form action="{{route('baju.index')}}">
+                        <div class="col-md-0 m-r-10 m-l-10 p-0">
+                            <input
+                                value="{{Request::get('title')}}"
+                                name="title"
+                                class="form-control"
+                                type="text"
+                                placeholder="Filter berdasarkan Nama"/>
+                        </div>
+                        
+                        <div class="text-right m-r-10 m-t-10">        
+                        <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
+                            value="PROCESS"
+                            name="status"
+                            type="radio"
+                            class="m-l-20 text-right "
+                            id="process">
+                            <label for="process" class="m-r-5">Process</label>
+                        <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
+                            value="SUCCESS"
+                            name="status"
+                            type="radio"
+                            class="text-right"
+                            id="success">
+                            <label for="success" class="m-r-5">Success</label>
+                        <input type="submit"
+                            value="Filter"
+                            class="btn btn-primary text-right">  
+                        
+                    </form> 
+                </div>             
+            
             <br>
+        
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -83,8 +90,11 @@
                                   class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
                                 <a href="{{route('baju.edit', [$tbl->id])}}"
                                     class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
-                                <a href=""
-                                        class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a>
+                                
+                                    <a href="{{route('order.edit', [$tbl->id])}}"
+                                    class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a>
+                               
+                                    
                                     {{-- <form
                                     onsubmit="return confirm('Delete this user permanently?')"
                                     class="d-inline"

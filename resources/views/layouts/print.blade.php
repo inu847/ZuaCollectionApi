@@ -45,7 +45,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="top-left-part">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="{{ route('baju.index')}}">
                             <b>
                                 <img src="{{ asset('template/plugins/images/logo.png')}}" alt="home" />
                             </b>
@@ -147,52 +147,7 @@
             </nav>
             <!-- ===== Top-Navigation-End ===== -->
             <!-- ===== Left-Sidebar ===== -->
-            <aside class="sidebar">
-                <div class="scroll-sidebar">
-                    <nav class="sidebar-nav">
-                        <ul id="side-menu">
-                            <li>
-                                <a class="active waves-effect" href="" aria-expanded="false">
-                                    <i class="icon-screen-desktop fa-fw"></i> 
-                                    <span class="hide-menu"> Dashboard </span>
-                                </a>
-                            </li>
-                            <li class="two-column">
-                                <a class="waves-effect" href=" {{route('baju.index')}} " aria-expanded="false">
-                                    <i class="icon-equalizer fa-fw"></i> 
-                                    <span class="hide-menu">Manage Order</span></a>
-                            </li>
-                            <li class="two-column">
-                                <a class="waves-effect" href="" aria-expanded="false">
-                                    <i class="icon-docs fa-fw"></i> 
-                                    <span class="hide-menu"> Pages</span></a>
-                                {{-- <ul aria-expanded="false" class="collapse">
-                                    <li><a href="starter-page.html">Starter Page</a></li>
-                                </ul> --}}
-                            </li>
-                            <li>
-                            <a class="waves-effect" href=" {{ route('baju.create')}} " aria-expanded="false">
-                                    <i class="icon-notebook fa-fw"></i> 
-                                    <span class="hide-menu"> Order </span></a>
-                                    {{-- <ul aria-expanded="false" class="collapse">
-                                        <li><a href="panels-wells.html">Ukuran Badan</a></li>
-                                        <li><a href="panels-wells.html">Ukuran Baju Jadi</a></li>
-                                    </ul> --}}
-                            </li>
-                            <li>
-                                <a class="waves-effect" href="" aria-expanded="false">
-                                    <i class="icon-layers fa-fw"></i> 
-                                    <span class="hide-menu"> Galeri</span></a>
-                                {{-- <ul aria-expanded="false" class="collapse">
-                                    <li>
-                                        <a href="calendar.html" aria-expanded="false"><span class="hide-menu">Calendar</span></a>
-                                    </li>
-                                </ul> --}}
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </aside>
+            
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <main class="py-4">

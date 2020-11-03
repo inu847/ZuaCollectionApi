@@ -21,7 +21,8 @@ class BajuController extends Controller
             if($status){
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
                 ->where('status', $status)
-                ->paginate(5);
+                ->paginate(5)
+                ->first();
                 } else {
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
                 ->paginate(5);
@@ -98,6 +99,7 @@ class BajuController extends Controller
         $new_clothes->panjang_rok = $request->get('panjang_rok');
         $new_clothes->panjang_celana = $request->get('panjang_celana');
         $new_clothes->panjang_krah = $request->get('panjang_krah');
+        $new_clothes->invoice = $request->get('invoice');
 
         $new_clothes->save();
         return redirect()->route('baju.index')->with('status', 'ANDA TELAH MENAMBAHKAN PESANAN');
@@ -223,5 +225,5 @@ class BajuController extends Controller
         return redirect()->route('baju.index')->with('status', 'Data Berhasil Dihapus');
     }
 
-    
+
 }
