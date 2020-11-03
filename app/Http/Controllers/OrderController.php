@@ -15,7 +15,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $order =  Baju::get();
+        $order =  Baju::paginate(10);
         
         return view('order.index', ['order' => $order]);
     }
@@ -145,7 +145,7 @@ class OrderController extends Controller
         $order->invoice = $invoice;
 
         $order->save();
-        return redirect()->route('order.index', ['order' => $order]);
+        return view('order.index', ['order' => $order]);
 
 
     }

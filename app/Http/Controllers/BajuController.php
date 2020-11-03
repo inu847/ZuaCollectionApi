@@ -22,7 +22,7 @@ class BajuController extends Controller
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
                 ->where('status', $status)
                 ->paginate(5)
-                ->first();
+                ;
                 } else {
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
                 ->paginate(5);

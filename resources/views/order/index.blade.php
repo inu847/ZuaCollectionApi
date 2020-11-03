@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-@foreach ($order as $no => $ord)
+
 <div class="row">
     <div class="col-md-12">
         <div class="white-box printableArea">
-            <h3><b>INVOICE</b> <span class="pull-right">{{'#'}}{{$ord->id}}</span></h3>
+            <h3><b>INVOICE</b> <span class="pull-right">{{'#'}}{{$order->id}}</span></h3>
             <hr>
             <div class="row">
                 <div class="col-md-12">
@@ -26,10 +26,10 @@
                         <address>
                             <h3>To,</h3>
                             <h4 class="font-bold">Price,</h4>
-                            <p class="text-muted m-l-30">{{$ord->title}}
+                            <p class="text-muted m-l-30">{{$order->title}}
                                 <br/> {{'Selopuro.'}}
                                 <br/> Indonesia.</p>
-                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i>{{$ord->created_at->format(' l, d M Y')}}</p>
+                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i>{{$order->created_at->format(' l, d M Y')}}</p>
                             <p><b>Due Date :</b> <i class="fa fa-calendar"></i> {{date('l, d-m-Y')}}</p>
                         </address>
                     </div>
@@ -50,8 +50,8 @@
                                 
                                 
                                     <tr>
-                                        <td class="text-center">{{ ++$no }}</td>
-                                        <td class="">{{$ord->kategori}}</td>
+                                        <td class="text-center"></td>
+                                        <td class="">{{$order->kategori}}</td>
                                         <td class="text-right">{{'Baju'}}</td>
                                         <td class="text-right">{{'1'}}</td>
                                     </tr>
@@ -62,9 +62,9 @@
                 </div>
                 <div class="col-md-12">
                     <div class="pull-right m-t-30 text-right">
-                        <p>Sub - Total amount:  Rp.{{$ord->invoice}}</p>
+                        <p>Sub - Total amount:  Rp.{{$order->invoice}}</p>
                         <hr>
-                    <h3><b>Total : </b>Rp.{{$ord->invoice}}</h3> </div>
+                    <h3><b>Total : </b>Rp.{{$order->invoice}}</h3> </div>
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
@@ -75,5 +75,5 @@
         </div>
     </div>
 </div>
-@endforeach
+
 @endsection
