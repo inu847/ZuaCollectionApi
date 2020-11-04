@@ -11,13 +11,32 @@ class BajuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        $table = \App\Models\Baju::paginate(10);
+    public function index(Request $request) {
+
+        $table = \App\Models\Baju::paginate(5);
         $filterKeyword = $request->get('title');
+        $status = $request->get('status');
+        
+           
+
         if($filterKeyword){
             $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%");
+            if($status){
+                $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
+                ->where('status', $status)
+                ->paginate(5);
+                } else {
+                $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
+                ->paginate(5);
+                }
            }
+
+           if($status){
+                $table = \App\Models\Baju::where('status', $status)->paginate(5);
+            } else {
+                $table = \App\Models\Baju::paginate(5);
+           }   
+
         return view('baju.index', ['table' => $table]);
     }
 
@@ -39,6 +58,27 @@ class BajuController extends Controller
      */
     public function store(Request $request)
     {
+        \Validator::make($request->all(),[
+            "name" => "required|min:1|max:30",
+            "lingkar_badan" => "min:1|max:4",
+            "lingkar_pinggang" => "min:1|max:4",
+            "lingkar_pinggul" => "min:1|max:4",
+            "lingkar_pipa" => "min:1|max:4",
+            "lingkar_paha" => "min:1|max:4",
+            "lingkar_lutut" => "min:1|max:4",
+            "lebar_muka" => "min:1|max:4",
+            "lebar_punggung" => "min:1|max:4",
+            "lebar_punggung" => "min:1|max:4",
+            "lebar_ban_lengan" => "min:1|max:4",
+            "panjang_punggung" => "min:1|max:4",
+            "panjang_muka" => "min:1|max:4",
+            "panjang_baju" => "min:1|max:4",
+            "panjang_lengan" => "min:1|max:4",
+            "panjang_rok" => "min:1|max:4",
+            "panjang_celana" => "min:1|max:4",
+            "panjang_krah" => "min:1|max:4",
+            ])->validate();
+
         $new_clothes = new \App\Models\Baju;
         $new_clothes->title = $request->get('name');
         $new_clothes->kategori = ($request->get('kategori'));
@@ -52,7 +92,7 @@ class BajuController extends Controller
         $new_clothes->lingkar_lutut = $request->get('lingkar_lutut');
         $new_clothes->lebar_muka = $request->get('lebar_muka');
         $new_clothes->lebar_punggung = $request->get('lebar_punggung');
-        $new_clothes->lebar_lengan = $request->get('lebar_lengan');
+        $new_clothes->lebar_lengan = $request->get('lebar_punggung');
         $new_clothes->lebar_ban_lengan = $request->get('lebar_ban_lengan');
         $new_clothes->panjang_punggung = $request->get('panjang_punggung');
         $new_clothes->panjang_muka = $request->get('panjang_muka');
@@ -61,6 +101,7 @@ class BajuController extends Controller
         $new_clothes->panjang_rok = $request->get('panjang_rok');
         $new_clothes->panjang_celana = $request->get('panjang_celana');
         $new_clothes->panjang_krah = $request->get('panjang_krah');
+        $new_clothes->invoice = $request->get('invoice');
 
         $new_clothes->save();
         return redirect()->route('baju.index')->with('status', 'ANDA TELAH MENAMBAHKAN PESANAN');
@@ -101,7 +142,27 @@ class BajuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        \Validator::make($request->all(),[
+            "name" => "required|min:1|max:30",
+            "lingkar_badan" => "min:1|max:4",
+            "lingkar_pinggang" => "min:1|max:4",
+            "lingkar_pinggul" => "min:1|max:4",
+            "lingkar_pipa" => "min:1|max:4",
+            "lingkar_paha" => "min:1|max:4",
+            "lingkar_lutut" => "min:1|max:4",
+            "lebar_muka" => "min:1|max:4",
+            "lebar_punggung" => "min:1|max:4",
+            "lebar_punggung" => "min:1|max:4",
+            "lebar_ban_lengan" => "min:1|max:4",
+            "panjang_punggung" => "min:1|max:4",
+            "panjang_muka" => "min:1|max:4",
+            "panjang_baju" => "min:1|max:4",
+            "panjang_lengan" => "min:1|max:4",
+            "panjang_rok" => "min:1|max:4",
+            "panjang_celana" => "min:1|max:4",
+            "panjang_krah" => "min:1|max:4",
+            ])->validate();
+
         $title = $request->get('name');
         $kategori = $request->get('kategori');
         $jenis_ukuran = $request->get('jenis_ukuran');
@@ -165,4 +226,6 @@ class BajuController extends Controller
         $table->delete();
         return redirect()->route('baju.index')->with('status', 'Data Berhasil Dihapus');
     }
+
+
 }

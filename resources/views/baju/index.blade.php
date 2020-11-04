@@ -14,44 +14,42 @@
     <div class="col-lg-12">
         <div class="white-box">
 
-                            
-            <div class="col-md-6 m-b-20">                 
-                <h3 class="box-title m-b-0">List Order </h3>
-                <p class="text-muted m-b-20">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+            <div class="header m-l-10 m-b-10">
+                <h3 class="box-title m-b-0 text-left">List Order </h3>
+                <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
             </div>
+
+                              
+            <form action="{{route('baju.index')}}">
+                <div class="col-md-0 m-r-10 m-l-10 p-0">
+                    <input
+                        name="keyword"
+                        class="form-control col-md-10"
+                        type="text"
+                        placeholder="Filter berdasarkan email"/>
+                </div>
+                <div class="text-right m-r-10 m-t-10">        
+                    <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
+                        value="PROCESS"
+                        name="status"
+                        type="radio"
+                        class="m-l-20 text-right "
+                        id="process">
+                        <label for="process" class="m-r-5">Process</label>
+                    <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
+                        value="SUCCESS"
+                        name="status"
+                        type="radio"
+                        class="text-right"
+                        id="success">
+                        <label for="success" class="m-r-5">Success</label>
+                        <button type="submit"
+                        value="Filter"
+                        class="btn btn-primary text-right"><i class="fa fa-search"></i> Search</button>
+                </div>
+            </form>
             
-            {{-- <div class="checkbox checkbox-success checkbox-circle">
-                <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
-                value="SUCCESS"
-                name="status"
-                type="checkbox"
-                class="form-control"
-                id="success" checked>
-                <label for="success">Success</label>
-            </div>
-            <div class="checkbox checkbox-info checkbox-circle">
-                <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
-                value="PROCESS"
-                name="status"
-                type="checkbox"
-                class="form-control"
-                id="process" checked>
-                <label for="process">Process</label>
-            </div> --}}
-            <div class="row">    
-                <div class="input-group col-md-5 m-b-20 m-t-30">
-                    <form class="form-group" role="search" action="{{route('baju.index')}}">
-                        <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Search"> 
-                    </form>
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn waves-effect waves-light btn-info" value="Filter"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-                    
-                </div>
-                
-            <br>
-            <div class="table-responsive">
+            <div class="table-responsive m-t-10">
                 <table class="table">
                     <thead>
                         <tr>
@@ -86,6 +84,11 @@
                                   class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
                                 <a href="{{route('baju.edit', [$tbl->id])}}"
                                     class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                
+                                    <a href="{{route('order.edit', [$tbl->id])}}"
+                                    class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a>
+                               
+                                    
                                     {{-- <form
                                     onsubmit="return confirm('Delete this user permanently?')"
                                     class="d-inline"
@@ -105,6 +108,14 @@
                         </tr>
                         @endforeach 
                     </tbody>
+                    <tfoot>
+                        <tr class="text-right">
+                        <td colspan=10>
+                            {{$table->appends(Request::all())->links()}}
+                        </td>
+                        </tr>
+                       </tfoot>
+                       
                 </table>
             </div>
         </div>

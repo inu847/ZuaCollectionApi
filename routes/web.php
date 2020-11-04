@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BajuController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\DasboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +21,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/log', function () {
-    return view('auth.login1');
-});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -28,4 +28,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::resource('dasboard', DasboardController::class);
+Route::resource('pages', PagesController::class);
+Route::resource('order', OrderController::class);
 Route::resource('baju', BajuController::class);
