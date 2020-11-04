@@ -46,16 +46,13 @@
                                     
                                 </tr>
                             </thead>
-                            <tbody>
-                                
-                                
-                                    <tr>
-                                        <td class="text-center"></td>
-                                        <td class="">{{$order->kategori}}</td>
-                                        <td class="text-right">{{'Baju'}}</td>
-                                        <td class="text-right">{{'1'}}</td>
-                                    </tr>
-                                
+                            <tbody>                                
+                                <tr>
+                                    <td class="text-center">#</td>
+                                    <td class="">{{$order->kategori}}</td>
+                                    <td class="text-right">{{'Baju'}}</td>
+                                    <td class="text-right">{{'1'}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -68,7 +65,8 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <button onclick="window.print()" class="btn btn-danger btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
+                        <a href="{{route('pages.index')}}" class="btn btn-danger btn-outline">Save</a>
+                        <button onclick="table.print()" class="btn btn-danger btn-outline"> <span><i class="fa fa-print"></i> Print</span> </button>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $order =  Baju::paginate(10);
+        $order =  Baju::paginate();
         
         return view('order.index', ['order' => $order]);
     }
@@ -160,4 +160,5 @@ class OrderController extends Controller
     {
         //
     }
+
 }

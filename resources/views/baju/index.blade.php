@@ -19,40 +19,36 @@
                 <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
             </div>
 
+                              
+            <form action="{{route('baju.index')}}">
+                <div class="col-md-0 m-r-10 m-l-10 p-0">
+                    <input
+                        name="keyword"
+                        class="form-control col-md-10"
+                        type="text"
+                        placeholder="Filter berdasarkan email"/>
+                </div>
+                <div class="text-right m-r-10 m-t-10">        
+                    <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
+                        value="PROCESS"
+                        name="status"
+                        type="radio"
+                        class="m-l-20 text-right "
+                        id="process">
+                        <label for="process" class="m-r-5">Process</label>
+                    <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
+                        value="SUCCESS"
+                        name="status"
+                        type="radio"
+                        class="text-right"
+                        id="success">
+                        <label for="success" class="m-r-5">Success</label>
+                        <button type="submit"
+                        value="Filter"
+                        class="btn btn-primary text-right"><i class="fa fa-search"></i> Search</button>
+                </div>
+            </form>
             
-                
-                    <form action="{{route('baju.index')}}">
-                        <div class="col-md-0 m-r-10 m-l-10 p-0">
-                            <input
-                                value="{{Request::get('title')}}"
-                                name="title"
-                                class="form-control"
-                                type="text"
-                                placeholder="Filter berdasarkan Nama"/>
-                        </div>
-                        
-                        <div class="text-right m-r-10 m-t-10">        
-                        <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
-                            value="PROCESS"
-                            name="status"
-                            type="radio"
-                            class="m-l-20 text-right "
-                            id="process">
-                            <label for="process" class="m-r-5">Process</label>
-                        <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
-                            value="SUCCESS"
-                            name="status"
-                            type="radio"
-                            class="text-right"
-                            id="success">
-                            <label for="success" class="m-r-5">Success</label>
-                        <input type="submit"
-                            value="Filter"
-                            class="btn btn-primary text-right">  
-                        
-                    </form> 
-            </div>
-
             <div class="table-responsive m-t-10">
                 <table class="table">
                     <thead>

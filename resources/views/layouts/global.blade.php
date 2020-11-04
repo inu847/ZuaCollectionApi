@@ -152,7 +152,7 @@
                     <nav class="sidebar-nav">
                         <ul id="side-menu">
                             <li>
-                                <a class="active waves-effect" href="" aria-expanded="false">
+                                <a class="active waves-effect" href="{{ route('dasboard.index')}}" aria-expanded="false">
                                     <i class="icon-screen-desktop fa-fw"></i> 
                                     <span class="hide-menu"> Dashboard </span>
                                 </a>
@@ -163,7 +163,7 @@
                                     <span class="hide-menu">Manage Order</span></a>
                             </li>
                             <li class="two-column">
-                                <a class="waves-effect" href="" aria-expanded="false">
+                            <a class="waves-effect" href="{{ route('pages.index')}}" aria-expanded="false">
                                     <i class="icon-docs fa-fw"></i> 
                                     <span class="hide-menu"> Pages</span></a>
                                 {{-- <ul aria-expanded="false" class="collapse">
@@ -211,15 +211,6 @@
         =============================== -->
         <script src="{{ asset('template/js/sidebarmenu.js')}}"></script>
         <script src="{{ asset('template/plugins/components/jquery/dist/jquery.min.js')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-                // Format mata uang.
-                $( '.uang' ).mask('000.000.000', {reverse: true});
-
-            })
-        </script>
-        <script src="{{ asset('template/js/jquery.PrintArea.js')}}" type="text/JavaScript"></script>
         <!-- ===== jQuery ===== -->
         <script src="{{ asset('template/plugins/components/jquery/dist/jquery.min.js')}}"></script>
         <!-- ===== Bootstrap JavaScript ===== -->
@@ -238,6 +229,10 @@
         <script src='{{ asset("template/plugins/components/moment/moment.js")}}'></script>
         <script src='{{ asset("template/plugins/components/fullcalendar/fullcalendar.js")}}'></script>
         <script src="{{ asset('template/js/db2.js')}}"></script>
+        <script src="{{ asset('template/js/db1.js')}}"></script>
+        <script src="{{ asset('template/plugins/components/knob/jquery.knob.js')}}"></script>
+        <script src="{{ asset('template/plugins/components/easypiechart/dist/jquery.easypiechart.min.js')}}"></script>
+        <script src="{{ asset('template/plugins/components/sparkline/jquery.sparkline.min.js')}}"></script>
         <!-- ===== Style Switcher JS ===== -->
         <script src="{{ asset('template/plugins/components/styleswitcher/jQuery.style.switcher.js')}}"></script>
     </body>
