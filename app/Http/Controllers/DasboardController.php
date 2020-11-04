@@ -15,7 +15,7 @@ class DasboardController extends Controller
      */
     public function index()
     {
-        $dash = Baju::get();
+        $dash = Baju::count();
 
         return view('dasboard.index', ['dasboard' => $dash]);
     }

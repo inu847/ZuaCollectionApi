@@ -17,7 +17,7 @@
                     <span class="icoleaf bg-primary text-white"><i class="mdi mdi-checkbox-marked-circle-outline"></i></span>
                 </div>
                 <div class="media-body">
-                    <h3 class="info-count text-blue">154</h3>
+                    <h3 class="info-count text-blue">{{$dash}}</h3>
                     <p class="info-text font-12">Bookings</p>
                     <span class="hr-line"></span>
                     <p class="info-ot font-15">Target<span class="label label-rounded label-success">300</span></p>

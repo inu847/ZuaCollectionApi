@@ -14,27 +14,7 @@ class PagesController extends Controller
      */
     public function index(Request $request)
     {
-        $pages = \App\Models\Baju::paginate(10);
-        $filterKeyword = $request->get('title');
-        $status = $request->get('status');
-
-        if($filterKeyword){
-            $pages = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%");
-            if($status){
-                $pages = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
-                ->where('status', $status)
-                ->paginate(10);
-                } else {
-                $pages = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
-                ->paginate(10);
-                }
-           }
-
-           if($status){
-                $pages = \App\Models\Baju::where('status', $status)->paginate(10);
-            } else {
-                $pages = \App\Models\Baju::paginate(10);
-           }   
+        $pages = Baju::first()->where('status', 'SUCCESS')->paginate(10);   
 
         return view('pages.index', ['pages' => $pages]);
     }

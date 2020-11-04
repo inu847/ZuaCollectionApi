@@ -15,16 +15,6 @@
         <h3 class="box-title m-b-0">Success Price</h3>
         <p class="text-muted m-b-30"></p>
         <div class="table-responsive">
-
-            <form action="{{route('pages.index')}}">
-                <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
-                value="SUCCESS"
-                name="status"
-                type="hidden"
-                class="text-right"
-                id="success">
-            </form>
-
             <table class="display nowrap" cellspacing="0" width="100%">
                 
                 <thead>
@@ -46,7 +36,13 @@
                     </tr>
                     @endforeach
                 </tbody>
-                
+                <tfoot>
+                    <tr class="text-right">
+                        <td colspan=10>
+                            {{$pages->appends(Request::all())->links()}}
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
