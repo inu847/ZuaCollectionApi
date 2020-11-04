@@ -51,11 +51,9 @@
                             class="btn btn-primary text-right">  
                         
                     </form> 
-                </div>             
-            
-            <br>
-        
-            <div class="table-responsive">
+            </div>
+
+            <div class="table-responsive m-t-10">
                 <table class="table">
                     <thead>
                         <tr>
