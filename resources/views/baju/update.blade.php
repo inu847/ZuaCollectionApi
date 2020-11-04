@@ -11,7 +11,7 @@
 
  <div class="m-l-40">
     <h3 class="box-title m-b-0">Edit Data</h3>
-    <p class="text-muted m-b-30 font-13"> Use Bootstrap's predefined grid classes for horizontal form </p>
+    <p class="text-muted m-b-30 font-13">Tambahkan kolom. Jika kosong isi dengan nilai 0</p>
  </div>
  <form
         action="{{route('baju.update', [$baju->id])}}"
