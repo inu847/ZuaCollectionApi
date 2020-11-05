@@ -17,10 +17,10 @@
                     <span class="icoleaf bg-primary text-white"><i class="mdi mdi-checkbox-marked-circle-outline"></i></span>
                 </div>
                 <div class="media-body">
-                    <h3 class="info-count text-blue"></h3>
+                    <h3 class="info-count text-blue">{{\App\Models\Baju::count('status')}}</h3>
                     <p class="info-text font-12">Bookings</p>
                     <span class="hr-line"></span>
-                    <p class="info-ot font-15">Target<span class="label label-rounded label-success">300</span></p>
+                    <p class="info-ot font-15">Target<span class="label label-rounded label-success">{{\App\Models\Baju::count('status')}}</span></p>
                 </div>
             </div>
         </div>
@@ -30,10 +30,10 @@
                     <span class="icoleaf bg-primary text-white"><i class="mdi mdi-comment-text-outline"></i></span>
                 </div>
                 <div class="media-body">
-                    <h3 class="info-count text-blue">68</h3>
+                    <h3 class="info-count text-blue">{{'0'}}</h3>
                     <p class="info-text font-12">Complaints</p>
                     <span class="hr-line"></span>
-                    <p class="info-ot font-15">Total Pending<span class="label label-rounded label-danger">154</span></p>
+                    <p class="info-ot font-15">Total Pending<span class="label label-rounded label-danger">{{\App\Models\Baju::where('status', 'PROCESS')->count('status')}}</span></p>
                 </div>
             </div>
         </div>
@@ -43,27 +43,27 @@
                     <span class="icoleaf bg-primary text-white"><i class="mdi mdi-coin"></i></span>
                 </div>
                 <div class="media-body">
-                    <h3 class="info-count text-blue">&#36;9475</h3>
+                    <h3 class="info-count text-blue">&#36;{{\App\Models\Baju::sum('invoice')}}</h3>
                     <p class="info-text font-12">Earning</p>
                     <span class="hr-line"></span>
-                    <p class="info-ot font-15">March : <span class="text-blue font-semibold">&#36;514578</span></p>
+                    <p class="info-ot font-15">November : <span class="text-blue font-semibold">&#36;{{\App\Models\Baju::sum('invoice')}}</span></p>
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-sm-6 info-box b-r-0">
             <div class="media">
                 <div class="media-left p-r-5">
-                    <div id="earning" class="e" data-percent="60">
-                        <div id="pending" class="p" data-percent="55"></div>
-                        <div id="booking" class="b" data-percent="50"></div>
+                    <div id="earning" class="e" data-percent="{{$hasil}}">
+                        <div id="pending" class="p" data-percent="{{$hasilProses}}"></div>
+                        <div id="booking" class="b" data-percent="{{$hasilBooking}}"></div>
                     </div>
                 </div>
                 <div class="media-body">
                     <h2 class="text-blue font-22 m-t-0">Report</h2>
                     <ul class="p-0 m-b-20">
-                        <li><i class="fa fa-circle m-r-5 text-primary"></i>60% Earnings</li>
-                        <li><i class="fa fa-circle m-r-5 text-primary"></i>55% Pending</li>
-                        <li><i class="fa fa-circle m-r-5 text-info"></i>50% Bookings</li>
+                        <li><i class="fa fa-circle m-r-5 text-primary"></i>{{$hasil}}{{'%'}}{{' Earning'}}</li>
+                        <li><i class="fa fa-circle m-r-5 text-primary"></i>{{$hasilProses}}{{'%'}}{{' Pending'}}</li>
+                        <li><i class="fa fa-circle m-r-5 text-info"></i>{{$hasilBooking}}{{'%'}} {{'Bookings'}}</li>
                     </ul>
                 </div>
             </div>

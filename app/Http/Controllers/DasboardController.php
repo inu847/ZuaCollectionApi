@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Baju;
-use \App\Models\User;
 
 class DasboardController extends Controller
 {
@@ -15,9 +14,30 @@ class DasboardController extends Controller
      */
     public function index()
     {
-        $dash = Baju::count();
+        $dash = Baju::get();
 
-        return view('dasboard.index', ['dasboard' => $dash]);
+        // earning
+        $persen = Baju::sum('invoice');
+        $bagi = 1000000 / $persen;
+        $target = 100 / $bagi;
+        $hasil = round($target);
+        // pending
+        $proses = Baju::where('status', 'PROCESS')->count();
+        $bagiProsess = 50 / $proses;
+        $targetProses = 100 / $bagiProsess;
+        $hasilProses = round($targetProses);
+        
+        // booking
+        $booking = Baju::count();
+        $bagiBooking = 50 / $booking;
+        $targetBooking = 100 / $bagiBooking;
+        $hasilBooking = round($targetBooking);
+
+        return view('dasboard.index', ['dasboard' => $dash, 
+                                        'hasil' => $hasil, 
+                                        'hasilProses' => $hasilProses, 
+                                        'hasilBooking' => $hasilBooking
+                                    ]);
     }
 
     /**
