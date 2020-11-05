@@ -14,7 +14,7 @@ class DasboardController extends Controller
      */
     public function index()
     {
-        $dash = Baju::get();
+        $dash = Baju::first();
 
         // earning
         $persen = Baju::sum('invoice');

@@ -20,7 +20,7 @@
                     <h3 class="info-count text-blue">{{\App\Models\Baju::count('status')}}</h3>
                     <p class="info-text font-12">Bookings</p>
                     <span class="hr-line"></span>
-                    <p class="info-ot font-15">Target<span class="label label-rounded label-success">{{\App\Models\Baju::count('status')}}</span></p>
+                    <p class="info-ot font-15">Target<span class="label label-rounded label-success">50</span></p>
                 </div>
             </div>
         </div>
