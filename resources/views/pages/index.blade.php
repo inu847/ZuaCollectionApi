@@ -22,7 +22,7 @@
                         <th>Name</th>
                         <th>Position</th>
                         <th>price</th>
-                        <th>Action</th>
+                        <th>Transaksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +31,7 @@
                         <td>{{$page->title}}</td>
                         <td>{{$page->kategori}}</td>
                         <td>{{$page->invoice}}</td>
-                        <td><a href="{{route('order.edit', [$page->id])}}"
-                            class="btn btn-success btn-sm m-t-10"><i class="fa fa-shopping-bag"></i></a></td>
+                        <td>{{$page->updated_at}}</td>
                     </tr>
                     @endforeach
                 </tbody>
