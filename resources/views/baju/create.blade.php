@@ -13,11 +13,12 @@
     <h3 class="box-title m-b-0">Create New Orders</h3>
     <p class="text-muted m-b-30 font-13">Tambahkan kolom. Jika kosong isi dengan nilai 0</p>
  </div>
- <form class=""
-                enctype="multipart/form-data"
-                action="{{route('baju.store')}}"
-                method="POST">
-                @csrf
+ <form 
+    enctype="multipart/form-data"
+    action="{{route('baju.store')}}"
+    method="POST">
+    @csrf
+
  <div class="col-md-6">
     <div class="white-box form-horizontal m-t-10 p-b-35">
         
@@ -226,6 +227,18 @@
                 </div>
             </div>
             
+            <div class="form-group">
+                <label for="avatar" class="col-sm-3 control-label">Gambar</label>
+                <div class="col-sm-9">
+                    <input value="{{old('avatar')}}" type="file" class="form-control {{$errors->first('avatar') ? "is-invalid": ""}}" id="avatar" name="avatar"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('avatar')}}
+                    </div>
+                </div>
+            </div>
+           
+
+
             <input value="0" type="hidden" class="form-control {{$errors->first('invoice') ? "is-invalid": ""}}" id="invoice" name="invoice"> 
                     
             
@@ -246,4 +259,4 @@
     </div>
 
 </form>
- @endsection
+@endsection

@@ -27,7 +27,7 @@
 
 
  <div class="col-md-6">
-    <div class="white-box form-horizontal m-t-10 p-b-35">
+    <div class="white-box form-horizontal m-t-10">
         
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nama*</label>
@@ -154,23 +154,23 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group p-b-30">
+                <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
+                <div class="col-sm-9">
+                    <input value="{{$baju->lebar_lengan}}" type="text" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('lebar_lengan')}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 
 
 
-        <div class="col-md-6">
-            <div class="white-box form-horizontal m-t-10 p-b-20">
-                <div class="form-group">
-                    <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
-                    <div class="col-sm-9">
-                        <input value="{{$baju->lebar_lengan}}" type="text" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
-                        <div class="invalid-feedback">
-                            {{$errors->first('lebar_lengan')}}
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-6">
+        <div class="white-box form-horizontal m-t-10">
             <div class="form-group">
                 <label for="lebar_ban_lengan" class="col-sm-3 control-label">Lebar Ban Lengan*</label>
                 <div class="col-sm-9">
@@ -243,6 +243,23 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="panjang_krah" class="col-sm-3 control-label">Gambar</label>
+                <div class="col-sm-9">
+                    @if($baju->avatar)
+                        <img src="{{asset('storage/'.$baju->avatar)}}" width="120px" />
+                    <br>
+                    @else
+                        No avatar
+                    @endif
+                    <small class="text-muted">Kosongkan jika tidak ingin mengubah avatar</small>
+                    <input value="{{$baju->avatar}}" type="file" class="form-control {{$errors->first('avatar') ? "is-invalid": ""}}" id="avatar" name="avatar"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('avatar')}}
+                    </div>
+                </div>
+            </div>
+            
             
             
             <div class="form-group">
@@ -255,7 +272,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 waves-effect">
-                    <input class="btn btn-danger waves-light p-t-5 p-b-5 p-l-30 p-r-30 m-l-15" type="submit" value="save" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif;" />
+                    <input class="btn btn-danger waves-light p-l-30 p-r-30 m-l-15" type="submit" value="save" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif;" />
                 </div>
             </div>
         </div>

@@ -25,6 +25,16 @@
                 </thead>
                 <tbody>
                     <tr >
+                        <td class="p-l-20">Gambar</td>
+                        <td>@if($baju->avatar)
+                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px"/>
+                            @else
+                            No avatar
+                            @endif </td>
+                        {{-- <td><a href="{{route('baju.edit', [$baju->id])}}"
+                                    class="btn btn-info btn-sm">Edit</a></td> --}}
+                    </tr>
+                    <tr >
                         <td class="p-l-20">Kategori</td>
                         <td>{{$baju->kategori}}</td>
                         {{-- <td><a href="{{route('baju.edit', [$baju->id])}}"

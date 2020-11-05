@@ -77,6 +77,7 @@ class BajuController extends Controller
             "panjang_rok" => "min:1|max:4",
             "panjang_celana" => "min:1|max:4",
             "panjang_krah" => "min:1|max:4",
+            "avatar" => "required"
             ])->validate();
 
         $new_clothes = new \App\Models\Baju;
@@ -102,6 +103,11 @@ class BajuController extends Controller
         $new_clothes->panjang_celana = $request->get('panjang_celana');
         $new_clothes->panjang_krah = $request->get('panjang_krah');
         $new_clothes->invoice = $request->get('invoice');
+
+        if($request->file('avatar')){
+            $file = $request->file('avatar')->store('avatars', 'public');
+            $new_clothes->avatar = $file;
+           }
 
         $new_clothes->save();
         return redirect()->route('baju.index')->with('status', 'ANDA TELAH MENAMBAHKAN PESANAN');
@@ -161,6 +167,7 @@ class BajuController extends Controller
             "panjang_rok" => "min:1|max:4",
             "panjang_celana" => "min:1|max:4",
             "panjang_krah" => "min:1|max:4",
+            "avatar" => "required"
             ])->validate();
 
         $title = $request->get('name');
@@ -184,6 +191,9 @@ class BajuController extends Controller
         $panjang_rok = $request->get('panjang_rok');
         $panjang_celana = $request->get('panjang_celana');
         $panjang_krah = $request->get('panjang_krah');
+        
+        
+        
 
         $baju = \App\Models\Baju::findOrFail($id);
 
@@ -208,6 +218,11 @@ class BajuController extends Controller
         $baju->panjang_rok = $panjang_rok;
         $baju->panjang_celana = $panjang_celana;
         $baju->panjang_krah = $panjang_krah;
+        if($baju->avatar && file_exists(storage_path('app/public/' . $baju->avatar))){
+            \Storage::delete('public/'.$baju->avatar);
+            $file = $request->file('avatar')->store('avatars', 'public');
+            $baju->avatar = $file;
+            }
         
         $baju->save();
         return redirect()->route('baju.index')->with('status', 'Update Data Success');

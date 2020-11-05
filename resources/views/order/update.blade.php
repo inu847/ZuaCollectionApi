@@ -99,7 +99,7 @@
             
                     <input value="{{$order->panjang_krah}}" type="hidden" class="form-control {{$errors->first('panjang_krah') ? "is-invalid": ""}}" id="panjang_krah" name="panjang_krah" placeholder="Panjang Krah"> 
 
-            
+                    <input value="{{$order->avatar}}" type="hidden" class="form-control {{$errors->first('avatar') ? "is-invalid": ""}}" id="avatar" name="avatar" placeholder="Panjang Krah">            
         
             <div class="form-group text-right m-r-15">
                 <div class="waves-effect">

@@ -14,7 +14,7 @@ class PagesController extends Controller
      */
     public function index(Request $request)
     {
-        $pages = Baju::latest()->where('status', 'SUCCESS')->paginate(10);   
+        $pages = Baju::latest('updated_at')->where('status', 'SUCCESS')->paginate(10);   
 
         return view('pages.index', ['pages' => $pages]);
     }

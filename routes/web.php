@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/log', function () {
+    return view('auth.login1');
+});
+
 Auth::routes();
 
 Route::resource('dasboard', DasboardController::class);

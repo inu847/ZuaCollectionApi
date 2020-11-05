@@ -37,6 +37,7 @@ class CreateBajuTable extends Migration
             $table->integer('lebar_ban_lengan');
             $table->enum("status", ["PROCESS", "SUCCESS"]);
             $table->integer('invoice')->nullable();
+            $table->string('avatar');
             $table->timestamps();
         });
     }
