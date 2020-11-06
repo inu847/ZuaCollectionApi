@@ -45,7 +45,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="top-left-part">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="{{ route('dasboard.index')}}">
                             <b>
                                 <img src="{{ asset('template/plugins/images/logo.png')}}" alt="home" />
                             </b>

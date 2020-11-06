@@ -53,7 +53,7 @@
         <div class="col-md-3 col-sm-6 info-box b-r-0">
             <div class="media">
                 <div class="media-left p-r-5">
-                    <div id="earning" class="e" data-percent="{{$hasil}}">
+                        <div id="earning" class="e" data-percent="{{$hasil}}">
                         <div id="pending" class="p" data-percent="{{$hasilProses}}"></div>
                         <div id="booking" class="b" data-percent="{{$hasilBooking}}"></div>
                     </div>

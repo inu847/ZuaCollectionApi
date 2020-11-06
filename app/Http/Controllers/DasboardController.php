@@ -18,18 +18,29 @@ class DasboardController extends Controller
 
         // earning
         $persen = Baju::sum('invoice');
-        $bagi = 1000000 / $persen;
+        $persen1 = $persen + 1;
+        // target earning
+        $bagi = 1000000 / $persen1;
+        // menghitung persen
         $target = 100 / $bagi;
         $hasil = round($target);
+        // dd($hasil);
+        
         // pending
         $proses = Baju::where('status', 'PROCESS')->count();
-        $bagiProsess = 50 / $proses;
+        $proses1 = $proses + 1;
+        // target pending
+        $bagiProsess = 50 / $proses1;
+        // menghitung persen
         $targetProses = 100 / $bagiProsess;
         $hasilProses = round($targetProses);
         
         // booking
         $booking = Baju::count();
-        $bagiBooking = 50 / $booking;
+        $booking1 = $booking + 1;
+        // target booking
+        $bagiBooking = 50 / $booking1;
+        // menghitung persen
         $targetBooking = 100 / $bagiBooking;
         $hasilBooking = round($targetBooking);
 

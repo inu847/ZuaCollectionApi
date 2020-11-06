@@ -13,7 +13,7 @@ class BajuController extends Controller
      */
     public function index(Request $request) {
 
-        $table = \App\Models\Baju::paginate(5);
+        $table = \App\Models\Baju::paginate(10);
         $filterKeyword = $request->get('title');
         $status = $request->get('status');
         
@@ -24,17 +24,17 @@ class BajuController extends Controller
             if($status){
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
                 ->where('status', $status)
-                ->paginate(5);
+                ->paginate(10);
                 } else {
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")
-                ->paginate(5);
+                ->paginate(10);
                 }
            }
 
            if($status){
-                $table = \App\Models\Baju::where('status', $status)->paginate(5);
+                $table = \App\Models\Baju::where('status', $status)->paginate(10);
             } else {
-                $table = \App\Models\Baju::paginate(5);
+                $table = \App\Models\Baju::paginate(10);
            }   
 
         return view('baju.index', ['table' => $table]);
