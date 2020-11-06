@@ -14,9 +14,9 @@
     <div class="white-box">
         <h3 class="box-title m-b-0">Success Price</h3>
         <p class="text-muted m-b-30"></p>
+
         <div class="table-responsive">
             <table class="display nowrap" cellspacing="0" width="100%">
-                
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -31,7 +31,7 @@
                         <td>{{$page->title}}</td>
                         <td>{{$page->kategori}}</td>
                         <td>{{$page->invoice}}</td>
-                        <td>{{$page->updated_at}}</td>
+                        <td><i class="fa fa-clock-o"></i> {{$page->updated_at->diffForhumans()}}</td>
                     </tr>
                     @endforeach
                 </tbody>

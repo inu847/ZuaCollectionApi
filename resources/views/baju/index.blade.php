@@ -76,7 +76,7 @@
                             <td>{{$tbl->kategori}}</td>
                             <td>{{$tbl->jenis_ukuran}}</td>
                             {{-- masukkan code ini untuk waktu H:i:s --}}
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->format('l, d M Y')}}</span> </td>
+                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->diffForHumans()}}</span> </td>
                             <td>
                             
                                 @if($tbl->status == "PROCESS")
