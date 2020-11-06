@@ -6,7 +6,16 @@
 
 @section('content')
 
-
+@if (session('status'))
+    <div class="alert alert-success">
+        {{session('status')}}
+    </div>
+@endif
+@if (session('statusdel'))
+    <div class="alert alert-danger">
+        {{session('statusdel')}}
+    </div>
+@endif
 <div class="alert alert-success">
     {{ ('Welcome ') }}{{ Auth::user()->name }}{{(',')}} {{ __('You are logged in Zua Collection!') }}
 </div>
@@ -178,22 +187,55 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Email</th>
                                     <th>Address</th>
-                                    <th>Type</th>
+                                    <th>Phone</th>
                                     <th>Role</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($users as $user)
                                 <tr>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->address }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>
+                                        @if( $user->roles == 'ADMIN')
+                                            <span class="label label-success">{{ $user->roles }}</span>
+                                        @elseif( $user->roles == 'MEMBER')
+                                            <span class="label label-info">{{ $user->roles }}</span>
+                                        @else
+                                            <span class="label label-danger">{{ $user->roles }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form
+                                            onsubmit="return confirm('Delete this user permanently?')"
+                                            class="d-inline"
+                                            action="{{route('user.destroy', [$user->id])}}"
+                                            method="POST">
+                                            @csrf
 
-                                    <td>{{ Auth::user()->name }}</td>
-                                    <td>Selopuro</td>
-                                    <td>Posts 564</td>
-                                    <td><span class="label label-success">Admin</span></td>
-                                </tr>
-                                </tr>
+                                        <button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+
+                                        <input
+                                            type="hidden"
+                                            name="_method"
+                                            value="DELETE">
+                                        <button type="submit"
+                                                value="Delete" 
+                                                class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr> 
+                                @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="task-add-btn text-right">
+                        <a href="{{ route('user.create')}}" class="btn btn-warning">+</a>
                     </div>
                     {{-- <ul class="pagination">
                         <li class="disabled"> <a href="#">1</a> </li>
@@ -216,9 +258,6 @@
                             <div class="task-detail">
                             <h2 class="font-light text-white m-b-0">{{now()->format('l, y F Y')}}</h2>
                                 <h4 class="font-normal text-white m-t-5">Your tasks for today</h4>
-                            </div>
-                            <div class="task-add-btn">
-                                <a href="javascript:void(0);" class="btn btn-success">+</a>
                             </div>
                         </div>
                         <div class="task-total">

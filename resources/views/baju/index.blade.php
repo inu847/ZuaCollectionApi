@@ -75,14 +75,12 @@
                             <td>{{$tbl->title}}</td>
                             <td>{{$tbl->kategori}}</td>
                             <td>{{$tbl->jenis_ukuran}}</td>
-                            {{-- masukkan code ini untuk waktu H:i:s --}}
                             <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->diffForHumans()}}</span> </td>
                             <td>
-                            
                                 @if($tbl->status == "PROCESS")
-                                <div class="label label-table label-info">{{$tbl->status}}</div>
+                                    <div class="label label-table label-info">{{$tbl->status}}</div>
                                 @else
-                                <div class="label label-table label-success">{{$tbl->status}}</div>
+                                    <div class="label label-table label-success">{{$tbl->status}}</div>
                                 @endif
                                </td>
                                

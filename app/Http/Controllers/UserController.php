@@ -11,6 +11,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('dasboard.index');
@@ -36,11 +41,14 @@ class UserController extends Controller
     {
         $new_user = new \App\Models\User;
         $new_user->name = $request->get('name');
-        $new_user->username = $request->get('username');
         $new_user->roles = $request->get('roles');
+        $new_user->address = $request->get('address');
         $new_user->phone = $request->get('phone');
         $new_user->email = $request->get('email');
-        $new_user->password = \Hash::make($request->get)('password');
+        $new_user->password = \Hash::make($request->get('password'));
+
+        $new_user->save();
+        return redirect()->route('dasboard.index')->with('status', 'Create Akun Success!!');
     }
 
     /**
@@ -85,6 +93,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = \App\Models\User::findOrFail($id);
+
+        $user->delete();
+        return redirect()->route('dasboard.index')->with('statusdel', 'User Berhasil Dihapus!!');
     }
 }

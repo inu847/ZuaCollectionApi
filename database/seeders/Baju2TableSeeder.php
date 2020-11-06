@@ -17,7 +17,7 @@ class Baju2TableSeeder extends Seeder
     {
         $baju = [];
         $faker = Faker::create();
-        for($i=0;$i<2;$i++){
+        for($i=0;$i<45;$i++){
             $avatar_path = 'public/storage/avatars';
             $avatar_fullpath = $faker->image( $avatar_path, 200, 250, 'people', true, true, 'people');
             $avatar = str_replace($avatar_path . '/' , '', $avatar_fullpath);
@@ -44,7 +44,7 @@ class Baju2TableSeeder extends Seeder
                 'lingkar_lutut' =>  mt_rand(20, 90),
                 'panjang_krah' =>  mt_rand(20, 90),
                 'lebar_ban_lengan' =>  mt_rand(20, 90),
-                'invoice' => mt_rand(1, 1),           
+                'invoice' => mt_rand(1, 9) * 5000,           
                 'created_at' => now(),
                 'updated_at' => now(),
                 ];

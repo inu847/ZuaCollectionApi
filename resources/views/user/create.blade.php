@@ -32,7 +32,7 @@
         <div class="cssload-speeding-wheel"></div>
     </div>
     <section id="wrapper" class="login-register">
-        <div class="login-box">
+        {{-- <div class="login-box"> --}}
             <div class="white-box">
                 
                 <form action="{{route('user.store')}}" 
@@ -40,30 +40,35 @@
                     class="form-horizontal form-material" 
                     method="POST">
                     @csrf
-
+                
                     <h3 class="box-title">Sign In</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Name" name="name">
+                            <input class="form-control" type="text" required="" value="{{ old('name')}}" placeholder="Name" name="name">
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Email" name="email">
+                            <input class="form-control" type="text" required="" value="{{ old('email')}}" placeholder="Email" name="email">
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="roles">
                                 <option value="ADMIN">Admin</option>
-                                <option value="CUSTOMER">Member</option>
+                                <option value="MEMBER">Member</option>
                                 <option value="CUSTOMER">Customer</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="number" required="" placeholder="Phone Number" name="phone">
+                            <input class="form-control" type="number" required="" value="{{ old('phone')}}" placeholder="Phone Number" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" value="{{ old('address')}}" placeholder="Address" name="address">
                         </div>
                     </div>
                     <div class="form-group ">

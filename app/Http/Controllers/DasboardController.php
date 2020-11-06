@@ -21,6 +21,7 @@ class DasboardController extends Controller
     public function index()
     {
         $dash = Baju::get();
+        $users = \App\Models\User::latest()->paginate(10);
 
         // earning
         $persen = Baju::sum('invoice');
@@ -53,7 +54,8 @@ class DasboardController extends Controller
         return view('dasboard.index', ['dasboard' => $dash, 
                                         'hasil' => $hasil, 
                                         'hasilProses' => $hasilProses, 
-                                        'hasilBooking' => $hasilBooking
+                                        'hasilBooking' => $hasilBooking,
+                                        'users' => $users,
                                     ]);
     }
 
