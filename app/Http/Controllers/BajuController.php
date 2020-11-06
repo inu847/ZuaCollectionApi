@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BajuController extends Controller
 {
@@ -11,6 +12,13 @@ class BajuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        
+            $this->middleware('auth');
+        }
+
+
     public function index(Request $request) {
 
         $table = \App\Models\Baju::paginate(10);
@@ -239,7 +247,7 @@ class BajuController extends Controller
         $table = \App\Models\Baju::findOrFail($id);
 
         $table->delete();
-        return redirect()->route('baju.index')->with('status', 'Data Berhasil Dihapus');
+        return redirect()->route('baju.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
 
 

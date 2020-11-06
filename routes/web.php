@@ -23,6 +23,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::match(["GET", "POST"], "/register", function(){
+    return redirect("/login");
+   })->name("register");
+
 Route::resource('dasboard', DasboardController::class);
 Route::resource('pages', PagesController::class);
 Route::resource('order', OrderController::class);
