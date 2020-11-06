@@ -25,8 +25,6 @@ class BajuController extends Controller
         $filterKeyword = $request->get('title');
         $status = $request->get('status');
         
-           
-
         if($filterKeyword){
             $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%");
             if($status){

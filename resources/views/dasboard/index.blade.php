@@ -70,7 +70,7 @@
         </div>
     </div>
     <!-- ===== Page-Container ===== -->
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="white-box stat-widget">
@@ -97,8 +97,8 @@
                         <div class="stat chart-pos"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
+            </div> --}}
+            {{-- <div class="col-md-4 col-sm-12">
                 <div class="white-box">
                     <h4 class="box-title">Task Progress</h4>
                     <div class="task-widget t-a-c">
@@ -133,8 +133,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div> --}}
+        {{-- <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="white-box bg-primary color-box">
                     <h1 class="text-white font-light">&#36;6547 <span class="font-14">Revenue</span></h1>
@@ -163,179 +163,58 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <div class="white-box user-table">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h4 class="box-title">Table Format/User Data</h4>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="javascript:void(0);" class="btn btn-default btn-outline font-16"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="btn btn-default btn-outline font-16"><i class="fa fa-commenting" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                            <select class="custom-select">
-                                <option selected>Sort by</option>
-                                <option value="1">Name</option>
-                                <option value="2">Location</option>
-                                <option value="3">Type</option>
-                                <option value="4">Role</option>
-                                <option value="5">Action</option>
-                            </select>
+                            <h4 class="box-title">User Data</h4>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c1" type="checkbox">
-                                            <label for="c1"></label>
-                                        </div>
-                                    </th>
                                     <th>Name</th>
-                                    <th>Location</th>
+                                    <th>Address</th>
                                     <th>Type</th>
                                     <th>Role</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c2" type="checkbox">
-                                            <label for="c2"></label>
-                                        </div>
-                                    </td>
-                                    <td><a href="javascript:void(0);" class="text-link">Daniel Kristeen</a></td>
-                                    <td>Texas, US</td>
+
+                                    <td>{{ Auth::user()->name }}</td>
+                                    <td>Selopuro</td>
                                     <td>Posts 564</td>
                                     <td><span class="label label-success">Admin</span></td>
-                                    <td>
-                                        <select class="custom-select">
-                                            <option value="1">Modulator</option>
-                                            <option value="2">Admin</option>
-                                            <option value="3">Staff</option>
-                                            <option value="4">User</option>
-                                            <option value="5">General</option>
-                                        </select>
-                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c3" type="checkbox">
-                                            <label for="c3"></label>
-                                        </div>
-                                    </td>
-                                    <td><a href="javascript:void(0);" class="text-link">Hanna Gover</a></td>
-                                    <td>Los Angeles, US</td>
-                                    <td>Posts 451</td>
-                                    <td><span class="label label-info">Staff</span> </td>
-                                    <td>
-                                        <select class="custom-select">
-                                            <option value="1">Modulator</option>
-                                            <option value="2">Admin</option>
-                                            <option value="3">Staff</option>
-                                            <option value="4">User</option>
-                                            <option value="5">General</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c4" type="checkbox">
-                                            <label for="c4"></label>
-                                        </div>
-                                    </td>
-                                    <td><a href="javascript:void(0);" class="text-link">Jeffery Brown</a></td>
-                                    <td>Houston, US</td>
-                                    <td>Posts 978</td>
-                                    <td><span class="label label-danger">User</span> </td>
-                                    <td>
-                                        <select class="custom-select">
-                                            <option value="1">Modulator</option>
-                                            <option value="2">Admin</option>
-                                            <option value="3">Staff</option>
-                                            <option value="4">User</option>
-                                            <option value="5">General</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c5" type="checkbox">
-                                            <label for="c5"></label>
-                                        </div>
-                                    </td>
-                                    <td><a href="javascript:void(0);" class="text-link">Elliot Dugteren</a></td>
-                                    <td>San Antonio, US</td>
-                                    <td>Posts 34</td>
-                                    <td><span class="label label-warning">General</span> </td>
-                                    <td>
-                                        <select class="custom-select">
-                                            <option value="1">Modulator</option>
-                                            <option value="2">Admin</option>
-                                            <option value="3">Staff</option>
-                                            <option value="4">User</option>
-                                            <option value="5">General</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox checkbox-info">
-                                            <input id="c6" type="checkbox">
-                                            <label for="c6"></label>
-                                        </div>
-                                    </td>
-                                    <td><a href="javascript:void(0);" class="text-link">Sergio Milardovich</a></td>
-                                    <td>Jacksonville, US</td>
-                                    <td>Posts 31</td>
-                                    <td><span class="label label-primary">Partial</span> </td>
-                                    <td>
-                                        <select class="custom-select">
-                                            <option value="1">Modulator</option>
-                                            <option value="2">Admin</option>
-                                            <option value="3">Staff</option>
-                                            <option value="4">User</option>
-                                            <option value="5">General</option>
-                                        </select>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <ul class="pagination">
+                    {{-- <ul class="pagination">
                         <li class="disabled"> <a href="#">1</a> </li>
                         <li class="active"> <a href="#">2</a> </li>
                         <li> <a href="#">3</a> </li>
                         <li> <a href="#">4</a> </li>
                         <li> <a href="#">5</a> </li>
                     </ul>
-                    <a href="javascript:void(0);" class="btn btn-success pull-right m-t-10 font-20">+</a>
+                    <a href="javascript:void(0);" class="btn btn-success pull-right m-t-10 font-20">+</a> --}}
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="white-box">
                     <div class="task-widget2">
                         <div class="task-image">
                             <img src="{{ asset('template/plugins/images/task.jpg')}}" alt="task" class="img-responsive">
                             <div class="task-image-overlay"></div>
                             <div class="task-detail">
-                                <h2 class="font-light text-white m-b-0">07 April</h2>
+                            <h2 class="font-light text-white m-b-0">{{now()->format('l, y F Y')}}</h2>
                                 <h4 class="font-normal text-white m-t-5">Your tasks for today</h4>
                             </div>
                             <div class="task-add-btn">
@@ -388,52 +267,6 @@
                         <div class="task-loadmore">
                             <a href="javascript:void(0);" class="btn btn-default btn-outline btn-rounded">Load More</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="white-box chat-widget">
-                    <a href="javascript:void(0);" class="pull-right"><i class="icon-settings"></i></a>
-                    <h4 class="box-title">Chat</h4>
-                    <ul class="chat-list slimscroll" style="overflow: hidden;" tabindex="5005">
-                        <li>
-                            <div class="chat-image"> <img alt="male" src="{{ asset('template/plugins/images/users/hanna.jpg')}}"> </div>
-                            <div class="chat-body">
-                                <div class="chat-text">
-                                    <p><span class="font-semibold">Hanna Gover</span> Hey Daniel, This is just a sample chat. </p>
-                                </div>
-                                <span>2 Min ago</span>
-                            </div>
-                        </li>
-                        <li class="odd">
-                            <div class="chat-body">
-                                <div class="chat-text">
-                                    <p> buddy </p>
-                                </div>
-                                <span>2 Min ago</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="chat-image"> <img alt="male" src="{{ asset('template/plugins/images/users/hanna.jpg')}}"> </div>
-                            <div class="chat-body">
-                                <div class="chat-text">
-                                    <p><span class="font-semibold">Hanna Gover</span> Bye now. </p>
-                                </div>
-                                <span>1 Min ago</span>
-                            </div>
-                        </li>
-                        <li class="odd">
-                            <div class="chat-body">
-                                <div class="chat-text">
-                                    <p> We have been busy all the day to make your website proposal and finally came with the super excited offer. </p>
-                                </div>
-                                <span>5 Sec ago</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="chat-send">
-                        <input type="text" class="form-control" placeholder="Write your message">
-                        <i class="fa fa-camera"></i>
                     </div>
                 </div>
             </div>
