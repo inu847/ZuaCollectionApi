@@ -21,7 +21,7 @@ class DasboardController extends Controller
     public function index()
     {
         $dash = Baju::get();
-        $users = \App\Models\User::latest()->paginate(10);
+        $users = \App\Models\User::oldest()->paginate(10);
 
         // earning
         $persen = Baju::sum('invoice');

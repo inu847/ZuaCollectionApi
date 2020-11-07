@@ -39,6 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        \Validator::make($request->all(), [
+            'name' => 'required|min:3|max:20',
+            'roles' => 'required',
+            'address' => 'required|min:4|max:25',
+            'phone' => 'required|min:10|max:15',
+            'email' => 'required|min:7|max:25',
+            'password' => 'required|min:8|max:20'
+        ])->validate();
         $new_user = new \App\Models\User;
         $new_user->name = $request->get('name');
         $new_user->roles = $request->get('roles');
@@ -70,7 +78,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = \App\Models\User::findOrFail($id);
+
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -82,7 +92,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        \Validator::make($request->all(), [
+            'name' => 'required|min:3|max:20',
+            'address' => 'required|min:4|max:25',
+            'phone' => 'required|min:10|max:15',
+        ])->validate();
+
+        $user = \App\Models\User::findOrFail($id);
+
+        $user->name = $request->get('name');
+        $user->roles = $request->get('roles');
+        $user->address = $request->get('address');
+        $user->phone = $request->get('phone');
+        
+        $user->save();
+        return redirect()->route('dasboard.index', [$id])->with('statusup', 'Update User Berhasil!!');
     }
 
     /**

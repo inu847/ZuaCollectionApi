@@ -36,24 +36,23 @@
                         type="text"
                         placeholder="Filter berdasarkan email"/>
                 </div>
-                <div class="text-right m-r-10 m-t-10">        
+                <div class="text-right m-r-10 p-t-20">        
                     <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
                         value="PROCESS"
                         name="status"
                         type="radio"
-                        class="m-l-20 text-right "
+                        class="m-l-20"
                         id="process">
                         <label for="process" class="m-r-5">Process</label>
                     <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
                         value="SUCCESS"
                         name="status"
                         type="radio"
-                        class="text-right"
                         id="success">
                         <label for="success" class="m-r-5">Success</label>
                         <button type="submit"
                         value="Filter"
-                        class="btn btn-primary text-right"><i class="fa fa-search"></i> Search</button>
+                        class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                 </div>
             </form>
             

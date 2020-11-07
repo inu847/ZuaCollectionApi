@@ -6,16 +6,24 @@
 
 @section('content')
 
-@if (session('status'))
-    <div class="alert alert-success">
-        {{session('status')}}
-    </div>
-@endif
-@if (session('statusdel'))
-    <div class="alert alert-danger">
-        {{session('statusdel')}}
-    </div>
-@endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
+
+    @if (session('statusdel'))
+        <div class="alert alert-danger">
+            {{session('statusdel')}}
+        </div>
+    @endif
+
+    @if (session('statusup'))
+        <div class="alert alert-warning">
+            {{session('statusup')}}
+        </div>
+    @endif
+
 <div class="alert alert-success">
     {{ ('Welcome ') }}{{ Auth::user()->name }}{{(',')}} {{ __('You are logged in Zua Collection!') }}
 </div>
@@ -191,6 +199,7 @@
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Role</th>
+                                    <th>Join At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -210,6 +219,7 @@
                                             <span class="label label-danger">{{ $user->roles }}</span>
                                         @endif
                                     </td>
+                                    <td><i class="fa fa-clock-o"></i> {{ $user->created_at->diffForHumans()}}</td>
                                     <td>
                                         <form
                                             onsubmit="return confirm('Delete this user permanently?')"
@@ -218,7 +228,7 @@
                                             method="POST">
                                             @csrf
 
-                                        <button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+                                        <a class="btn btn-success" href="{{route('user.edit', [$user->id])}}"><i class="fa fa-pencil"></i></a>
 
                                         <input
                                             type="hidden"
@@ -243,8 +253,7 @@
                         <li> <a href="#">3</a> </li>
                         <li> <a href="#">4</a> </li>
                         <li> <a href="#">5</a> </li>
-                    </ul>
-                    <a href="javascript:void(0);" class="btn btn-success pull-right m-t-10 font-20">+</a> --}}
+                    </ul> --}}
                 </div>
             </div>
         </div>
