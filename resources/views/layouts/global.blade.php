@@ -180,7 +180,7 @@
                                     </ul> --}}
                             </li>
                             <li>
-                                <a class="waves-effect" href="" aria-expanded="false">
+                                <a class="waves-effect" href="{{ route('galeri.index')}}" aria-expanded="false">
                                     <i class="icon-layers fa-fw"></i> 
                                     <span class="hide-menu"> Galeri</span></a>
                                 {{-- <ul aria-expanded="false" class="collapse">

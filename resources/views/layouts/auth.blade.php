@@ -37,7 +37,8 @@
         height: 0px;    
     }
     .login-box {
-        margin-top: 100px;
+        margin-top:30px;
+        margin-bottom: 30px;
         border-radius: 10px;
     }
 </style>
