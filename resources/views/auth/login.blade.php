@@ -1,160 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.auth')
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Zua Collection</title>
-        <!-- ===== Bootstrap CSS ===== -->
-        <link href="{{ asset('template/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset('template/less/icons/material-design-iconic-font/css/materialdesignicons.min')}}">      
-        <!-- ===== Animation CSS ===== -->
-        <link href="{{ asset('template/css/animate.css')}}" rel="stylesheet">
-        <!-- ===== Custom CSS ===== -->
-        <link href="{{ asset('template/css/style.css')}}" rel="stylesheet">
-        <!-- ===== Color CSS ===== -->
-        <link href="{{ asset('template/css/colors/red.css')}}" id="theme" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
+@section('title')
+    Login
+@endsection
 
-<style>
-    html {
-        background-image: url('{{asset("template/plugins/images/login-register.jpg")}}');
-        background-size: cover;
-    }
-    body {
-        background-image: url('{{asset("template/plugins/images/login-register.jpg")}}');
-        background-size: cover;
-        height: 0px;    
-    }
-    .login-box {
-        margin-top: 100px;
-        border-radius: 10px;
-    }
-</style>
-<body>
+@section('content')
+    <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('login') }}">
+        @csrf
+        
+    <h3 class="box-title m-b-20">Sign In</h3>
+    <div class="form-group ">
+        <div class="col-xs-12">
+            <input placeholder="Email" id="email" type="email" class="form-control 
+            @error('email') is-invalid 
+            @enderror" 
+            name="email" 
+            value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="cssload-speeding-wheel"></div>
-    </div>
-
-        <div class="login-box">
-            <div class="white-box">
-                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        
-                    <h3 class="box-title m-b-20">Sign In</h3>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input placeholder="Email" id="email" type="email" class="form-control 
-                            @error('email') is-invalid 
-                            @enderror" 
-                            name="email" 
-                            value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input  placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <div class="checkbox checkbox-primary pull-left p-t-0">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                            </div>
-                            <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> </div>
-                    </div>
-                    <div class="form-group text-center m-t-20">
-                        <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">
-                                {{ __('Login') }}
-                            </button>
-
-                            @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                            @endif
-
-                        </div>
-                    </div>
-                    {{-- <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                            <div class="social">
-                                <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
-                                <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fa fa-google-plus"></i> </a>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <div class="form-group m-b-0">
-                        <div class="col-sm-12 text-center">
-                            {{-- <p>Don't have an account? <a href="register" class="text-primary m-l-5"><b>Sign Up</b></a></p> --}}
-                        </div>
-                    </div>
-                </form>
-                <form class="form-horizontal" id="recoverform" action="index.html">
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <h3>Recover Password</h3>
-                            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group text-center m-t-20">
-                        <div class="col-xs-12">
-                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
         </div>
-</div>  
-    <!-- jQuery -->
-    <script src="{{ asset('template/plugins/components/jquery/dist/jquery.min.js')}}"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('template/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="{{ asset('template/js/sidebarmenu.js')}}"></script>
-    <!--slimscroll JavaScript -->
-    <script src="{{ asset('template/js/jquery.slimscroll.js')}}"></script>
-    <!--Wave Effects -->
-    <script src="{{ asset('template/js/waves.js')}}"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('template/js/custom.js')}}"></script>
-    <!--Style Switcher -->
-    <script src="{{ asset('template/plugins/components/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input  placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-</body>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="checkbox checkbox-primary pull-left p-t-0">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-</html>
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+            </div>
+            <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> </div>
+    </div>
+    <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">
+                {{ __('Login') }}
+            </button>
+
+            @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+            @endif
+
+        </div>
+    </div>
+    </form>
+    <form class="form-horizontal" id="recoverform" action="index.html">
+    <div class="form-group ">
+        <div class="col-xs-12">
+            <h3>Recover Password</h3>
+            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="col-xs-12">
+            <input class="form-control" type="text" required="" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+        </div>
+    </div>
+    </form>
+@endsection

@@ -5,6 +5,7 @@ use App\Http\Controllers\BajuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\DasboardController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -21,8 +22,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/reg', function () {
-    return view('user.create');
+Route::get('/test', function () {
+    return view('user.test');
 });
 
 Auth::routes();
@@ -31,6 +32,7 @@ Route::match(["GET", "POST"], "/register", function(){
     return redirect("/login");
    })->name("register");
 
+Route::resource('galeri', GaleriController::class);
 Route::resource('user', UserController::class);
 Route::resource('dasboard', DasboardController::class);
 Route::resource('pages', PagesController::class);

@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nama*</label>
                 <div class="col-sm-9">
-                    <input value=" {{$baju->title}} " type="text" class="form-control {{$errors->first('name') ? "is-invalid": ""}}" id="nama" placeholder="Nama" name="name"> 
+                    <input value="{{$baju->title}}" type="text" class="form-control {{$errors->first('name') ? "is-invalid": ""}}" id="nama" placeholder="Nama" name="name"> 
                     <div class="invalid-feedback">
                         {{$errors->first('name')}}
                     </div>
