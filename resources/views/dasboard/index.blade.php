@@ -265,7 +265,7 @@
                             <img src="{{ asset('template/plugins/images/task.jpg')}}" alt="task" class="img-responsive">
                             <div class="task-image-overlay"></div>
                             <div class="task-detail">
-                            <h2 class="font-light text-white m-b-0">{{now()->format('l, y F Y')}}</h2>
+                            <h2 class="font-light text-white m-b-0">{{now()->format('l, d F Y')}}</h2>
                                 <h4 class="font-normal text-white m-t-5">Your tasks for today</h4>
                             </div>
                         </div>

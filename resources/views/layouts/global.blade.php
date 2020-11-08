@@ -97,23 +97,9 @@
                                 <i class="icon-calender"></i>
                                 <span class="badge badge-xs badge-danger">3</span>
                             </a>
-                            <ul class="dropdown-menu dropdown-tasks animated slideInUp">
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <div>
-                                            <p>
-                                                <strong>Task 1</strong>
-                                                <span class="pull-right text-muted">40% Complete</span>
-                                            </p>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                    <span class="sr-only">40% Complete (success)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="dropdown-menu dropdown-tasks animated slideInUp" id="calendar">
+                                
+                            </div>
                         </li>
                     <!-- Authentication Links -->
                     @guest
