@@ -87,7 +87,7 @@ class BajuController extends Controller
             ])->validate();
 
         $new_clothes = new \App\Models\Baju;
-        $new_clothes->title = $request->get('name');
+        $new_clothes->title = ucfirst($request->get('name'));
         $new_clothes->kategori = ($request->get('kategori'));
         $new_clothes->status = ($request->get('status'));
         $new_clothes->jenis_ukuran = ($request->get('jenis_ukuran'));
@@ -108,7 +108,6 @@ class BajuController extends Controller
         $new_clothes->panjang_rok = $request->get('panjang_rok');
         $new_clothes->panjang_celana = $request->get('panjang_celana');
         $new_clothes->panjang_krah = $request->get('panjang_krah');
-        $new_clothes->invoice = $request->get('invoice');
 
         if($request->file('avatar')){
             $file = $request->file('avatar')->store('avatars', 'public');
@@ -173,7 +172,6 @@ class BajuController extends Controller
             "panjang_rok" => "min:1|max:4",
             "panjang_celana" => "min:1|max:4",
             "panjang_krah" => "min:1|max:4",
-            "avatar" => "required"
             ])->validate();
 
         $title = $request->get('name');

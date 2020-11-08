@@ -93,33 +93,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="lingkar_pipa" class="col-sm-3 control-label">Lingkar Pipa*</label>
-                <div class="col-sm-9">
-                    <input value="{{old('lingkar_pipa')}}" type="number" class="form-control {{$errors->first('lingkar_pipa') ? "is-invalid": ""}}" id="lingkar_pipa" name="lingkar_pipa" placeholder="Lingkar Pipa"> 
-                    <div class="invalid-feedback">
-                        {{$errors->first('lingkar_pipa')}}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lingkar_paha" class="col-sm-3 control-label">Lingkar Paha*</label>
-                <div class="col-sm-9">
-                    <input value="{{old('lingkar_paha')}}" type="number" class="form-control {{$errors->first('lingkar_paha') ? "is-invalid": ""}}" id="lingkar_paha" name="lingkar_paha" placeholder="Lingkar Paha"> 
-                    <div class="invalid-feedback">
-                        {{$errors->first('lingkar_paha')}}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lingkar_lutut" class="col-sm-3 control-label">Lingkar Lutut*</label>
-                <div class="col-sm-9">
-                    <input value="{{old('lingkar_lutut')}}" type="number" class="form-control {{$errors->first('lingkar_lutut') ? "is-invalid": ""}}" id="lingkar_lutut" name="lingkar_lutut" placeholder="Lingkar Lutut"> 
-                    <div class="invalid-feedback">
-                        {{$errors->first('lingkar_lutut')}}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="lebar_muka" class="col-sm-3 control-label">Lebar Muka*</label>
                 <div class="col-sm-9">
                     <input value="{{old('lebar_muka')}}" type="number" class="form-control {{$errors->first('lebar_muka') ? "is-invalid": ""}}" id="lebar_muka" name="lebar_muka" placeholder="Lebar Muka"> 
@@ -134,32 +107,6 @@
                     <input value="{{old('lebar_punggung')}}" type="number" class="form-control {{$errors->first('lebar_punggung') ? "is-invalid": ""}}" id="lebar_punggung" name="lebar_punggung" placeholder="Lebar Punggung"> 
                     <div class="invalid-feedback">
                         {{$errors->first('lebar_punggung')}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-        <div class="col-md-6">
-            <div class="white-box form-horizontal m-t-10 p-b-20">
-                <div class="form-group">
-                    <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
-                    <div class="col-sm-9">
-                        <input value="{{old('lebar_lengan')}}" type="number" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
-                        <div class="invalid-feedback">
-                            {{$errors->first('lebar_lengan')}}
-                        </div>
-                    </div>
-                </div>
-            <div class="form-group">
-                <label for="lebar_ban_lengan" class="col-sm-3 control-label">Lebar Ban Lengan*</label>
-                <div class="col-sm-9">
-                    <input value="{{old('lebar_ban_lengan')}}" type="number" class="form-control {{$errors->first('lebar_ban_lengan') ? "is-invalid": ""}}" id="lebar_ban_lengan" name="lebar_ban_lengan" placeholder="Lebar Ban Lengan"> 
-                    <div class="invalid-feedback">
-                        {{$errors->first('lebar_ban_lengan')}}
                     </div>
                 </div>
             </div>
@@ -190,6 +137,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+
+
+        <div class="col-md-6">
+            <div class="white-box form-horizontal m-t-10 p-b-20">
             <div class="form-group">
                 <label for="panjang_lengan" class="col-sm-3 control-label">Panjang Lengan*</label>
                 <div class="col-sm-9">
@@ -199,6 +154,15 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="lebar_lengan" class="col-sm-3 control-label">Lebar Lengan*</label>
+                    <div class="col-sm-9">
+                        <input value="{{old('lebar_lengan')}}" type="number" class="form-control {{$errors->first('lebar_lengan') ? "is-invalid": ""}}" id="lebar_lengan" name="lebar_lengan" placeholder="Lebar Lengan"> 
+                        <div class="invalid-feedback">
+                            {{$errors->first('lebar_lengan')}}
+                        </div>
+                    </div>
+                </div>
             <div class="form-group">
                 <label for="panjang_rok" class="col-sm-3 control-label">Panjang Rok*</label>
                 <div class="col-sm-9">
@@ -218,6 +182,33 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="lingkar_pipa" class="col-sm-3 control-label">Lingkar Pipa*</label>
+                <div class="col-sm-9">
+                    <input value="{{old('lingkar_pipa')}}" type="number" class="form-control {{$errors->first('lingkar_pipa') ? "is-invalid": ""}}" id="lingkar_pipa" name="lingkar_pipa" placeholder="Lingkar Pipa"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('lingkar_pipa')}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lingkar_paha" class="col-sm-3 control-label">Lingkar Paha*</label>
+                <div class="col-sm-9">
+                    <input value="{{old('lingkar_paha')}}" type="number" class="form-control {{$errors->first('lingkar_paha') ? "is-invalid": ""}}" id="lingkar_paha" name="lingkar_paha" placeholder="Lingkar Paha"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('lingkar_paha')}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lingkar_lutut" class="col-sm-3 control-label">Lingkar Lutut*</label>
+                <div class="col-sm-9">
+                    <input value="{{old('lingkar_lutut')}}" type="number" class="form-control {{$errors->first('lingkar_lutut') ? "is-invalid": ""}}" id="lingkar_lutut" name="lingkar_lutut" placeholder="Lingkar Lutut"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('lingkar_lutut')}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="panjang_krah" class="col-sm-3 control-label">Panjang Krah*</label>
                 <div class="col-sm-9">
                     <input value="{{old('panjang_krah')}}" type="number" class="form-control {{$errors->first('panjang_krah') ? "is-invalid": ""}}" id="panjang_krah" name="panjang_krah" placeholder="Panjang Krah"> 
@@ -226,7 +217,15 @@
                     </div>
                 </div>
             </div>
-            
+            <div class="form-group">
+                <label for="lebar_ban_lengan" class="col-sm-3 control-label">Lebar Ban Lengan*</label>
+                <div class="col-sm-9">
+                    <input value="{{old('lebar_ban_lengan')}}" type="number" class="form-control {{$errors->first('lebar_ban_lengan') ? "is-invalid": ""}}" id="lebar_ban_lengan" name="lebar_ban_lengan" placeholder="Lebar Ban Lengan"> 
+                    <div class="invalid-feedback">
+                        {{$errors->first('lebar_ban_lengan')}}
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="avatar" class="col-sm-3 control-label">Gambar</label>
                 <div class="col-sm-9">
@@ -236,12 +235,9 @@
                     </div>
                 </div>
             </div>
-           
 
-
-            <input value="0" type="hidden" class="form-control {{$errors->first('invoice') ? "is-invalid": ""}}" id="invoice" name="invoice"> 
+            <!-- <input value="0" type="hidden" class="form-control {{$errors->first('invoice') ? "is-invalid": ""}}" id="invoice" name="invoice">  -->
                     
-            
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
                     <div class="checkbox checkbox-success">
