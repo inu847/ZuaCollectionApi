@@ -18,12 +18,12 @@ class BajuTableSeeder extends Seeder
         $baju = [];
         $faker = Faker::create();
         for($i=0;$i<15;$i++){
-            // $avatar_path = 'public/storages/avatars';
-            // $avatar_fullpath = $faker->image( $avatar_path, 200, 250, 'people', true, true, 'people');
-            // $avatar = str_replace($avatar_path . '/' , '', $avatar_fullpath);
+            $avatar_path = 'public/';
+            $avatar_fullpath = $faker->image( $avatar_path, 200, 250, 'people', true, true, 'people');
+            $avatar = str_replace($avatar_path . '/' , '', $avatar_fullpath);
             $baju[$i] = [
                 'title' => $faker->name,
-                // 'avatar' => $avatar,
+                'avatar' => $avatar,
                 'status' => 'PROCESS',
                 'kategori' => 'Atasan Wanita',
                 'jenis_ukuran' => 'Ukuran Badan',
