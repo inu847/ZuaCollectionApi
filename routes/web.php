@@ -7,6 +7,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScrapingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::match(["GET", "POST"], "/register", function(){
     return redirect("/login");
    })->name("register");
 
+Route::resource('scrapingformforme', ScrapingController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('user', UserController::class);
 Route::resource('dasboard', DasboardController::class);

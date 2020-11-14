@@ -27,7 +27,7 @@
                     <tr >
                         <td class="p-l-20">Gambar</td>
                         <td>@if($baju->avatar)
-                            <img src="{{asset('public/'. $baju->avatar)}}" width="128px"/>
+                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px"/>
                             @else
                             No avatar
                             @endif </td>
