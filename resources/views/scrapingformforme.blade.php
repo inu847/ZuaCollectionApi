@@ -55,13 +55,6 @@
                                     </tr>
                                     @endforeach
                             </tbody>
-							<tfoot>
-								<tr class="text-right">
-									<td colspan=10>
-										{{$scraping->appends(Request::all())->links()}}
-									</td>
-								</tr>
-							</tfoot>
                         </table>
                     </div>
                 </div>
