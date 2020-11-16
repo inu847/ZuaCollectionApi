@@ -46,14 +46,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
                                     @foreach ($scraping as $page)
+                                    <tr>
                                         <td>{{$page->title}}</td>
                                         <td>{{$page->kategori}}</td>
                                         <td>{{$page->invoice}}</td>
-                                        <td><i class="fa fa-clock-o"></i> {{$page->updated_at}}</td>
+                                        <td><i class="fa fa-clock-o"></i> {{$page->updated_at->diffForhumans()}}</td>
+                                    </tr>
                                     @endforeach
-                                </tr>
                             </tbody>
                         </table>
                     </div>
