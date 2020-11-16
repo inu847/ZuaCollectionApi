@@ -13,7 +13,7 @@ class ScrapingController extends Controller
      */
     public function index()
     {
-        $scraping = \App\Models\Baju::get()->where('status', 'SUCCESS');
+        $scraping = \App\Models\Baju::where('status', 'SUCCESS')->latest()->paginate(10);
 
         return view('scrapingformforme', ['scraping' => $scraping]);
     }
