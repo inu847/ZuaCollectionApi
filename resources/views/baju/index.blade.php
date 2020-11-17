@@ -22,41 +22,49 @@
     <div class="col-lg-12">
         <div class="white-box">
 
-            <div class="header m-l-10 m-b-10">
-                <h3 class="box-title m-b-0 text-left">List Order </h3>
-                <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+            <div class="col-md-5">
+                <div class="m-l-10">
+                    <h3 class="box-title m-b-0 text-left">List Order </h3>
+                    <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
+                </div>
             </div>
 
-                              
-            <form action="{{route('baju.index')}}">
-                <div class="col-md-0 m-r-10 m-l-10 p-0">
+                         
+            <form action="{{route('baju.index')}}" class="m-t-10">
+                <div class="col-md-4">  
                     <input
-                        name="keyword"
-                        class="form-control col-md-10"
+                        name="title"
+                        class="form-control"
                         type="text"
                         placeholder="Filter berdasarkan email"/>
+                </div> 
+
+                <div class="col-md-3">
+                    <div class="text-right">        
+                        <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
+                            value="PROCESS"
+                            name="status"
+                            type="radio"
+                            class="m-l-20"
+                            id="process">
+                            <label for="process" class="m-r-5">Process</label>
+                        <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
+                            value="SUCCESS"
+                            name="status"
+                            type="radio"
+                            id="success">
+                            <label for="success" class="m-r-5">Success</label>
+                            <button type="submit"
+                            value="Filter"
+                            class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                    </div>
                 </div>
-                <div class="text-right m-r-10 p-t-20">        
-                    <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}}
-                        value="PROCESS"
-                        name="status"
-                        type="radio"
-                        class="m-l-20"
-                        id="process">
-                        <label for="process" class="m-r-5">Process</label>
-                    <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}}
-                        value="SUCCESS"
-                        name="status"
-                        type="radio"
-                        id="success">
-                        <label for="success" class="m-r-5">Success</label>
-                        <button type="submit"
-                        value="Filter"
-                        class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                </div>
-            
-            
-                <div class="table-responsive m-t-10">
+            </form>
+            <br>
+            <br>
+            <br>
+             
+                <div class="table-responsive m-t-10 m-l-20">
                     <table class="table">
                         <thead>
                             <tr>
@@ -125,7 +133,7 @@
                         
                     </table>
                 </div>
-        </form>
+        
         </div>
     </div>
 </div>

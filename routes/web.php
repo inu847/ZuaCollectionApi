@@ -8,6 +8,8 @@ use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScrapingController;
+use App\Http\Controllers\SuggestionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('/test', function () {
-    return view('user.test');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -33,6 +35,7 @@ Route::match(["GET", "POST"], "/register", function(){
     return redirect("/login");
    })->name("register");
 
+Route::resource('suggestion', SuggestionController::class);
 Route::resource('scrapingformforme', ScrapingController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('user', UserController::class);

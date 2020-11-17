@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Suggestion;
 
-class ScrapingController extends Controller
+class SuggestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,9 @@ class ScrapingController extends Controller
      */
     public function index()
     {
-        $scraping = \App\Models\Baju::where('status', 'SUCCESS')->latest()->get();
+        $suggestions = Suggestion::first();
 
-        return view('feature.scrapingformforme', ['scraping' => $scraping]);
+        return view('feature.suggest', ['suggestion' => $suggestions]);
     }
 
     /**
