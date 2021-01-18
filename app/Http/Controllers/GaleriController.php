@@ -23,7 +23,7 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        //
+        return view('galeri.create');
     }
 
     /**

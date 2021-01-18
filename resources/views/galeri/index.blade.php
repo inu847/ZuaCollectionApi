@@ -23,9 +23,9 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">African men's clothing</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;$119.70
-                        <span class="old-price">&#36;150</span>
+                    <span class="old-price">&#36;150</span>
                     </h3>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">Batik amazing from jogja</small>
-                    <span class="pro-dis bg-success">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -53,7 +53,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-info">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -68,7 +68,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -83,7 +83,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-success">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -98,7 +98,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -113,7 +113,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -128,7 +128,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-info">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -143,7 +143,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -158,7 +158,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-success">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -173,7 +173,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-info">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
@@ -188,7 +188,7 @@
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
                     <small class="text-muted db">This elegant african suit for men</small>
-                    <span class="pro-dis bg-danger">28% <br> off</span>
+                    <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
                     <h3 class="pro-price m-b-0">&#36;72
                         <span class="old-price">&#36;100</span>
                     </h3>
