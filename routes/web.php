@@ -28,6 +28,7 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('welcome');
 });
+Route::resource('galeri', GaleriController::class);
 
 Auth::routes();
 
@@ -37,7 +38,6 @@ Route::match(["GET", "POST"], "/register", function(){
 
 Route::resource('suggestion', SuggestionController::class);
 Route::resource('scrapingformforme', ScrapingController::class);
-Route::resource('galeri', GaleriController::class);
 Route::resource('user', UserController::class);
 Route::resource('dasboard', DasboardController::class);
 Route::resource('pages', PagesController::class);

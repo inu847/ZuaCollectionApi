@@ -147,9 +147,11 @@
             </nav>
             <!-- ===== Top-Navigation-End ===== -->
             <!-- ===== Left-Sidebar ===== -->
+            <div class="col-md-12 m-t-5 m-l-10">
+                    @yield('judul')
+            </div>
             
             <div class="page-wrapper">
-                <div class="container-fluid">
                     <main class="py-4">
                         @yield('content')
                     </main>
