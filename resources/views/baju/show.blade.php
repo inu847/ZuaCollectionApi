@@ -28,7 +28,7 @@
                         <td class="p-l-20">Gambar</td>
                         <td>@if($baju->avatar)
                             <div class="side_view"> 
-                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px" id="myImg"/>
+                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px" id="myImg" alt="Baju : {{$baju->kategori}} {{$baju->title}}"/>
 
                             {{-- Modals preview image --}}
                             <div id="myModal" class="modal">

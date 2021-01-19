@@ -110,13 +110,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">Country</label>
-                                                    <div class="col-md-9 m-b-10">
-                                                        <input type="text" class="form-control" placeholder="Take Your Country"> 
-                                                        <span class="help-block">{{$errors->first('name')}}</span>
-                                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 m-t-10">Address 2</label>
+                                                <div class="col-md-9 m-b-10">
+                                                    <input type="text" class="form-control" placeholder="Take Your Another Address">
+                                                    <span class="help-block">{{$errors->first('name')}}</span> 
                                                 </div>
                                             </div>
                                         </div>
@@ -157,96 +156,14 @@
                                     <!--/span-->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 m-t-10">Sell</label>
+                                            <label class="control-label col-md-3">Country</label>
                                                 <div class="col-md-9 m-b-10">
-                                                    
-                                                    <div class="select-sim" id="select-color">
-                                                        <div class="options">
-                                                            <div class="option">
-                                                                <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-" checked />
-                                                                    <label for="color-">
-                                                                    <img src="{{ asset('template/plugins/images/1.jpg')}}" alt=""/> Select Your option
-                                                                </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-red" />
-                                                            <label for="color-red">
-                                                              <img src="{{ asset('template/plugins/images/1.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-red" />
-                                                            <label for="color-red">
-                                                              <img src="{{ asset('template/plugins/images/2.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-green" />
-                                                            <label for="color-green">
-                                                              <img src="{{ asset('template/plugins/images/3.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-blue" />
-                                                            <label for="color-blue">
-                                                              <img src="{{ asset('template/plugins/images/4.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-yellow" />
-                                                            <label for="color-yellow">
-                                                              <img src="{{ asset('template/plugins/images/5.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/6.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/7.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/8.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/9.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/10.jpg')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/11.png')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-                                                          <div class="option">
-                                                            <input type="radio" name="color" value="Batik made in Indonesia full color" id="color-pink" />
-                                                            <label for="color-pink">
-                                                              <img src="{{ asset('template/plugins/images/12.png')}}" alt="" width="50%" height="30%"/> Batik made in Indonesia full color
-                                                            </label>
-                                                          </div>
-
-                                                        </div>
-                                                      </div>
+                                                    <input type="text" class="form-control" placeholder="Take Your Country"> 
                                                     <span class="help-block">{{$errors->first('name')}}</span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     <!--/span-->
                                 <!--/row-->
                             </div>

@@ -90,10 +90,12 @@
             max-width: 400px;
         }
         #caption {
-            margin: auto;
+            margin-left: 425px;
+            margin-right: 4750px;
+            /* margin: auto; */
             display: block;
             width: 80%;
-            max-width: 700px;
+            max-width: 400px;
             text-align: center;
             color: #ccc;
             padding: 10px 0;
@@ -134,6 +136,227 @@
                 width: 100%;
             }
         }
+        
+        .select-sim {
+        width:425px;
+        height:50px;
+        line-height:22px;
+        vertical-align:middle;
+        position:relative;
+        background:white;
+        border:1px solid #ccc;
+        overflow:hidden;
+        }
+
+        .select-sim::after {
+        content:"▼";
+        font-size:1em;
+        font-family:arial;
+        position:absolute;
+        top:50%;
+        right:5px;
+        transform:translate(0, -50%);
+        }
+
+        .select-sim:hover::after {
+        content:"";
+        }
+
+        .select-sim:hover {
+        overflow:visible;
+        }
+
+        .select-sim:hover .options .option label {
+        display:inline-block;
+        }
+
+        .select-sim:hover .options {
+        background:white;
+        border:1px solid #ccc;
+        position:relative;
+        top:-1px;
+        left:-1px;
+        /* width:100%; */
+        height:300%;
+        overflow-y:scroll;
+        }
+
+        .select-sim .options .option {
+        overflow:hidden;
+        height: 50%;
+        width: 30%;
+        position: relative;
+        }
+
+        .select-sim:hover .options .option {
+        height: 80%;
+        width: 80%;
+        margin-bottom: 10px;
+        overflow:hidden;
+        }
+
+        .select-sim .options .option img {
+        vertical-align:middle;
+        height: 50%;
+        width: 30%;
+        }
+
+        .select-sim .options .option label {
+        display:none;
+        }
+
+        .select-sim .options .option input {
+        width:0;
+        height:0;
+        overflow:hidden;
+        margin:0;
+        padding:0;
+        float:left;
+        display:inline-block;
+        /* fix specific for Firefox */
+        position: absolute;
+        left: -10000px;
+        }
+
+        .select-sim .options .option input:checked + label {
+        display:block;
+        
+        }
+
+        .select-sim:hover .options .option input + label {
+        display:block;
+        }
+
+        .select-sim:hover .options .option input:checked + label {
+        background:#fffff0;
+        }
+
+        /*dropdown*/
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+}
+.float-right{
+  float: right;
+}
+.fa{
+ font-size: .8em;
+  line-height: 22px !important;
+}
+dropdown{
+   display: inline-block;
+   margin: 20px 50px; 
+}
+dropdown label, dropdown ul li{
+  display: block;
+  width: px;
+  background: #191919;
+  opacity: 0.9;
+  padding: 15px 20px;
+}
+dropdown label:hover, dropdown ul li:hover{
+  background: #4D4D4D;
+  color: white;
+  cursor: pointer;
+}
+dropdown label{
+  color: #B2B2B2;
+  /*border-left: 4px solid #1ABC9C;*/
+  border-radius: 0 5px 0 0; 
+  position: relative;
+  z-index: 2;
+}
+dropdown input{
+  display: none;
+}
+dropdown input ~ ul{
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1;
+}
+dropdown input:checked + label{
+  background: #4D4D4D;
+  color: white;
+}
+
+dropdown input:checked ~ ul{
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+$colors: #FFFFFF, #0072B5, #2C3E50;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.monthname {
+  width: 17em;
+  
+}
+.pointer {
+  cursor: pointer;
+}
+body {
+  font-family: 'Lato',sans-serif;
+  padding: 1em 0;
+}
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.calendar p {
+	margin-bottom: .5em;
+	color: #FFFFFF;
+}
+.calendar {
+	background: #222;
+	color: #ddd;
+	padding: .5em .5em 1em;
+	max-width: 20em;
+	min-height: 15em;
+	margin: .5em auto;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.calendar li {
+	float: left;
+	width: -webkit-calc(100%/7);
+	text-align: center;
+	padding: .25em 0;
+	cursor: pointer;
+	border-bottom: 1px solid #444;
+}
+.calendar li:hover, .calendar li.red {
+	color: red;
+}
+.calendar li:nth-child(-n+7) {
+	color: #666;
+}
+.center {
+	text-align: center;
+}
     </style>
     <body class="mini-sidebar fix-header">
         <!-- ===== Main-Wrapper ===== -->
@@ -198,10 +421,24 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="icon-calender"></i>
-                                <span class="badge badge-xs badge-danger">3</span>
                             </a>
-                            <div class="dropdown-menu dropdown-tasks animated slideInUp" id="calendar">
-                                
+                            <div class="dropdown-menu dropdown-tasks animated slideInUp" >
+                                <div class="calendar">
+                                        <div class="group">
+                                            <p class="left pointer minusmonth">&laquo;</p>
+                                            <p class="left monthname center pointer"></p>
+                                            <p class="right pointer addmonth">&raquo;</p>
+                                        </div>
+                                        <ul class="group">
+                                            <li>Mo</li>
+                                            <li>Tu</li>
+                                            <li>We</li>
+                                            <li>Th</li>
+                                            <li>Fr</li>
+                                            <li>Sa</li>
+                                            <li>Su</li>
+                                        </ul>
+                                </div>      
                             </div>
                         </li>
                     <!-- Authentication Links -->
@@ -346,6 +583,70 @@
             span.onclick = function() { 
               modal.style.display = "none";
             }
+        </script>
+        <script>
+            var themonth = 1;
+renderCal(themonth);
+
+$('.minusmonth').click(function(){
+  themonth += -1;
+  renderCal(themonth);
+});
+
+$('.addmonth').click(function(){
+  themonth += 1;
+  renderCal(themonth);
+});
+
+function renderCal(themonth){
+$('.calendar li').remove();
+$('.calendar ul').append('<li>Mo</li><li>Tu</li><li>We</li><li>Th</li><li>Fr</li><li>Sa</li> <li>Su</li>');
+var d = new Date(),
+  currentMonth = d.getMonth()+themonth, // get this month
+  days = numDays(currentMonth,d.getYear()), // get number of days in the month
+  fDay = firstDay(currentMonth,d.getYear())-1, // find what day of the week the 1st lands on
+  months = ['January','February','March','April','May','June','July','August','September','October','November','December']; // month names
+
+$('.calendar p.monthname').text(months[currentMonth-1]); // add month name to calendar
+
+for (var i=0;i<fDay-1;i++) { // place the first day of the month in the correct position
+  $('<li>&nbsp;</li>').appendTo('.calendar ul');
+}
+
+for (var i = 1;i<=days;i++) { // write out the days
+  $('<li>'+i+'</li>').appendTo('.calendar ul');
+}
+
+function firstDay(month,year) {
+  return new Date(year,month,1).getDay();
+}
+
+function numDays(month,year) {
+  return new Date(year,month,0).getDate();
+}
+
+var clicker = 0;
+var min = 0;
+var max = 0;
+
+$('.calendar li').click(function(){ // toggle selected dates
+  if(clicker==0){
+    clicker=1;
+    $('.calendar li').removeClass('red');
+    $(this).addClass('red');
+    min = $(this).text();
+  } else {
+    clicker=0;
+    $(this).addClass('red');
+    $('.calendar li.red').each(function(){
+      max = $(this).text();
+    });
+    for(i=parseInt(min);i<parseInt(max);i++){
+      $('.calendar li:nth-of-type('+(i+7+fDay-1)+')').addClass('red'); 
+    }
+  }
+});
+}
         </script>
     </body>
 </html>
