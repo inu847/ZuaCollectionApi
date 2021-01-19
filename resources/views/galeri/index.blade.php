@@ -18,7 +18,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/1.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/1.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/2.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">African men's clothing</h3>
@@ -33,7 +38,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/2.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/2.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/1.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -48,7 +58,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/3.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/3.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/4.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -63,7 +78,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/4.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/4.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/5.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -78,7 +98,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/5.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/5.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/7.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -93,7 +118,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/6.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/6.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/1.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -108,7 +138,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/7.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/7.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/3.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -123,7 +158,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/8.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/8.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/4.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -138,7 +178,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/9.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/9.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/6.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -153,7 +198,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/10.jpg')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/10.jpg')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/9.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -168,7 +218,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/11.png')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/11.png')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/1.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>
@@ -183,7 +238,12 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="white-box">
                 <div class="product-img">
-                    <img class="place-self-center " src="{{ asset('template/plugins/images/12.png')}}" class="img-responsive" />
+                    <div class="container">
+                        <img class="place-self-center image" src="{{ asset('template/plugins/images/12.png')}}" class="img-responsive" />
+                        <div class="overlay">
+                            <img class="text " src="{{ asset('template/plugins/images/10.jpg')}}" class="img-responsive" />
+                        </div>
+                    </div>
                 </div>
                 <div class="product-text">
                     <h3 class="box-title m-b-0">Batik Jogja</h3>

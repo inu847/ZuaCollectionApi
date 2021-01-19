@@ -10,10 +10,10 @@
         <div class="white-box">
             <div style="float: left;">
             <h3 class="box-title m-b-0">Detail Order</h3>
-            <p class="text-muted m-b-20">Sesuaikan ukuran dibawah. jika ada kesalahan data silahkan tekan tombol edit disebelah.</p>
+            <p class="text-muted m-b-20">Sesuaikan ukuran dibawah. jika ada kesalahan data silahkan tekan tombol edit disebelah kanan.</p>
             </div>
             <div style="float: right; margin-top: 30px;">
-            <a href="{{route('baju.edit', [$baju->id])}}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                <a href="{{route('baju.edit', [$baju->id])}}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
             </div>
             <table class="tablesaw table-striped table-hover table-bordered table" data-tablesaw-mode="columntoggle">
                 <thead>
@@ -27,7 +27,17 @@
                     <tr >
                         <td class="p-l-20">Gambar</td>
                         <td>@if($baju->avatar)
-                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px"/>
+                            <div class="side_view"> 
+                            <img src="{{asset('storage/'. $baju->avatar)}}" width="128px" id="myImg"/>
+
+                            {{-- Modals preview image --}}
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption"></div>
+                            </div>
+
+                            </div>
                             @else
                             No avatar
                             @endif </td>
