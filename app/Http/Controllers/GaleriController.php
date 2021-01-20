@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -13,7 +14,9 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        return view('galeri.index');
+        $product = Product::get();
+
+        return view('galeri.index', ['product' => $product]);
     }
 
     /**
@@ -23,7 +26,7 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        return view('galeri.create');
+        return view('galeri.checkout');
     }
 
     /**

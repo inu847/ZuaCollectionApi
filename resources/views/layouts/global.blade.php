@@ -11,8 +11,6 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>Cubic Admin Template</title>
         <!-- ===== Bootstrap CSS ===== -->
         <link href="{{ asset('template/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
         <!-- ===== Plugin CSS ===== -->
@@ -54,7 +52,7 @@
             bottom: 0;
             left: 100%;
             right: 0;
-            /* background-color: #008CBA; */
+            background-color: white;
             overflow: hidden;
             width: 0;
             height: 100%;
@@ -85,13 +83,13 @@
         }
         .modal-content {
             margin: auto;
+            margin-top: 40px; 
             display: block;
-            width: 80%;
             max-width: 400px;
         }
         #caption {
-            margin-left: 425px;
-            margin-right: 4750px;
+            margin-left: 475px;
+            margin-right: 425px;
             /* margin: auto; */
             display: block;
             width: 80%;
@@ -233,130 +231,114 @@
 
         /*dropdown*/
 
-*{
-  padding: 0;
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
-}
-.float-right{
-  float: right;
-}
-.fa{
- font-size: .8em;
-  line-height: 22px !important;
-}
-dropdown{
-   display: inline-block;
-   margin: 20px 50px; 
-}
-dropdown label, dropdown ul li{
-  display: block;
-  width: px;
-  background: #191919;
-  opacity: 0.9;
-  padding: 15px 20px;
-}
-dropdown label:hover, dropdown ul li:hover{
-  background: #4D4D4D;
-  color: white;
-  cursor: pointer;
-}
-dropdown label{
-  color: #B2B2B2;
-  /*border-left: 4px solid #1ABC9C;*/
-  border-radius: 0 5px 0 0; 
-  position: relative;
-  z-index: 2;
-}
-dropdown input{
-  display: none;
-}
-dropdown input ~ ul{
-  position: relative;
-  visibility: hidden;
-  opacity: 0;
-  top: -20px;
-  z-index: 1;
-}
-dropdown input:checked + label{
-  background: #4D4D4D;
-  color: white;
-}
+        /* *{
+        padding: 0;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        box-sizing: border-box;
+        }
+        .float-right{
+        float: right;
+        }
+        .fa{
+        font-size: .8em;
+        line-height: 22px !important;
+        }
+        dropdown{
+        display: inline-block;
+        margin: 20px 50px; 
+        }
+        dropdown label, dropdown ul li{
+        display: block;
+        width: px;
+        background: #191919;
+        opacity: 0.9;
+        padding: 15px 20px;
+        }
+        dropdown label:hover, dropdown ul li:hover{
+        background: #4D4D4D;
+        color: white;
+        cursor: pointer;
+        }
+        dropdown label{
+        color: #B2B2B2;
+        border-radius: 0 5px 0 0; 
+        position: relative;
+        z-index: 2;
+        }
+        dropdown input{
+        display: none;
+        }
+        dropdown input ~ ul{
+        position: relative;
+        visibility: hidden;
+        opacity: 0;
+        top: -20px;
+        z-index: 1;
+        }
+        dropdown input:checked + label{
+        background: #4D4D4D;
+        color: white;
+        }
 
-dropdown input:checked ~ ul{
-  visibility: visible;
-  opacity: 1;
-  top: 0;
-}
-$colors: #FFFFFF, #0072B5, #2C3E50;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.left {
-  float: left;
-}
-.right {
-  float: right;
-}
-.monthname {
-  width: 17em;
-  
-}
-.pointer {
-  cursor: pointer;
-}
-body {
-  font-family: 'Lato',sans-serif;
-  padding: 1em 0;
-}
-.group:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-.calendar p {
-	margin-bottom: .5em;
-	color: #FFFFFF;
-}
-.calendar {
-	background: #222;
-	color: #ddd;
-	padding: .5em .5em 1em;
-	max-width: 20em;
-	min-height: 15em;
-	margin: .5em auto;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-.calendar li {
-	float: left;
-	width: -webkit-calc(100%/7);
-	text-align: center;
-	padding: .25em 0;
-	cursor: pointer;
-	border-bottom: 1px solid #444;
-}
-.calendar li:hover, .calendar li.red {
-	color: red;
-}
-.calendar li:nth-child(-n+7) {
-	color: #666;
-}
-.center {
-	text-align: center;
-}
+        dropdown input:checked ~ ul{
+        visibility: visible;
+        opacity: 1;
+        top: 0;
+        }
+        .left {
+        float: left;
+        }
+        .right {
+        float: right;
+        }
+        .monthname {
+        width: 17em;
+        
+        }
+        .pointer {
+        cursor: pointer;
+        }
+        body {
+        font-family: 'Lato',sans-serif;
+        padding: 1em 0;
+        }
+        .group:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .calendar p {
+            margin-bottom: .5em;
+            color: #FFFFFF;
+        }
+        .calendar {
+            background: #222;
+            color: #ddd;
+            padding: .5em .5em 1em;
+            max-width: 20em;
+            min-height: 15em;
+            margin: .5em auto;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .calendar li {
+            float: left;
+            width: -webkit-calc(100%/7);
+            text-align: center;
+            padding: .25em 0;
+            cursor: pointer;
+            border-bottom: 1px solid #444;
+        }
+        .calendar li:hover, .calendar li.red {
+            color: red;
+        }
+        .calendar li:nth-child(-n+7) {
+            color: #666;
+        }
+        .center {
+            text-align: center;
+        } */
     </style>
     <body class="mini-sidebar fix-header">
         <!-- ===== Main-Wrapper ===== -->
@@ -423,7 +405,7 @@ body {
                                 <i class="icon-calender"></i>
                             </a>
                             <div class="dropdown-menu dropdown-tasks animated slideInUp" >
-                                <div class="calendar">
+                                {{-- <div class="calendar">
                                         <div class="group">
                                             <p class="left pointer minusmonth">&laquo;</p>
                                             <p class="left monthname center pointer"></p>
@@ -440,7 +422,7 @@ body {
                                         </ul>
                                 </div>      
                             </div>
-                        </li>
+                        </li> --}}
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -549,6 +531,7 @@ body {
         <script src="{{ asset('template/js/sidebarmenu.js')}}"></script>
         <!-- ===== Custom JavaScript ===== -->
         <script src="{{ asset('template/js/custom.js')}}"></script>
+        <script src="{{ asset('template/js/jasny-bootstrap.js')}}"></script>
         <!-- ===== Plugin JS ===== -->
         <script src="{{ asset('template/plugins/components/chartist-js/dist/chartist.min.js')}}"></script>
         <script src="{{ asset('template/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')}}"></script>
@@ -561,7 +544,7 @@ body {
         <script src="{{ asset('template/plugins/components/sparkline/jquery.sparkline.min.js')}}"></script>
         <!-- ===== Style Switcher JS ===== -->
         <script src="{{ asset('template/plugins/components/styleswitcher/jQuery.style.switcher.js')}}"></script>
-
+            
         <script>
             // Get the modal
             var modal = document.getElementById("myModal");
@@ -583,70 +566,6 @@ body {
             span.onclick = function() { 
               modal.style.display = "none";
             }
-        </script>
-        <script>
-            var themonth = 1;
-renderCal(themonth);
-
-$('.minusmonth').click(function(){
-  themonth += -1;
-  renderCal(themonth);
-});
-
-$('.addmonth').click(function(){
-  themonth += 1;
-  renderCal(themonth);
-});
-
-function renderCal(themonth){
-$('.calendar li').remove();
-$('.calendar ul').append('<li>Mo</li><li>Tu</li><li>We</li><li>Th</li><li>Fr</li><li>Sa</li> <li>Su</li>');
-var d = new Date(),
-  currentMonth = d.getMonth()+themonth, // get this month
-  days = numDays(currentMonth,d.getYear()), // get number of days in the month
-  fDay = firstDay(currentMonth,d.getYear())-1, // find what day of the week the 1st lands on
-  months = ['January','February','March','April','May','June','July','August','September','October','November','December']; // month names
-
-$('.calendar p.monthname').text(months[currentMonth-1]); // add month name to calendar
-
-for (var i=0;i<fDay-1;i++) { // place the first day of the month in the correct position
-  $('<li>&nbsp;</li>').appendTo('.calendar ul');
-}
-
-for (var i = 1;i<=days;i++) { // write out the days
-  $('<li>'+i+'</li>').appendTo('.calendar ul');
-}
-
-function firstDay(month,year) {
-  return new Date(year,month,1).getDay();
-}
-
-function numDays(month,year) {
-  return new Date(year,month,0).getDate();
-}
-
-var clicker = 0;
-var min = 0;
-var max = 0;
-
-$('.calendar li').click(function(){ // toggle selected dates
-  if(clicker==0){
-    clicker=1;
-    $('.calendar li').removeClass('red');
-    $(this).addClass('red');
-    min = $(this).text();
-  } else {
-    clicker=0;
-    $(this).addClass('red');
-    $('.calendar li.red').each(function(){
-      max = $(this).text();
-    });
-    for(i=parseInt(min);i<parseInt(max);i++){
-      $('.calendar li:nth-of-type('+(i+7+fDay-1)+')').addClass('red'); 
-    }
-  }
-});
-}
         </script>
     </body>
 </html>
