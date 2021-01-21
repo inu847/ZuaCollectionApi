@@ -62,6 +62,7 @@ class PagesController extends Controller
             $file = $request->file('tampak_belakang')->store('tampak_belakang', 'public');
             $new_product->tampak_belakang = $file;
            }
+
         $new_product->price = $request->get('price');
         $new_product->save();
         return redirect()->route('pages.index')->with('status', 'Create New Product Success!!');
@@ -106,12 +107,12 @@ class PagesController extends Controller
         $product->deskripsi = ucfirst($request->get('deskripsi'));
         if($product->tampak_depan && file_exists(storage_path('app/public/' . $product->tampak_depan))){
             \Storage::delete('public/'.$product->tampak_depan);
-            $file = $request->file('tampak_depan')->store('tampak_depan', 'public');
+            $file = $request->file('tampak_depan')->store('avatars', 'public');
             $product->tampak_depan = $file;
            }
         if($product->tampak_belakang && file_exists(storage_path('app/public/' . $product->tampak_belakang))){
             \Storage::delete('public/'.$product->tampak_belakang);
-            $file = $request->file('tampak_belakang')->store('tampak_belakang', 'public');
+            $file = $request->file('tampak_belakang')->store('avatars', 'public');
             $product->tampak_belakang = $file;
            }
 
@@ -128,6 +129,9 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = \App\Models\Product::findOrFail($id);
+
+        $product->delete();
+        return redirect()->route('pages.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
 }

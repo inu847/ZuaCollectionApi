@@ -10,6 +10,11 @@
   {{session('status')}}
 </div>
 @endif
+@if(session('statusdel'))
+<div class="alert alert-danger">
+  {{session('statusdel')}}
+</div>
+@endif
 <div class="col-sm-12">
     <div class="white-box">
         <div class="row">
@@ -55,7 +60,7 @@
                                 <form
                                 onsubmit="return confirm('Delete this user permanently?')"
                                 class="d-inline"
-                                action="#"
+                                action="{{route('pages.destroy', [$page->id])}}"
                                 method="POST">
                                 @csrf
 
