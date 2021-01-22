@@ -15,7 +15,7 @@
                             action="{{route('pages.update', [$pages->id])}}"
                             enctype="multipart/form-data"
                             method="POST"
-                            
+                            class="form-horizontal"
                             >
                             @csrf
                             <input
@@ -32,22 +32,37 @@
                             <div class="form-group">
                                 <label class="col-md-12">Descriptions</label>
                                 <div class="col-md-12">
-                                    <textarea class="form-control {{$errors->first('deskripsi') ? "is-invalid": ""}}" value="{{$pages->deskripsi}}" id="nama" name="deskripsi"></textarea>
+                                    <textarea class="form-control {{$errors->first('deskripsi') ? "is-invalid": ""}}" id="nama" name="deskripsi">{{$pages->deskripsi}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-12">Gambar Tampak Depan</label>
                                 <div class="col-sm-12">
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                    @if($pages->tampak_depan)
+                                            <img src="{{asset('storage/'.$pages->tampak_depan)}}" width="120px" />
+                                        <br>
+                                        @else
+                                            No avatar
+                                        @endif
+                                    <div class="fileinput fileinput-new input-group p-t-10" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
                                         <input value="{{$pages->tampak_depan}}" type="file" class="{{$errors->first('tampak_depan') ? "is-invalid": ""}}" id="tampak_depan" name="tampak_depan"> 
                                         </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('tampak_depan')}}
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-12">Gambar Tampak Belakang</label>
                                 <div class="col-sm-12">
+                                    @if($pages->tampak_belakang)
+                                            <img src="{{asset('storage/'.$pages->tampak_belakang)}}" width="120px" />
+                                        <br>
+                                        @else
+                                            No avatar
+                                        @endif
                                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput"> 
                                             <i class="glyphicon glyphicon-file fileinput-exists"></i> 
@@ -56,9 +71,12 @@
                                         <span class="input-group-addon btn btn-default btn-file"> 
                                             <span class="fileinput-new">Select file</span> 
                                             <span class="fileinput-exists">Change</span>
-                                            <input value="{{$pages->tampak_belakang}}" type="file" class="{{$errors->first('tampak_belakang') ? "is-invalid": ""}}" id="tampak_belakang" name="tampak_belakang"> 
+                                            <input value="{{$pages->tampak_belakang}}" type="file" class="{{$errors->first('tampak_belakang') ? "is-invalid": ""}}" id="tampak_belakang" name="tampak_belakang">
                                         </span> 
                                         <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        {{$errors->first('tampak_belakang')}}
                                     </div>
                                 </div>
                             </div>

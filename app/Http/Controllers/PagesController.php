@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use \App\Models\Product;
+use \App\Models\Product;
 
 class PagesController extends Controller
 {
@@ -20,7 +20,7 @@ class PagesController extends Controller
     
     public function index(Request $request)
     {
-        $pages = \App\Models\Product::paginate(10);   
+        $pages = Product::paginate(10);   
 
         return view('pages.index', ['pages' => $pages]);
     }
@@ -45,13 +45,13 @@ class PagesController extends Controller
     {
         \Validator::make($request->all(),[
             "product_name" => "required|min:1|max:30",
-            "tampak_depan" => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            "tampak_belakang" => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            "deskripsi" => "min:1|max:4",
-            "price" => "min:1|max:4",
+            "deskripsi" => "required|min:1|max:100",
+            "tampak_depan" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
+            "tampak_belakang" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
+            "price" => "required|min:1|max:10",
             ])->validate();
 
-        $new_product = new \App\Models\Product;
+        $new_product = new Product;
         $new_product->product_name = ucfirst($request->get('product_name'));
         $new_product->deskripsi = ucfirst($request->get('deskripsi'));
         if($request->file('tampak_depan')){
@@ -76,7 +76,9 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $galeri = Product::findOrFail($id);
+
+        return view('galeri.show', ['galeri' => $galeri]);
     }
 
     /**
@@ -87,7 +89,7 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        $pages = \App\Models\Product::findOrFail($id);   
+        $pages = Product::findOrFail($id);   
 
         return view('pages.update', ['pages' => $pages]);
     }
@@ -101,18 +103,25 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = \App\Models\Product::findOrFail($id);
+        \Validator::make($request->all(),[
+            "product_name" => "required|min:1|max:30",
+            "deskripsi" => "min:1|max:100",
+            "tampak_depan" => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            "tampak_belakang" => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            "price" => "min:1|max:10",
+            ])->validate();
 
+        $product = Product::findOrFail($id);
         $product->product_name = ucfirst($request->get('product_name'));
         $product->deskripsi = ucfirst($request->get('deskripsi'));
         if($product->tampak_depan && file_exists(storage_path('app/public/' . $product->tampak_depan))){
             \Storage::delete('public/'.$product->tampak_depan);
-            $file = $request->file('tampak_depan')->store('avatars', 'public');
+            $file = $request->file('tampak_depan')->store('tampak_depan', 'public');
             $product->tampak_depan = $file;
            }
         if($product->tampak_belakang && file_exists(storage_path('app/public/' . $product->tampak_belakang))){
             \Storage::delete('public/'.$product->tampak_belakang);
-            $file = $request->file('tampak_belakang')->store('avatars', 'public');
+            $file = $request->file('tampak_belakang')->store('tampak_belakang', 'public');
             $product->tampak_belakang = $file;
            }
 
@@ -129,7 +138,7 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        $product = \App\Models\Product::findOrFail($id);
+        $product = Product::findOrFail($id);
 
         $product->delete();
         return redirect()->route('pages.index')->with('statusdel', 'Data Berhasil Dihapus');

@@ -567,5 +567,20 @@
               modal.style.display = "none";
             }
         </script>
+        <script type="text/javascript">
+            $(function() {
+                $('.icolors li').on("click", function() {
+                    $('.icolors li').removeClass('active');
+                    $(this).addClass('active');
+                });
+        
+                $('.photos-item').on("click", function() {
+                    var src = $(this).children().attr('src');
+                    $('#product-image').attr('src', src);
+                    $('.photos-item').removeClass('item-active');
+                    $(this).addClass('item-active');
+                });
+            });
+        </script>
     </body>
 </html>

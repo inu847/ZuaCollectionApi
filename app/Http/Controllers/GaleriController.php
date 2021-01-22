@@ -26,7 +26,7 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        return view('galeri.checkout');
+        return view('galeri.create');
     }
 
     /**
@@ -37,22 +37,22 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $new_clothes = new \App\Models\Baju;
-        $new_clothes->title = ucfirst($request->get('first_name'));
-        $new_clothes->kategori = ($request->get('last_name'));
-        $new_clothes->status = ($request->get('gender'));
-        $new_clothes->jenis_ukuran = ($request->get('birth'));
-        $new_clothes->lingkar_badan = $request->get('kategori');
-        $new_clothes->lingkar_pinggang = $request->get('many_price');
-        $new_clothes->lingkar_pinggul = $request->get('address1');
-        $new_clothes->lingkar_pipa = $request->get('address2');
-        $new_clothes->lingkar_paha = $request->get('city');
-        $new_clothes->lingkar_lutut = $request->get('state');
-        $new_clothes->lebar_muka = $request->get('post_code');
-        $new_clothes->lebar_punggung = $request->get('country');
+        // $new_clothes = new \App\Models\Baju;
+        // $new_clothes->title = ucfirst($request->get('first_name'));
+        // $new_clothes->kategori = ($request->get('last_name'));
+        // $new_clothes->status = ($request->get('gender'));
+        // $new_clothes->jenis_ukuran = ($request->get('birth'));
+        // $new_clothes->lingkar_badan = $request->get('kategori');
+        // $new_clothes->lingkar_pinggang = $request->get('many_price');
+        // $new_clothes->lingkar_pinggul = $request->get('address1');
+        // $new_clothes->lingkar_pipa = $request->get('address2');
+        // $new_clothes->lingkar_paha = $request->get('city');
+        // $new_clothes->lingkar_lutut = $request->get('state');
+        // $new_clothes->lebar_muka = $request->get('post_code');
+        // $new_clothes->lebar_punggung = $request->get('country');
 
-        $new_clothes->save();
-        return redirect()->route('baju.update');
+        // $new_clothes->save();
+        // return redirect()->route('baju.update');
     }
 
     /**
@@ -63,7 +63,11 @@ class GaleriController extends Controller
      */
     public function show($id)
     {
-        //
+        $galeri = Product::findOrFail($id);
+        $products = Product::paginate(3);
+
+        return view('galeri.show', ['galeri' => $galeri,
+                                    'products' => $products]);
     }
 
     /**

@@ -244,7 +244,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="panjang_krah" class="col-sm-3 control-label">Gambar</label>
+                <label for="avatar" class="col-sm-3 control-label">Gambar</label>
                 <div class="col-sm-9">
                     @if($baju->avatar)
                         <img src="{{asset('storage/'.$baju->avatar)}}" width="120px" />
