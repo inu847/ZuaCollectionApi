@@ -23,7 +23,7 @@
                 <p class="text-muted m-b-30">list of products that are currently published</p>
             </div>
             <div class="col-md-2">
-                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10"">New Product</a>
+                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10">New Product</a>
             </div>
         </div>
         <div class="row">
@@ -47,8 +47,8 @@
                             </div>
                         </div>
                         <div class="product-text">
-                            <h3 class="box-title m-b-0">{{$page->product_name}}</h3>
-                            <small class="text-muted db">{{$page->deskripsi}}</small>
+                            <h3 class="box-title m-b-0">{{Str::limit($page->product_name, 25)}}</h3>
+                            <small class="text-muted db">{{Str::limit($page->deskripsi, 40)}}</small>
                             <div class="row">
                                 <div class="col-md-8">
                                     <h3 class="pro-price m-b-0">Rp{{$page->price}}

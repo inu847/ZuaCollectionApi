@@ -44,8 +44,8 @@ class PagesController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(),[
-            "product_name" => "required|min:1|max:30",
-            "deskripsi" => "required|min:1|max:100",
+            "product_name" => "required|min:1|max:100",
+            "deskripsi" => "required|min:1|max:300",
             "tampak_depan" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
             "tampak_belakang" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
             "price" => "required|min:1|max:10",
@@ -76,9 +76,7 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        $galeri = Product::findOrFail($id);
-
-        return view('galeri.show', ['galeri' => $galeri]);
+        
     }
 
     /**

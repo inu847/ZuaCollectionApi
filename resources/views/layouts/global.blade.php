@@ -228,117 +228,6 @@
         .select-sim:hover .options .option input:checked + label {
         background:#fffff0;
         }
-
-        /*dropdown*/
-
-        /* *{
-        padding: 0;
-        margin: 0;
-        font-family: 'Lato', sans-serif;
-        box-sizing: border-box;
-        }
-        .float-right{
-        float: right;
-        }
-        .fa{
-        font-size: .8em;
-        line-height: 22px !important;
-        }
-        dropdown{
-        display: inline-block;
-        margin: 20px 50px; 
-        }
-        dropdown label, dropdown ul li{
-        display: block;
-        width: px;
-        background: #191919;
-        opacity: 0.9;
-        padding: 15px 20px;
-        }
-        dropdown label:hover, dropdown ul li:hover{
-        background: #4D4D4D;
-        color: white;
-        cursor: pointer;
-        }
-        dropdown label{
-        color: #B2B2B2;
-        border-radius: 0 5px 0 0; 
-        position: relative;
-        z-index: 2;
-        }
-        dropdown input{
-        display: none;
-        }
-        dropdown input ~ ul{
-        position: relative;
-        visibility: hidden;
-        opacity: 0;
-        top: -20px;
-        z-index: 1;
-        }
-        dropdown input:checked + label{
-        background: #4D4D4D;
-        color: white;
-        }
-
-        dropdown input:checked ~ ul{
-        visibility: visible;
-        opacity: 1;
-        top: 0;
-        }
-        .left {
-        float: left;
-        }
-        .right {
-        float: right;
-        }
-        .monthname {
-        width: 17em;
-        
-        }
-        .pointer {
-        cursor: pointer;
-        }
-        body {
-        font-family: 'Lato',sans-serif;
-        padding: 1em 0;
-        }
-        .group:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .calendar p {
-            margin-bottom: .5em;
-            color: #FFFFFF;
-        }
-        .calendar {
-            background: #222;
-            color: #ddd;
-            padding: .5em .5em 1em;
-            max-width: 20em;
-            min-height: 15em;
-            margin: .5em auto;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-        }
-        .calendar li {
-            float: left;
-            width: -webkit-calc(100%/7);
-            text-align: center;
-            padding: .25em 0;
-            cursor: pointer;
-            border-bottom: 1px solid #444;
-        }
-        .calendar li:hover, .calendar li.red {
-            color: red;
-        }
-        .calendar li:nth-child(-n+7) {
-            color: #666;
-        }
-        .center {
-            text-align: center;
-        } */
     </style>
     <body class="mini-sidebar fix-header">
         <!-- ===== Main-Wrapper ===== -->
@@ -355,7 +244,7 @@
                     <div class="top-left-part">
                         <a class="logo" href="{{ route('dasboard.index')}}">
                             <b>
-                                <img src="{{ asset('template/plugins/images/logo.png')}}" alt="home" />
+                                <img src="{{ asset('template/plugins/images/logozua.png')}}" alt="home" />
                             </b>
                             <span>
                                 Zua Collection

@@ -41,9 +41,9 @@
                         
                         </div>
                         <div class="product-text">
-                            <h3 class="box-title m-b-0">{{$prod->product_name}}</h3>
-                            <small class="text-muted db">{{$prod->deskripsi}}</small>
-                            <a href="{{ route('galeri.create')}}" class="pro-dis bg-danger">Buy <br> Now</a>
+                            <h3 class="box-title m-b-0">{{Str::limit($prod->product_name,25)}}</h3>
+                            <small class="text-muted db">{{Str::limit($prod->deskripsi,40)}}</small>
+                            <a href="{{ route('galeri.edit', [$prod->id])}}" class="pro-dis bg-danger">Buy <br> Now</a>
                             <h3 class="pro-price m-b-0">Rp{{$prod->price}}
                             <span class="old-price">Rp{{$prod->price+20000}}</span>
                             </h3>

@@ -19,14 +19,15 @@ class CreateCheckoutTable extends Migration
             $table->string('last_name');
             $table->enum('gender', ['Male', 'Female']);
             $table->string('birth');
-            $table->enum('kategori', ['Atasan', 'Bawahan', 'Full Dress', 'Couple']);
-            $table->string('many_price');
+            $table->string('product_name');
+            $table->string('price');
             $table->string('address1');
             $table->string('address2');
             $table->string('city');
             $table->string('state');
             $table->string('post_code');
             $table->string('country');
+            $table->string('avatar');
             $table->timestamps();
         });
     }
