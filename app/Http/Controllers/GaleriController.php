@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Checkout;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -37,7 +38,7 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $new_product = new \App\Models\Checkout;
+        $new_product = new Checkout;
         $new_product->first_name = ucfirst($request->get('first_name'));
         $new_product->last_name = $request->get('last_name');
         $new_product->gender = $request->get('gender');
@@ -109,6 +110,9 @@ class GaleriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $table = Checkout::findOrFail($id);
+
+        $table->delete();
+        return redirect()->route('listorder.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
 }

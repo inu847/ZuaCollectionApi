@@ -9,6 +9,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScrapingController;
 use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\ListorderController;
 
 
 /*
@@ -43,3 +44,4 @@ Route::resource('dasboard', DasboardController::class);
 Route::resource('pages', PagesController::class);
 Route::resource('order', OrderController::class);
 Route::resource('baju', BajuController::class);
+Route::resource('listorder', ListorderController::class);
