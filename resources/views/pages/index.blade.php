@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-   Form list Order Price 
+   List Product
 @endsection
 
 @section('content')
@@ -20,11 +20,10 @@
         <div class="row">
             <div class="col-md-10">
                 <h3 class="box-title m-b-0">Product View</h3>
-                {{-- <p class="text-muted m-b-30">list of products that are currently published</p> --}}
+                <p class="text-muted m-b-30">list of products that are currently published</p>
             </div>
             <div class="col-md-2">
-                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10">New Product</a>
-                <a href="{{ route('listorder.index')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10">List Order</a>
+                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10"><i class="fa fa-plus-circle"></i> Create New Product</a>
             </div>
         </div>
         <div class="row">

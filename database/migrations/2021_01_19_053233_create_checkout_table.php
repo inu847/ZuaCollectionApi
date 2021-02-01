@@ -27,7 +27,7 @@ class CreateCheckoutTable extends Migration
             $table->string('state');
             $table->string('post_code');
             $table->string('country');
-            $table->string('avatar');
+            $table->enum('status', ['PENDING', 'DIKIRIM', 'SELESAI']);
             $table->timestamps();
         });
     }

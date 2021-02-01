@@ -16,21 +16,21 @@ class ListorderController extends Controller
     {
         $table = Checkout::paginate(10);
         $filterKeyword = $request->get('keyword');
-        // $status = $request->get('status');
+        $status = $request->get('status');
         
-        // if($status){
-        //     $table = Checkout::where('status', $status)->paginate(10);
-        // } else {
-        //     $table = Checkout::paginate(10);
-        // }
+        if($status){
+            $table = Checkout::where('status', $status)->paginate(10);
+        } else {
+            $table = Checkout::paginate(10);
+        }
 
         if($filterKeyword){
             $table = Checkout::where('first_name', 'LIKE', "%$filterKeyword%")->paginate(10);
-            // if($status){
-            //     $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
-            //     } else {
-            //     $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->paginate(10);
-            //     }
+            if($status){
+                $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
+                } else {
+                $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->paginate(10);
+                }
            }
 
         return view('listorder.index', ['table' => $table]);
@@ -52,9 +52,10 @@ class ListorderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
+        
     }
 
     /**
@@ -65,7 +66,9 @@ class ListorderController extends Controller
      */
     public function show($id)
     {
-        //
+        $baju = Checkout::findOrFail($id);
+
+        return view('listorder.show', ['baju' => $baju]);
     }
 
     /**
@@ -76,7 +79,9 @@ class ListorderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Checkout::findOrFail($id);
+
+        return view('listorder.update', ['product' => $product]);
     }
 
     /**
@@ -97,8 +102,31 @@ class ListorderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
+    }
+
+    public function pesanan(Request $request, $id)
+    {
+        $product = Checkout::findOrFail($id);
+
+        $product->first_name = ucfirst($request->get('first_name'));
+        $product->last_name = $request->get('last_name');
+        $product->gender = $request->get('gender');
+        $product->birth = $request->get('birth');
+        $product->product_name = $request->get('product_name');
+        $product->price = $request->get('price');
+
+        $product->address1 = $request->get('address1');
+        $product->address2 = $request->get('address2');
+        $product->city = $request->get('city');
+        $product->state = $request->get('state');
+        $product->post_code = $request->get('post_code');
+        $product->country = $request->get('country');
+        $product->status = $request->get('status');
+
+        $product->save();
+        return redirect()->route('listorder.index')->with('status', 'Update Success!!');
     }
 }

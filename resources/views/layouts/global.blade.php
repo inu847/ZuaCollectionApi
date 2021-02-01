@@ -354,18 +354,25 @@
                                     <span class="hide-menu"> Dashboard </span>
                                 </a>
                             </li>
-                            <li class="two-column">
-                                <a class="waves-effect" href=" {{route('baju.index')}} " aria-expanded="false">
+                            <li>
+                                <a class="active waves-effect" href=" {{route('baju.index')}} " aria-expanded="false">
                                     <i class="icon-equalizer fa-fw"></i> 
                                     <span class="hide-menu">Manage Order</span></a>
+
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="{{route('baju.index')}}">Baju Advance</a></li>
+                                        <li><a href="{{ route('listorder.index')}}">Baju Post</a></li>
+                                    </ul>
                             </li>
-                            <li class="two-column">
-                            <a class="waves-effect" href="{{ route('pages.index')}}" aria-expanded="false">
+                            <li>
+                                <a class="waves-effect" href="{{ route('pages.index')}}" aria-expanded="false">
                                     <i class="icon-docs fa-fw"></i> 
-                                    <span class="hide-menu"> Pages</span></a>
-                                {{-- <ul aria-expanded="false" class="collapse">
-                                    <li><a href="starter-page.html">Starter Page</a></li>
-                                </ul> --}}
+                                    <span class="hide-menu"> Product</span></a>
+
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="{{ route('pages.index')}}">List Product</a></li>
+                                        <li><a href="{{ route('pages.create')}}">Create New Product</a></li>
+                                    </ul>
                             </li>
                             <li>
                             <a class="waves-effect" href=" {{ route('baju.create')}} " aria-expanded="false">

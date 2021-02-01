@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Checkout
+    Create New Product
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
-@section('title') Manage Order
-    
+@section('title') 
+    Manage Order  
 @endsection
 
 @section('content')
@@ -23,22 +23,24 @@
         <div class="white-box">
           
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="m-l-10">
                         <h3 class="box-title m-b-0 text-left">List Order </h3>
                         <p class="text-muted text-left">Tekan <code>detail</code> untuk melihat info ukuran.</p>
                     </div>
                 </div>
     
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <form action="{{route('listorder.index')}}" class="m-t-20">
                         <div class="col-md-6">  
                             <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Filter berdasarkan Nama"/>
                         </div>
-                            {{-- <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}} value="PROCESS" name="status" type="radio" id="process">
-                            <label for="process" class="m-r-5">Process</label>
-                            <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}} value="SUCCESS" name="status" type="radio" id="success">
-                            <label for="success" class="m-r-5">Success</label> --}}
+                            <input {{Request::get('status') == 'PENDING' ? 'checked' : ''}} value="PENDING" name="status" type="radio" id="Pending">
+                            <label for="Pending" class="m-r-5">Pending</label>
+                            <input {{Request::get('status') == 'DIKIRIM' ? 'checked' : ''}} value="DIKIRIM" name="status" type="radio" id="Dikirim">
+                            <label for="Dikirim" class="m-r-5">Dikirim</label>
+                            <input {{Request::get('status') == 'SELESAI' ? 'checked' : ''}} value="SELESAI" name="status" type="radio" id="Selesai">
+                            <label for="Selesai" class="m-r-5">Selesai</label>
                                         
                             <button type="submit" value="Filter" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>   
                     </form>
@@ -66,12 +68,13 @@
                                 <td>{{$tbl->address1}}|{{$tbl->post_code}}|{{$tbl->country}}|{{$tbl->state}}</td>
                                 <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->diffForHumans()}}</span> </td>
                                 <td>
-                                    <div class="label label-table label-info">Dikirim</div>
-                                    {{-- @if($tbl->status == "PROCESS")
+                                    @if($tbl->status == "PENDING")
                                         <div class="label label-table label-info">{{$tbl->status}}</div>
+                                    @elseif($tbl->status == "DIKIRIM")
+                                        <div class="label label-table label-danger">{{$tbl->status}}</div>
                                     @else
                                         <div class="label label-table label-success">{{$tbl->status}}</div>
-                                    @endif --}}
+                                    @endif
                                 </td>
                                 
                                 
@@ -83,13 +86,10 @@
                                         method="POST">
                                         @csrf
 
-                                    {{-- <a href="{{route('baju.show', [$tbl->id])}}"
+                                    <a href="{{route('listorder.show', [$tbl->id])}}"
                                         class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
-                                    <a href="{{route('baju.edit', [$tbl->id])}}"
+                                    <a href="{{route('listorder.edit', [$tbl->id])}}"
                                         class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
-                                    
-                                    <a href="{{route('order.edit', [$tbl->id])}}"
-                                        class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a> --}}
                                     
                                     <input
                                         type="hidden"

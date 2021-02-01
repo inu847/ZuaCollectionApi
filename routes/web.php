@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('welcome');
 });
+
 Route::resource('galeri', GaleriController::class);
 
 Auth::routes();
@@ -44,4 +45,5 @@ Route::resource('dasboard', DasboardController::class);
 Route::resource('pages', PagesController::class);
 Route::resource('order', OrderController::class);
 Route::resource('baju', BajuController::class);
+Route::post('/listorder/{id}/edit', [ListorderController::class, 'pesanan'])->name('listorder.pesanan');
 Route::resource('listorder', ListorderController::class);

@@ -44,7 +44,10 @@ class GaleriController extends Controller
         $new_product->gender = $request->get('gender');
         $new_product->birth = $request->get('birth');
         $new_product->product_name = $request->get('product_name');
-        $new_product->price = $request->get('price');
+        $product = $request->get('product');
+        $price = $request->get('price');
+        $total = $product*$price;
+        $new_product->price = $total;
 
         $new_product->address1 = $request->get('address1');
         $new_product->address2 = $request->get('address2');
@@ -52,6 +55,7 @@ class GaleriController extends Controller
         $new_product->state = $request->get('state');
         $new_product->post_code = $request->get('post_code');
         $new_product->country = $request->get('country');
+        $new_product->status = $request->get('status');
 
         if($request->file('product')){
             $file = $request->file('product')->store('products', 'public');
@@ -87,7 +91,7 @@ class GaleriController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        return view('galeri.update', ['product' => $product]);
+        return view('galeri.create', ['product' => $product]);
     }
 
     /**
@@ -99,7 +103,29 @@ class GaleriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $new_product = Checkout::findOrFail($id);
+        $new_product->first_name = ucfirst($request->get('first_name'));
+        $new_product->last_name = $request->get('last_name');
+        $new_product->gender = $request->get('gender');
+        $new_product->birth = $request->get('birth');
+        $new_product->product_name = $request->get('product_name');
+        $new_product->price = $request->get('price');
+
+        $new_product->address1 = $request->get('address1');
+        $new_product->address2 = $request->get('address2');
+        $new_product->city = $request->get('city');
+        $new_product->state = $request->get('state');
+        $new_product->post_code = $request->get('post_code');
+        $new_product->country = $request->get('country');
+        $new_product->status = $request->get('status');
+
+        if($request->file('product')){
+            $file = $request->file('product')->store('products', 'public');
+            $new_product->product = $file;
+           }
+
+        $new_product->save();
+        return redirect()->route('galeri.index')->with('status', 'Checkout Success!!');
     }
 
     /**
@@ -110,9 +136,6 @@ class GaleriController extends Controller
      */
     public function destroy($id)
     {
-        $table = Checkout::findOrFail($id);
-
-        $table->delete();
-        return redirect()->route('listorder.index')->with('statusdel', 'Data Berhasil Dihapus');
+        //
     }
 }
