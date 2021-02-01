@@ -63,7 +63,7 @@
                     <h3 class="info-count text-blue">&#36;{{\App\Models\Baju::sum('invoice')}}</h3>
                     <p class="info-text font-12">Earning</p>
                     <span class="hr-line"></span>
-                    <p class="info-ot font-15">November : <span class="text-blue font-semibold">&#36;{{\App\Models\Baju::sum('invoice')}}</span></p>
+                    <p class="info-ot font-15">{{now()->format('F')}} : <span class="text-blue font-semibold">&#36;{{\App\Models\Baju::sum('invoice')}}</span></p>
                 </div>
             </div>
         </div>

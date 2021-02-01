@@ -248,7 +248,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 waves-effect">
-                    <input class="btn btn-danger waves-light m-l-15 m-t-5" type="submit" value="save" />
+                    <button class="btn btn-danger waves-light m-l-15 m-t-5" type="submit" value="Submit">Submit</button>
                 </div>
             </div>
         </div>

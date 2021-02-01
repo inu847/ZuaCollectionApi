@@ -219,12 +219,14 @@ class BajuController extends Controller
         $baju->panjang_rok = $panjang_rok;
         $baju->panjang_celana = $panjang_celana;
         $baju->panjang_krah = $panjang_krah;
-        if($baju->avatar && file_exists(storage_path('app/public/' . $baju->avatar))){
-            \Storage::delete('public/'.$baju->avatar);
-            $file = $request->file('avatar')->store('avatars', 'public');
-            $baju->avatar = $file;
+        if ($request->file('avatar')){
+            if($baju->avatar && file_exists(storage_path('app/public/' . $baju->avatar))){
+                \Storage::delete('public/'.$baju->avatar);
+                $file = $request->file('avatar')->store('avatars', 'public');
+                $baju->avatar = $file;
             }
-        
+        }
+               
         $baju->save();
         return redirect()->route('baju.index')->with('status', 'Update Data Success');
     }

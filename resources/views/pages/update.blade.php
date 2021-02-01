@@ -44,9 +44,10 @@
                                         @else
                                             No avatar
                                         @endif
-                                    <div class="fileinput fileinput-new input-group p-t-10" data-provides="fileinput">
+                                        <small class="text-muted">Kosongkan jika tidak ingin mengubah avatar</small>
+                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
-                                        <input value="{{$pages->tampak_depan}}" type="file" class="{{$errors->first('tampak_depan') ? "is-invalid": ""}}" id="tampak_depan" name="tampak_depan"> 
+                                        <input type="file" class="{{$errors->first('tampak_depan') ? "is-invalid": ""}}" id="tampak_depan" name="tampak_depan"> 
                                         </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
                                     </div>
                                     <div class="invalid-feedback">
@@ -63,6 +64,7 @@
                                         @else
                                             No avatar
                                         @endif
+                                        <small class="text-muted">Kosongkan jika tidak ingin mengubah avatar</small>
                                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput"> 
                                             <i class="glyphicon glyphicon-file fileinput-exists"></i> 
@@ -71,7 +73,7 @@
                                         <span class="input-group-addon btn btn-default btn-file"> 
                                             <span class="fileinput-new">Select file</span> 
                                             <span class="fileinput-exists">Change</span>
-                                            <input value="{{$pages->tampak_belakang}}" type="file" class="{{$errors->first('tampak_belakang') ? "is-invalid": ""}}" id="tampak_belakang" name="tampak_belakang">
+                                            <input type="file" class="{{$errors->first('tampak_belakang') ? "is-invalid": ""}}" id="tampak_belakang" name="tampak_belakang">
                                         </span> 
                                         <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
                                     </div>

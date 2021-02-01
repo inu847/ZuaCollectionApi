@@ -253,7 +253,7 @@
                         No avatar
                     @endif
                     <small class="text-muted">Kosongkan jika tidak ingin mengubah avatar</small>
-                    <input value="{{$baju->avatar}}" type="file" class="form-control {{$errors->first('avatar') ? "is-invalid": ""}}" id="avatar" name="avatar"> 
+                    <input type="file" class="form-control {{$errors->first('avatar') ? "is-invalid": ""}}" id="avatar" name="avatar"> 
                     <div class="invalid-feedback">
                         {{$errors->first('avatar')}}
                     </div>
