@@ -303,7 +303,7 @@
                                                 <div class="col-md-11">
                                                     <h6 class="p-l-30 font-bold">{{$suggest->created_at->format('h:i:s')}} PM</h6>
                                                 </div>
-                                                <div class="col-md-1 p-t-20">
+                                                <div class="col-md-1 p-t-10">
                                                     <form onsubmit="return confirm('Delete this order permanently?')"
                                                           class="d-inline"
                                                           action="{{route('suggestion.destroy', [$suggest->id])}}"
