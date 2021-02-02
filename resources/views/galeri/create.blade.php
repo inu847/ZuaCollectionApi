@@ -136,8 +136,12 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3 m-t-10" for="phone">Phone</label>
                                                 <div class="col-md-9 m-b-10">
-                                                    <input value="{{old('phone')}}" type="number" class="form-control {{$errors->first('phone') ? "is-invalid": ""}}" id="phone" placeholder="Take Your Another Address" name="phone"> 
-                                                    <span class="help-block">{{$errors->first('phone')}}</span>
+                                                    <input type="hidden" name="pho" value="+62">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">+62 </div>
+                                                        <input value="{{old('ne')}}" type="number" class="form-control {{$errors->first('ne') ? "is-invalid": ""}}" id="ne" placeholder="Take Your Another Address" name="ne">
+                                                        <span class="help-block">{{$errors->first('ne')}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

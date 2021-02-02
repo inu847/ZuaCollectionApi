@@ -52,7 +52,10 @@ class GaleriController extends Controller
         $new_product->address = $request->get('address');
         $new_product->rt = $request->get('rt');
         $new_product->rw = $request->get('rw');
-        $new_product->phone = $request->get('phone');
+        $pho = $request->get('pho');
+        $ne = $request->get('ne');
+        $phone = $pho.$ne;
+        $new_product->phone = $phone;
         $new_product->city = $request->get('city');
         $new_product->state = $request->get('state');
         $new_product->post_code = $request->get('post_code');

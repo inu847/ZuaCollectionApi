@@ -131,15 +131,13 @@
                                                     <div class="col-md-2">
                                                         <input value="{{$product->rw}}" type="text" class="form-control {{$errors->first('rw') ? "is-invalid": ""}}" id="rw" placeholder="RW" name="rw"> 
                                                     </div>
-                                                
-                                                
                                             </div>
                                         </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 m-t-10" for="phone">Phone Number</label>
                                                 <div class="col-md-9 m-b-10">
-                                                    <input value="{{$product->phone}}" type="number" class="form-control {{$errors->first('phone') ? "is-invalid": ""}}" id="phone" placeholder="Phone Number" name="phone"> 
+                                                    <input value="{{$product->phone}}" type="text" class="form-control {{$errors->first('phone') ? "is-invalid": ""}}" id="phone" placeholder="Phone Number" name="phone"> 
                                                     <span class="help-block">{{$errors->first('phone')}}</span> 
                                                 </div>
                                             </div>
