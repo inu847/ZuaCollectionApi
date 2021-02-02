@@ -118,8 +118,10 @@ class ListorderController extends Controller
         $product->product_name = $request->get('product_name');
         $product->price = $request->get('price');
 
-        $product->address1 = $request->get('address1');
-        $product->address2 = $request->get('address2');
+        $product->address = $request->get('address');
+        $product->rt = $request->get('rt');
+        $product->rw = $request->get('rw');
+        $product->phone = $request->get('phone');
         $product->city = $request->get('city');
         $product->state = $request->get('state');
         $product->post_code = $request->get('post_code');

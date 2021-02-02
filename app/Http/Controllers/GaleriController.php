@@ -49,8 +49,10 @@ class GaleriController extends Controller
         $total = $product*$price;
         $new_product->price = $total;
 
-        $new_product->address1 = $request->get('address1');
-        $new_product->address2 = $request->get('address2');
+        $new_product->address = $request->get('address');
+        $new_product->rt = $request->get('rt');
+        $new_product->rw = $request->get('rw');
+        $new_product->phone = $request->get('phone');
         $new_product->city = $request->get('city');
         $new_product->state = $request->get('state');
         $new_product->post_code = $request->get('post_code');
@@ -111,8 +113,10 @@ class GaleriController extends Controller
         $new_product->product_name = $request->get('product_name');
         $new_product->price = $request->get('price');
 
-        $new_product->address1 = $request->get('address1');
-        $new_product->address2 = $request->get('address2');
+        $new_product->address = $request->get('address');
+        $new_product->rt = $request->get('rt');
+        $new_product->rw = $request->get('rw');
+        $new_product->phone = $request->get('phone');
         $new_product->city = $request->get('city');
         $new_product->state = $request->get('state');
         $new_product->post_code = $request->get('post_code');

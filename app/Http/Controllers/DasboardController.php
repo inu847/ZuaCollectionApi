@@ -21,7 +21,8 @@ class DasboardController extends Controller
     public function index()
     {
         $users = \App\Models\User::latest()->paginate(10);
-
+        $suggestion = \App\Models\Suggestion::paginate(5);
+        $complain = \App\Models\Suggestion::count('suggestion');
         // earning
         $persen = Baju::sum('invoice');
         $persen1 = $persen;
@@ -61,11 +62,14 @@ class DasboardController extends Controller
         }else if($booking1==0){
             $hasilBooking = 0;
         }
+        
         return view('dasboard.index', [ 
                                         'hasil' => $hasil, 
                                         'hasilProses' => $hasilProses, 
                                         'hasilBooking' => $hasilBooking,
                                         'users' => $users,
+                                        'complain' => $complain,
+                                        'suggestion' => $suggestion,
                                     ]);
     }
 

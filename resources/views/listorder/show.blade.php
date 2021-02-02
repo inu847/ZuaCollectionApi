@@ -10,7 +10,7 @@
         <div class="white-box">
             <div style="float: left;">
             <h3 class="box-title m-b-0">Detail Order</h3>
-            <p class="text-muted m-b-20">Sesuaikan ukuran dibawah. jika ada kesalahan data silahkan tekan tombol edit disebelah kanan.</p>
+            <p class="text-muted m-b-20">Detail order. jika ada kesalahan data silahkan tekan tombol <code class="fa fa-pencil"> edit</code> disebelah kanan!.</p>
             </div>
             <div style="float: right; margin-top: 30px;">
                 <a href="{{route('listorder.edit', [$baju->id])}}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
@@ -45,12 +45,12 @@
                         <td class="p-l-20 "><div class="label label-table label-success">Rp. {{$baju->price}}</div></td>
                     </tr>
                     <tr>
-                        <td class="p-l-20">Address 1</td>
-                        <td class="p-l-20">{{$baju->address1}}</td>
+                        <td class="p-l-20">Address</td>
+                        <td class="p-l-20">{{$baju->address}} {{$baju->rt}}/{{$baju->rw}}</td>
                     </tr>
                     <tr>
-                        <td class="p-l-20">Address 2</td>
-                        <td class="p-l-20">{{$baju->address2}}</td>
+                        <td class="p-l-20">Phone</td>
+                        <td class="p-l-20">{{$baju->phone}}  <a href="https://wa.me/{{$baju->phone}}" class="label label-table label-warning"><i class="fa fa-whatsapp"></i></a></td>
                     </tr>
                     <tr>
                         <td class="p-l-20">City</td>

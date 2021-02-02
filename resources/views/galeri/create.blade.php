@@ -118,19 +118,26 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 m-t-10" for="address1">Address 1</label>
-                                                <div class="col-md-9 m-b-10">
-                                                    <input value="{{old('address1')}}" type="text" class="form-control {{$errors->first('address1') ? "is-invalid": ""}}" id="address1" placeholder="Take Your Address Here" name="address1"> 
-                                                    <span class="help-block">{{$errors->first('address1')}}</span>
+                                            <label class="control-label col-md-3 m-t-10" for="address">Address</label>
+                                                <div class="col-md-5 m-b-10">
+                                                    <input value="{{old('address')}}" type="text" class="form-control {{$errors->first('address') ? "is-invalid": ""}}" id="address" placeholder="Take Your Address Here" name="address"> 
+                                                    <span class="help-block">{{$errors->first('address')}}</span>
+                                                </div>
+                                                <div class="col-md-2 m-b-10">
+                                                    <input value="{{old('rt')}}" type="text" class="form-control {{$errors->first('rt') ? "is-invalid": ""}}" id="rt" placeholder="RT" name="rt"> 
+                                                </div>                
+                                                    
+                                                <div class="col-md-2">
+                                                    <input value="{{old('rw')}}" type="text" class="form-control {{$errors->first('rw') ? "is-invalid": ""}}" id="rw" placeholder="RW" name="rw"> 
                                                 </div>
                                             </div>
                                         </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 m-t-10" for="address2">Address 2</label>
+                                            <label class="control-label col-md-3 m-t-10" for="phone">Phone</label>
                                                 <div class="col-md-9 m-b-10">
-                                                    <input value="{{old('address2')}}" type="text" class="form-control {{$errors->first('address2') ? "is-invalid": ""}}" id="address2" placeholder="Take Your Another Address" name="address2"> 
-                                                    <span class="help-block">{{$errors->first('address2')}}</span> 
+                                                    <input value="{{old('phone')}}" type="number" class="form-control {{$errors->first('phone') ? "is-invalid": ""}}" id="phone" placeholder="Take Your Another Address" name="phone"> 
+                                                    <span class="help-block">{{$errors->first('phone')}}</span>
                                                 </div>
                                             </div>
                                         </div>

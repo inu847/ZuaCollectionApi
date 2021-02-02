@@ -17,7 +17,7 @@ class Baju2TableSeeder extends Seeder
     {
         $baju = [];
         $faker = Faker::create();
-        for($i=0;$i<15;$i++){
+        for($i=0;$i<12;$i++){
             $avatar_path = 'public/storage/avatars';
             $avatar_fullpath = $faker->image( $avatar_path, 200, 250, 'people', true, true, 'people');
             $avatar = str_replace($avatar_path . '/' , '', $avatar_fullpath);

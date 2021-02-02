@@ -47,7 +47,7 @@
                     <span class="icoleaf bg-primary text-white"><i class="mdi mdi-comment-text-outline"></i></span>
                 </div>
                 <div class="media-body">
-                    <h3 class="info-count text-blue">{{'0'}}</h3>
+                    <h3 class="info-count text-blue">{{$complain}}</h3>
                     <p class="info-text font-12">Complaints</p>
                     <span class="hr-line"></span>
                     <p class="info-ot font-15">Total Pending<span class="label label-rounded label-danger">{{\App\Models\Baju::where('status', 'PROCESS')->count('status')}}</span></p>
@@ -266,54 +266,63 @@
                             <div class="task-image-overlay"></div>
                             <div class="task-detail">
                             <h2 class="font-light text-white m-b-0">{{now()->format('l, d F Y')}}</h2>
-                                <h4 class="font-normal text-white m-t-5">Your tasks for today</h4>
+                                <h4 class="font-normal text-white m-t-5">Complain in today</h4>
                             </div>
                         </div>
                         <div class="task-total">
-                            <p class="font-16 m-b-0"><strong>5</strong> Tasks for <a href="javascript:void(0);" class="text-link">Jon Doe</a></p>
+                            <p class="font-16 m-b-0"><strong>{{$complain}}</strong> Complain <a href="javascript:void(0);" class="text-link">This Year</a></p>
                         </div>
                         <div class="task-list">
                             <ul class="list-group">
-                                <li class="list-group-item bl-info">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="c7" type="checkbox">
-                                        <label for="c7">
-                                            <span class="font-16">Create invoice for customers and email each customers.</span>
-                                        </label>
-                                        <h6 class="p-l-30 font-bold">05:00 PM</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item bl-warning">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="c8" type="checkbox" checked>
-                                        <label for="c8">
-                                            <span class="font-16">Send payment of <strong>&#36;500 invoised</strong> on 23 May to <a href="javascript:void(0);" class="text-link">Daniel Kristeen</a> via paypal.</span>
-                                        </label>
-                                        <h6 class="p-l-30 font-bold">03:00 PM</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item bl-danger">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="c9" type="checkbox">
-                                        <label for="c9">
-                                            <span class="font-16">It is a long established fact that a reader will be distracted by the readable.</span>
-                                        </label>
-                                        <h6 class="p-l-30 font-bold">04:45 PM</h6>
-                                    </div>
-                                </li>
-                                <li class="list-group-item bl-success">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="c10" type="checkbox">
-                                        <label for="c10">
-                                            <span class="font-16">It is a long established fact that a reader will be distracted by the readable.</span>
-                                        </label>
-                                        <h6 class="p-l-30 font-bold">05:30 PM</h6>
-                                    </div>
-                                </li>
+                                @foreach ($suggestion as $suggest)
+                                    <li class="list-group-item bl-info">
+                                        
+                                        <div class="checkbox checkbox-success">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <a href="{{ route('suggestion.show', [$suggest->id])}}"><p class="p-l-30 font-bold">{{$suggest->name}}</p></a>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <a href="https://wa.me/{{$suggest->phone}}" class="label label-table label-warning font-20"><span class="fa fa-whatsapp"></span></a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <input id="c7" type="checkbox" name="checkbox">
+                                                    <label for="c7">
+                                                        <span class="font-16">{{$suggest->suggestion}}</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1 p-t-10">
+                                                    <a href="{{ route('suggestion.show', [$suggest->id])}}" class="label label-table label-info font-20"><span class="fa fa-list"></span></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <h6 class="p-l-30 font-bold">{{$suggest->created_at->format('h:i:s')}} PM</h6>
+                                                </div>
+                                                <div class="col-md-1 p-t-20">
+                                                    <form onsubmit="return confirm('Delete this order permanently?')"
+                                                          class="d-inline"
+                                                          action="{{route('suggestion.destroy', [$suggest->id])}}"
+                                                          method="POST">
+                                                    @csrf
+                                                    <input type="hidden"
+                                                           name="_method"
+                                                           value="DELETE">
+                                                    <button value="Delete" type="submit" class="label label-table label-danger font-20"><span class="fa fa-trash"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="task-loadmore">
-                            <a href="javascript:void(0);" class="btn btn-default btn-outline btn-rounded">Load More</a>
+                            <a href="{{ route('suggestion.index')}}" class="btn btn-default btn-outline btn-rounded">Load More</a>
                         </div>
                     </div>
                 </div>

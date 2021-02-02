@@ -21,8 +21,10 @@ class CreateCheckoutTable extends Migration
             $table->string('birth');
             $table->string('product_name');
             $table->string('price');
-            $table->string('address1');
-            $table->string('address2');
+            $table->string('address');
+            $table->string('rt');
+            $table->string('rw');
+            $table->string('phone');
             $table->string('city');
             $table->string('state');
             $table->string('post_code');

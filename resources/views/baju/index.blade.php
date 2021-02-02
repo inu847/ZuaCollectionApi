@@ -32,15 +32,22 @@
     
                 <div class="col-md-6">
                     <form action="{{route('baju.index')}}" class="m-t-20">
-                        <div class="col-md-6">  
-                            <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Filter berdasarkan email"/>
+                        <div class="row">
+                            <div class="col-md-6 m-b-5">  
+                                <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Filter berdasarkan Nama"/>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}} value="PROCESS" name="status" type="radio" id="process">
+                                <label for="process" class="m-r-5">Process</label>
+                                <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}} value="SUCCESS" name="status" type="radio" id="success">
+                                <label for="success" class="m-r-5">Success</label>
+                                            
+                                <button type="submit" value="Filter" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>   
+                            </div>
                         </div>
-                            <input {{Request::get('status') == 'PROCESS' ? 'checked' : ''}} value="PROCESS" name="status" type="radio" id="process">
-                            <label for="process" class="m-r-5">Process</label>
-                            <input {{Request::get('status') == 'SUCCESS' ? 'checked' : ''}} value="SUCCESS" name="status" type="radio" id="success">
-                            <label for="success" class="m-r-5">Success</label>
-                                        
-                            <button type="submit" value="Filter" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>   
+                        
+                            
                     </form>
                 </div>             
             </div>
@@ -61,7 +68,7 @@
                         <tbody>
                         @foreach($table as $tbl)
                             <tr>
-                                <td>{{$tbl->title}}</td>
+                                <td>{{Str::limit($tbl->title,30)}}</td>
                                 <td>{{$tbl->kategori}}</td>
                                 <td>{{$tbl->jenis_ukuran}}</td>
                                 <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->diffForHumans()}}</span> </td>
@@ -76,19 +83,19 @@
                                 
                                 <td>
                                     <form
-                                        onsubmit="return confirm('Delete this user permanently?')"
+                                        onsubmit="return confirm('Delete this order permanently?')"
                                         class="d-inline"
                                         action="{{route('baju.destroy', [$tbl->id])}}"
                                         method="POST">
                                         @csrf
 
                                     <a href="{{route('baju.show', [$tbl->id])}}"
-                                        class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
+                                        class="btn btn-primary btn-sm m-b-5"><i class="fa fa-list"></i></a>
                                     <a href="{{route('baju.edit', [$tbl->id])}}"
-                                        class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                        class="btn btn-info btn-sm m-b-5"><i class="fa fa-pencil"></i></a>
                                     
                                     <a href="{{route('order.edit', [$tbl->id])}}"
-                                        class="btn btn-success btn-sm"><i class="fa fa-shopping-bag"></i></a>
+                                        class="btn btn-success btn-sm m-b-5"><i class="fa fa-shopping-bag"></i></a>
                                     
                                     <input
                                         type="hidden"
@@ -96,7 +103,7 @@
                                         value="DELETE">
                                     <button type="submit"
                                         value="Delete"
-                                        class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                        class="btn btn-danger btn-sm m-b-5"><i class="fa fa-trash"></i>
                                     </button>
                         
                             

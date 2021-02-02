@@ -32,17 +32,23 @@
     
                 <div class="col-md-7">
                     <form action="{{route('listorder.index')}}" class="m-t-20">
-                        <div class="col-md-6">  
-                            <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Filter berdasarkan Nama"/>
+                        <div class="row">
+                            <div class="col-md-6">  
+                                <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text" placeholder="Filter berdasarkan Nama"/>
+                            </div>
+                            <div class="col-md-6 m-t-5">
+                                <input {{Request::get('status') == 'PENDING' ? 'checked' : ''}} value="PENDING" name="status" type="radio" id="Pending">
+                                <label for="Pending" class="m-r-5">Pending</label>
+                                <input {{Request::get('status') == 'DIKIRIM' ? 'checked' : ''}} value="DIKIRIM" name="status" type="radio" id="Dikirim">
+                                <label for="Dikirim" class="m-r-5">Dikirim</label>
+                                <input {{Request::get('status') == 'SELESAI' ? 'checked' : ''}} value="SELESAI" name="status" type="radio" id="Selesai">
+                                <label for="Selesai" class="m-r-5">Selesai</label>
+                                            
+                                <button type="submit" value="Filter" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>                                 
+                            </div>
+                                
                         </div>
-                            <input {{Request::get('status') == 'PENDING' ? 'checked' : ''}} value="PENDING" name="status" type="radio" id="Pending">
-                            <label for="Pending" class="m-r-5">Pending</label>
-                            <input {{Request::get('status') == 'DIKIRIM' ? 'checked' : ''}} value="DIKIRIM" name="status" type="radio" id="Dikirim">
-                            <label for="Dikirim" class="m-r-5">Dikirim</label>
-                            <input {{Request::get('status') == 'SELESAI' ? 'checked' : ''}} value="SELESAI" name="status" type="radio" id="Selesai">
-                            <label for="Selesai" class="m-r-5">Selesai</label>
-                                        
-                            <button type="submit" value="Filter" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>   
+                          
                     </form>
                 </div>             
             </div>
@@ -54,7 +60,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Kategori</th>
-                                <th>Alamat <span class="text-muted">(Alamat|Kode Pos|Kota|Wilayah)</span> </th>                            
+                                <th>Alamat</th>                            
                                 <th>Waktu Pesan</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -63,9 +69,9 @@
                         <tbody>
                         @foreach($table as $tbl)
                             <tr>
-                                <td>{{$tbl->first_name}}</td>
-                                <td>{{$tbl->product_name}}</td>
-                                <td>{{$tbl->address1}}|{{$tbl->post_code}}|{{$tbl->country}}|{{$tbl->state}}</td>
+                                <td>{{Str::limit($tbl->first_name,10)}}</td>
+                                <td>{{Str::limit($tbl->product_name,20)}}</td>
+                                <td>{{Str::limit($tbl->address, 10)}}</td>
                                 <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{$tbl->created_at->diffForHumans()}}</span> </td>
                                 <td>
                                     @if($tbl->status == "PENDING")
@@ -80,16 +86,18 @@
                                 
                                 <td>
                                     <form
-                                        onsubmit="return confirm('Delete this user permanently?')"
+                                        onsubmit="return confirm('Delete this order permanently?')"
                                         class="d-inline"
                                         action="{{route('galeri.destroy', [$tbl->id])}}"
                                         method="POST">
                                         @csrf
 
                                     <a href="{{route('listorder.show', [$tbl->id])}}"
-                                        class="btn btn-primary btn-sm"><i class="fa fa-list"></i></a>
+                                        class="btn btn-primary btn-sm m-b-5"><i class="fa fa-list"></i></a>
                                     <a href="{{route('listorder.edit', [$tbl->id])}}"
-                                        class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                        class="btn btn-info btn-sm m-b-5"><i class="fa fa-pencil"></i></a>
+                                    <a href="https://wa.me/{{$tbl->phone}}"
+                                        class="btn btn-success btn-sm m-b-5"><i class="fa fa-whatsapp"></i></a>
                                     
                                     <input
                                         type="hidden"
@@ -97,7 +105,7 @@
                                         value="DELETE">
                                     <button type="submit"
                                         value="Delete"
-                                        class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                        class="btn btn-danger btn-sm m-b-5"><i class="fa fa-trash"></i>
                                     </button>
                         
                             

@@ -20,7 +20,7 @@ class PagesController extends Controller
     
     public function index(Request $request)
     {
-        $pages = Product::paginate(10);   
+        $pages = Product::paginate(10);
 
         return view('pages.index', ['pages' => $pages]);
     }

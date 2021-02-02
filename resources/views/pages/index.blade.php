@@ -17,15 +17,17 @@
 @endif
 <div class="col-sm-12">
     <div class="white-box">
+
         <div class="row">
             <div class="col-md-10">
-                <h3 class="box-title m-b-0">Product View</h3>
+                <h3 class="box-title m-b-5">Product View</h3>
                 <p class="text-muted m-b-30">list of products that are currently published</p>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 m-b-30">
                 <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10"><i class="fa fa-plus-circle"></i> Create New Product</a>
             </div>
         </div>
+        
         <div class="row">
             @foreach ($pages as $page)
                 <div class="col-md-4 col-sm-6 col-xs-12">

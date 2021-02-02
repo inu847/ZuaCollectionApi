@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="panjang_baju" class="col-sm-3 control-label">Panjang Baju*</label>
+                <label for="panjang_baju" class="col-sm-3 control-label m-b-20">Panjang Baju*</label>
                 <div class="col-sm-9">
                     <input value="{{old('panjang_baju')}}" type="number" class="form-control {{$errors->first('panjang_baju') ? "is-invalid": ""}}" id="panjang_baju" name="panjang_baju" placeholder="Panjang Baju"> 
                     <div class="invalid-feedback">
@@ -144,7 +144,7 @@
 
 
         <div class="col-md-6">
-            <div class="white-box form-horizontal m-t-10 p-b-20">
+            <div class="white-box form-horizontal m-t-10 p-b-0">
             <div class="form-group">
                 <label for="panjang_lengan" class="col-sm-3 control-label">Panjang Lengan*</label>
                 <div class="col-sm-9">
@@ -235,20 +235,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <input value="0" type="hidden" class="form-control {{$errors->first('invoice') ? "is-invalid": ""}}" id="invoice" name="invoice">  -->
-                    
+                   
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
+                <div class="col-sm-offset-3 col-sm-9 m-t-1">
                     <div class="checkbox checkbox-success">
                         <input id="checkbox33" type="checkbox" required>
                         <label for="checkbox33">Check me out !</label>
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-sm-offset-3 waves-effect">
-                    <button class="btn btn-danger waves-light m-l-15 m-t-5" type="submit" value="Submit">Submit</button>
+                    <button class="btn btn-danger waves-light m-l-15" type="submit" value="Submit">Submit</button>
                 </div>
             </div>
         </div>

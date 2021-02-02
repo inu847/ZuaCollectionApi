@@ -31,14 +31,14 @@ Route::get('/test', function () {
 });
 
 Route::resource('galeri', GaleriController::class);
+Route::resource('suggestion', SuggestionController::class);
 
 Auth::routes();
 
 Route::match(["GET", "POST"], "/register", function(){
     return redirect("/login");
    })->name("register");
-
-Route::resource('suggestion', SuggestionController::class);
+   
 Route::resource('scrapingformforme', ScrapingController::class);
 Route::resource('user', UserController::class);
 Route::resource('dasboard', DasboardController::class);

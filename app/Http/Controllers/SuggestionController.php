@@ -14,9 +14,9 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        $suggestions = Suggestion::first();
+        $suggestions = Suggestion::get();
 
-        return view('feature.suggest', ['suggestion' => $suggestions]);
+        return view('suggestion.index', ['suggestions' => $suggestions]);
     }
 
     /**
@@ -37,7 +37,16 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_rating = new Suggestion;
+
+        $new_rating->name = $request->get('name');
+        $new_rating->phone = $request->get('phone');
+        $new_rating->suggestion = $request->get('suggestion');
+        $new_rating->rating = $request->get('rating');
+
+        $new_rating->save();
+        return redirect()->route('galeri.index')->with('status', 'Tanggapan Anda Sudah Dikirim');
+
     }
 
     /**
@@ -48,7 +57,9 @@ class SuggestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $rating = Suggestion::findOrFail($id);
+
+        return view('suggestion.show', ['rating' => $rating]);
     }
 
     /**
@@ -82,6 +93,9 @@ class SuggestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $table = Suggestion::findOrFail($id);
+
+        $table->delete();
+        return redirect()->route('dasboard.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
 }
