@@ -116,15 +116,13 @@
                         </tbody>
                         <tfoot>
                             <tr class="text-right">
-                            <td colspan=10>
-                                {{$table->appends(Request::all())->links()}}
-                            </td>
-                            </tr>
+                                <td colspan=10>
+                                    {{$table->appends(Request::all())->links()}}
+                                </td>
+                            </tr>  
                         </tfoot>
-                        
                     </table>
                 </div>
-        
         </div>
     </div>
 </div>

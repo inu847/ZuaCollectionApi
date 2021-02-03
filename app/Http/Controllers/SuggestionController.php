@@ -14,7 +14,7 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        $suggestions = Suggestion::get();
+        $suggestions = Suggestion::latest()->paginate(5);
 
         return view('suggestion.index', ['suggestions' => $suggestions]);
     }
@@ -40,7 +40,10 @@ class SuggestionController extends Controller
         $new_rating = new Suggestion;
 
         $new_rating->name = $request->get('name');
-        $new_rating->phone = $request->get('phone');
+        $pho = $request->get('pho');
+        $ne = $request->get('ne');
+        $phone = $pho.$ne;
+        $new_rating->phone = $phone;
         $new_rating->suggestion = $request->get('suggestion');
         $new_rating->rating = $request->get('rating');
 

@@ -21,21 +21,19 @@ class BajuController extends Controller
 
     public function index(Request $request) {
 
-        $table = \App\Models\Baju::paginate(10);
+        $table = \App\Models\Baju::latest()->paginate(10);
         $filterKeyword = $request->get('keyword');
         $status = $request->get('status');
         
         if($status){
             $table = \App\Models\Baju::where('status', $status)->paginate(10);
-        } else {
-            $table = \App\Models\Baju::paginate(10);
         }
 
         if($filterKeyword){
             $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
             if($status){
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
-                } else {
+            } else {
                 $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
                 }
            }

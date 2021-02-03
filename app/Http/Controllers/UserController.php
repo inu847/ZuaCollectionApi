@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -18,7 +19,9 @@ class UserController extends Controller
     
     public function index()
     {
-        return view('dasboard.index');
+        $users = User::latest()->paginate(5);
+
+        return view('user.index', ['users' => $users]);
     }
 
     /**
@@ -43,7 +46,7 @@ class UserController extends Controller
             'name' => 'required|min:3|max:20',
             'roles' => 'required',
             'address' => 'required|min:4|max:25',
-            'phone' => 'required|min:10|max:15',
+            'ne' => 'required|min:8|max:15',
             'email' => 'required|min:7|max:25',
             'password' => 'required|min:8|max:20'
         ])->validate();
@@ -51,7 +54,10 @@ class UserController extends Controller
         $new_user->name = $request->get('name');
         $new_user->roles = $request->get('roles');
         $new_user->address = $request->get('address');
-        $new_user->phone = $request->get('phone');
+        $pho = $request->get('pho');
+        $ne = $request->get('ne');
+        $phone = $pho.$ne;
+        $new_user->phone = $phone;
         $new_user->email = $request->get('email');
         $new_user->password = \Hash::make($request->get('password'));
 
@@ -67,7 +73,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('user.show', ['user' => $user]);
     }
 
     /**

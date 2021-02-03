@@ -15,7 +15,7 @@
         value="PUT"
         name="_method">
         
-        <h3 class="box-title">Update Form User</h3>
+        <h3 class="box-title">Update User</h3>
         <div class="form-group ">
             <div class="col-xs-12">
                 <input class="form-control" id="name" type="text" value="{{$user->name}}" name="name">
@@ -46,7 +46,7 @@
 
         <div class="form-group ">
             <div class="col-xs-12">
-                <input class="form-control" id="phone" type="number" value="{{$user->phone}}" name="phone">
+                <input class="form-control" id="phone" type="text" value="{{$user->phone}}" name="phone">
             </div>
         </div>
         <div class="invalid-feedback">

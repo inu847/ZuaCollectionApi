@@ -246,6 +246,7 @@
                     </div>
                     <div class="task-add-btn text-right">
                         <a href="{{ route('user.create')}}" class="btn btn-warning">+</a>
+                        <a href="{{ route('user.index')}}" class="btn btn-info"><i class="fa fa-list"></i></a>
                     </div>
                     {{-- <ul class="pagination">
                         <li class="disabled"> <a href="#">1</a> </li>
@@ -301,7 +302,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-11">
-                                                    <h6 class="p-l-30 font-bold">{{$suggest->created_at->format('h:i:s')}} PM</h6>
+                                                    <h6 class="p-l-30 font-bold">{{$suggest->created_at}}</h6>
                                                 </div>
                                                 <div class="col-md-1 p-t-10">
                                                     <form onsubmit="return confirm('Delete this order permanently?')"

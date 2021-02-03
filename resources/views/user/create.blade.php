@@ -13,10 +13,11 @@
                     method="POST">
                     @csrf
                 
-                    <h3 class="box-title">Sign In</h3>
+                    <h3 class="box-title">Sign Up</h3>
+                    
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" value="{{ old('name')}}" placeholder="Name" name="name">
+                            <input class="form-control {{$errors->first('name') ? "is-invalid": ""}}" type="text" value="{{ old('name')}}" placeholder="Name" name="name">
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -25,7 +26,7 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" value="{{ old('email')}}" placeholder="Email" name="email">
+                            <input class="form-control {{$errors->first('email') ? "is-invalid": ""}}" type="text" value="{{ old('email')}}" placeholder="Email" name="email">
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -34,7 +35,7 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <select class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="roles">
+                            <select class="form-control {{$errors->first('roles') ? "is-invalid": ""}} {{$errors->first('kategori') ? "is-invalid" : "" }}" name="roles">
                                 <option value="ADMIN">Admin</option>
                                 <option value="MEMBER">Member</option>
                                 <option value="CUSTOMER">Customer</option>
@@ -47,16 +48,20 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="number" value="{{ old('phone')}}" placeholder="Phone Number" name="phone">
+                            <div class="input-group">
+                                <div class="input-group-addon">+62 </div>
+                                <input type="hidden" class="form-control" name="pho" value="+62">
+                                <input type="number" class="form-control" name="ne">
+                            </div>
                         </div>
                     </div>
                     <div class="invalid-feedback">
-                        {{$errors->first('phone')}}
+                        {{$errors->first('ne')}}
                     </div>
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" value="{{ old('address')}}" placeholder="Address" name="address">
+                            <input class="form-control {{$errors->first('address') ? "is-invalid": ""}}" type="text" value="{{ old('address')}}" placeholder="Address" name="address">
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -65,7 +70,7 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" placeholder="Password" name="password">
+                            <input class="form-control {{$errors->first('password') ? "is-invalid": ""}}" type="password" placeholder="Password" name="password">
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -74,7 +79,7 @@
 
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" placeholder="Confirm Password" name="password_confirmation">
+                            <input class="form-control {{$errors->first('password_confirmation') ? "is-invalid": ""}}" type="password" placeholder="Confirm Password" name="password_confirmation">
                         </div>
                     </div>
                     <div class="invalid-feedback">

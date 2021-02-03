@@ -20,7 +20,29 @@ class PagesController extends Controller
     
     public function index(Request $request)
     {
-        $pages = Product::paginate(10);
+        $pages = Product::latest()->paginate(10);
+        $filterKeyword = $request->get('keyword');
+        $price = $request->get('price');
+
+        if($price){
+            if($price==99000){
+                $pages = Product::where('price', '<', '100000')->paginate(10);
+            }elseif($price==100000){
+                $pages = Product::where('price', '>=', '100000')->where('price', '<', '200000')->paginate(10);
+            }elseif($price==200000){
+                $pages = Product::where('price', '>=', '200000')->where('price', '<', '500000')->paginate(10);
+            }elseif($price==500000){
+                $pages = Product::where('price', '>=', '500000')->where('price', '<', '1000000')->paginate(10);
+            }elseif($price==1000000){
+                $pages = Product::where('price', '>=', '1000000')->paginate(10);
+            }else{
+                $pages = Product::paginate(10);
+            }
+        }
+
+        if($filterKeyword){
+            $pages = Product::where('product_name', 'LIKE', "%$filterKeyword%")->paginate(10);
+        }
 
         return view('pages.index', ['pages' => $pages]);
     }

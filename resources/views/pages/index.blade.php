@@ -19,13 +19,41 @@
     <div class="white-box">
 
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <h3 class="box-title m-b-5">Product View</h3>
                 <p class="text-muted m-b-30">list of products that are currently published</p>
             </div>
-            <div class="col-md-2 m-b-30">
-                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light m-t-10"><i class="fa fa-plus-circle"></i> Create New Product</a>
+            <form action="{{ route('pages.index')}}">
+            <div class="col-md-5 m-t-10">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Filter Berdasarkan Nama Product">
+                            <div class="input-group-addon text-blue">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <select name="price" id="" class="form-control">
+                            <option value=""> Filter Harga</option>
+                            <option value="99000"> {{'<'}}Rp.100.000</option>
+                            <option value="100000"> {{'>'}}Rp.100.000</option>
+                            <option value="200000"> {{'>'}}Rp.200.000</option>
+                            <option value="500000"> {{'>'}}Rp.500.000</option>
+                            <option value="1000000"> {{'>'}}Rp.1.000.000</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
+                    
             </div>
+            <div class="col-md-3 m-b-30 m-t-10">
+                <button class="btn btn-info" type="submit"><i class="fa fa-search"></i> Submit</button>
+                <a href="{{ route('pages.create')}}" type="submit" class="btn btn-danger waves-effect waves-light"><i class="fa fa-plus-circle"></i> Create New Product</a>
+            </div>
+            </form>
         </div>
         
         <div class="row">
@@ -82,10 +110,23 @@
                     </div>
                 </div>
             @endforeach
-        
+        </div>
+        <tfoot>
+            <div class="row">
+                <div class="col-md-5">
+                    
+                </div>
+                <div class="col-md-5">
+                    <tr class="text-right">
+                        <td colspan=10>
+                            {{$pages->appends(Request::all())->links()}}
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </tfoot>
     </div>
 </div>
-
 
 
 

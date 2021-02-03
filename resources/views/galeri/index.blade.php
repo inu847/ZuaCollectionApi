@@ -20,6 +20,38 @@
 @endif
 <div class="col-sm-12">
     <div class="white-box">
+        <thead>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="box-title m-b-5">Welcome in Zua collection</h3>
+                <p class="text-muted m-b-30">Selamat berbelanja di zua collection. Happy shopping</p>
+            </div>               
+                <form action="{{ route('galeri.index')}}">
+                    <div class="col-md-4 m-t-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Filter Berdasarkan Nama Product">
+                            <div class="input-group-addon text-blue">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 m-t-10">
+                        <select name="price" id="" class="form-control">
+                            <option value=""> Filter Harga</option>
+                            <option value="99000"> {{'<'}}Rp.100.000</option>
+                            <option value="100000"> {{'>'}}Rp.100.000</option>
+                            <option value="200000"> {{'>'}}Rp.200.000</option>
+                            <option value="500000"> {{'>'}}Rp.500.000</option>
+                            <option value="1000000"> {{'>'}}Rp.1.000.000</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1 m-b-30 m-t-10">
+                        <button class="btn btn-info" type="submit"><i class="fa fa-search"></i> Submit</button>
+                    </div>
+                </form>
+        </div>
+    </thead>
+        <tbody>
         <div class="row">
             @foreach ($product as $prod)
             <a href="{{ route('galeri.show', [$prod->id])}}">
@@ -57,8 +89,24 @@
             </a>
             @endforeach
         </div>
+        </tbody>
+        <tfoot>
+            <div class="row">
+                <div class="col-md-5">
+                    
+                </div>
+                <div class="col-md-5">
+                    <tr class="text-right">
+                        <td colspan=10>
+                            {{$product->appends(Request::all())->links()}}
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </tfoot>
     </div>
 </div>
+
 <div class="col-sm-12">
     <div class="white-box">
         <h3 class="box-title">Rating Us</h3>
@@ -83,7 +131,11 @@
                             <div class="form-group">
                                 <label for="" class="col-md-12">Phone Number</label>
                                 <div class="col-md-12">
-                                    <input type="number" class="form-control" name="phone">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">+62 </div>
+                                        <input type="hidden" class="form-control" name="pho" value="+62">
+                                        <input type="number" class="form-control" name="ne">
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="white-box">
     @foreach ($suggestions as $suggest)
         <div class="white-box">
             <div class="row">
@@ -30,4 +31,18 @@
             </div>
         </div>
     @endforeach
+    <tfoot>
+        <div class="row">
+            <div class="col-md-5"> 
+            </div>
+            <div class="col-md-5">
+                <tr class="text-right">
+                    <td colspan=10>
+                        {{$suggestions->appends(Request::all())->links()}}
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </tfoot>
+</div>
 @endsection

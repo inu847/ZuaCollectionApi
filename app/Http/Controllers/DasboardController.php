@@ -20,8 +20,8 @@ class DasboardController extends Controller
     
     public function index()
     {
-        $users = \App\Models\User::latest()->paginate(10);
-        $suggestion = \App\Models\Suggestion::paginate(5);
+        $users = \App\Models\User::latest()->paginate(5);
+        $suggestion = \App\Models\Suggestion::latest()->paginate(5);
         $complain = \App\Models\Suggestion::count('suggestion');
         // earning
         $persen = Baju::sum('invoice');

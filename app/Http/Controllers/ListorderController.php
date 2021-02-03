@@ -14,22 +14,21 @@ class ListorderController extends Controller
      */
     public function index(Request $request)
     {
-        $table = Checkout::paginate(10);
+        $table = Checkout::latest()->paginate(10);
         $filterKeyword = $request->get('keyword');
         $status = $request->get('status');
         
         if($status){
             $table = Checkout::where('status', $status)->paginate(10);
-        } else {
-            $table = Checkout::paginate(10);
         }
 
         if($filterKeyword){
             $table = Checkout::where('first_name', 'LIKE', "%$filterKeyword%")->paginate(10);
+
             if($status){
-                $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
-                } else {
-                $table = Checkout::where('status', 'LIKE', "%$filterKeyword%")->paginate(10);
+                $table = Checkout::where('first_name', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
+            } else {
+                $table = Checkout::where('first_name', 'LIKE', "%$filterKeyword%")->paginate(10);
                 }
            }
 
