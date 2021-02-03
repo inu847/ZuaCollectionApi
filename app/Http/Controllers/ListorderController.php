@@ -103,7 +103,10 @@ class ListorderController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        //
+        $product = Checkout::findOrFail($id);
+
+        $product->delete();
+        return redirect()->route('listorder.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
 
     public function pesanan(Request $request, $id)

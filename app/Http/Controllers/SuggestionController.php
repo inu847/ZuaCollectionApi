@@ -39,7 +39,7 @@ class SuggestionController extends Controller
     {
         \Validator::make($request->all(),[
             "first_name" => "min:1|max:30",
-            "ne" => "min:6|max:20",
+            // "ne" => "min:6|max:20",
             "suggestion" => "min:1|max:3000",
             "rating" => "required",
             ])->validate();

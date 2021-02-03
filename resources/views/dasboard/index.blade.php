@@ -283,9 +283,15 @@
                                                 <div class="col-md-11">
                                                     <a href="{{ route('suggestion.show', [$suggest->id])}}"><p class="p-l-30 font-bold">{{$suggest->name}}</p></a>
                                                 </div>
-                                                <div class="col-md-1">
-                                                    <a href="https://wa.me/{{$suggest->phone}}" class="label label-table label-warning font-20"><span class="fa fa-whatsapp"></span></a>
-                                                </div>
+                                                @if ($suggest->phone!='+62')
+                                                    <div class="col-md-1">
+                                                        <a href="https://wa.me/{{$suggest->phone}}" class="label label-table label-warning font-20"><span class="fa fa-whatsapp"></span></a>
+                                                    </div>
+                                                @else
+                                                    <div class="col-md-1">
+                                                        <a class="label label-table label-success font-20"><span class="fa fa-ban"></span></a>
+                                                    </div>
+                                                @endif
                                             </div>
                                             
                                             <div class="row">

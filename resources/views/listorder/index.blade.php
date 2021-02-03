@@ -88,7 +88,7 @@
                                     <form
                                         onsubmit="return confirm('Delete this order permanently?')"
                                         class="d-inline"
-                                        action="{{route('galeri.destroy', [$tbl->id])}}"
+                                        action="{{route('listorder.destroy', [$tbl->id])}}"
                                         method="POST">
                                         @csrf
 
