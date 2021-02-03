@@ -102,8 +102,9 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'name' => 'required|min:3|max:20',
+            'roles' => 'required',
             'address' => 'required|min:4|max:25',
-            'phone' => 'required|min:10|max:15',
+            'phone' => 'required|min:8|max:15',
         ])->validate();
 
         $user = \App\Models\User::findOrFail($id);

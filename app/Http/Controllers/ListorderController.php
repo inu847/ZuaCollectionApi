@@ -108,6 +108,25 @@ class ListorderController extends Controller
 
     public function pesanan(Request $request, $id)
     {
+        \Validator::make($request->all(),[
+            "first_name" => "min:1|max:30",
+            "last_name" => "min:1|max:30",
+            "gender" => "required",
+            "birth" => "min:1|max:10",
+            "product_name" => "min:1|max:200",
+            "product" => "min:1|max:100",
+            "price" => "min:1|max:20",
+            "address" => "min:1|max:50",
+            "rt" => "min:1|max:5",
+            "rw" => "min:1|max:5",
+            "phone" => "min:6|max:20",
+            "city" => "min:1|max:100",
+            "state" => "min:1|max:100",
+            "post_code" => "min:1|max:20",
+            "country" => "min:1|max:100",
+            "status" => "required",
+            ])->validate();
+
         $product = Checkout::findOrFail($id);
 
         $product->first_name = ucfirst($request->get('first_name'));

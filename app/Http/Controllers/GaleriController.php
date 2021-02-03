@@ -60,6 +60,25 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
+        \Validator::make($request->all(),[
+            "first_name" => "min:1|max:30",
+            "last_name" => "min:1|max:30",
+            "gender" => "required",
+            "birth" => "min:1|max:10",
+            "product_name" => "min:1|max:200",
+            "product" => "min:1|max:100",
+            "price" => "min:1|max:20",
+            "address" => "min:1|max:50",
+            "rt" => "min:1|max:5",
+            "rw" => "min:1|max:5",
+            "ne" => "min:6|max:20",
+            "city" => "min:1|max:100",
+            "state" => "min:1|max:100",
+            "post_code" => "min:1|max:20",
+            "country" => "min:1|max:100",
+            "status" => "required",
+            ])->validate();
+            
         $new_product = new Checkout;
         $new_product->first_name = ucfirst($request->get('first_name'));
         $new_product->last_name = $request->get('last_name');
@@ -83,11 +102,6 @@ class GaleriController extends Controller
         $new_product->post_code = $request->get('post_code');
         $new_product->country = $request->get('country');
         $new_product->status = $request->get('status');
-
-        if($request->file('product')){
-            $file = $request->file('product')->store('products', 'public');
-            $new_product->product = $file;
-           }
 
         $new_product->save();
         return redirect()->route('galeri.index')->with('status', 'Checkout Success!!');
@@ -130,6 +144,25 @@ class GaleriController extends Controller
      */
     public function update(Request $request, $id)
     {
+        \Validator::make($request->all(),[
+            "first_name" => "min:1|max:30",
+            "last_name" => "min:1|max:30",
+            "gender" => "required",
+            "birth" => "min:1|max:10",
+            "product_name" => "min:1|max:200",
+            "product" => "min:1|max:100",
+            "price" => "min:1|max:20",
+            "address" => "min:1|max:50",
+            "rt" => "min:1|max:5",
+            "rw" => "min:1|max:5",
+            "ne" => "min:6|max:20",
+            "city" => "min:1|max:100",
+            "state" => "min:1|max:100",
+            "post_code" => "min:1|max:20",
+            "country" => "min:1|max:100",
+            "status" => "required",
+            ])->validate();
+            
         $new_product = Checkout::findOrFail($id);
         $new_product->first_name = ucfirst($request->get('first_name'));
         $new_product->last_name = $request->get('last_name');

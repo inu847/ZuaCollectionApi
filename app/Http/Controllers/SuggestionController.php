@@ -37,6 +37,13 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
+        \Validator::make($request->all(),[
+            "first_name" => "min:1|max:30",
+            "ne" => "min:6|max:20",
+            "suggestion" => "min:1|max:3000",
+            "rating" => "required",
+            ])->validate();
+
         $new_rating = new Suggestion;
 
         $new_rating->name = $request->get('name');
