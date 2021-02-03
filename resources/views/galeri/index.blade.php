@@ -154,17 +154,15 @@
 
                             <div class="row">
                                 <div class="form-group">
-                                    <div class="col-md-6">
-                                        <div class="m-t-40">
-                                            <label for="" class="m-15">Rating</label>
-                                            <select name="rating" id="" class="p-10 waves-effect">
-                                                <option value="BAIK">Baik</option>
-                                                <option value="KURANG">Kurang Baik</option>
-                                                <option value="BURUK">Buruk</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-md-6 m-15">
+                                        <label for="">Rating</label>
+                                        <select name="rating" id="" class="form-control">
+                                            <option value="BAIK">Baik</option>
+                                            <option value="KURANG">Kurang Baik</option>
+                                            <option value="BURUK">Buruk</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-6 m-t-40">
+                                    <div class="col-md-5 m-t-40">
                                         <div class="col-md-offset-7 m-t-20">
                                             <button class="btn btn-danger" type="submit" value="save">Submit</button>
                                         </div>
