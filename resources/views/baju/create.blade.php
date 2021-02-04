@@ -14,7 +14,7 @@
     <div class="row">
         <div class="m-l-40">
             <h3 class="box-title m-b-0">Create New Orders</h3>
-            <p class="text-muted m-b-30 font-13">Tambahkan kolom. Jika kosong isi dengan nilai 0</p>
+            <p class="text-muted m-b-30 font-13">Tambahkan kolom. Jika tidak ada nilai kosongi kolom</p>
         </div>
         
         <form 
@@ -55,7 +55,7 @@
                         <label class="col-sm-3 control-label">Jenis Ukuran*</label>
                         <div class="col-sm-9">
                             <select class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran">
-                                <option value="Ukuran Badan">Pilih Kategori</option>
+                                <option value="Baju Jadi">Pilih Kategori</option>
                                 <option id="ukuran_badan" value="Ukuran Badan">Ukuran Badan</option>
                                 <option id="baju_jadi" value="Baju Jadi">Baju Jadi</option>
                             </select>

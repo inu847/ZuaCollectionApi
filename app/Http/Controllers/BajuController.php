@@ -14,9 +14,15 @@ class BajuController extends Controller
      */
 
     public function __construct(){
-        
-            $this->middleware('auth');
-        }
+
+        $this->middleware('auth');
+
+        $this->middleware(function($request, $next){
+
+        if(Gate::allows('manage-order')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
 
 
     public function index(Request $request) {
@@ -61,30 +67,14 @@ class BajuController extends Controller
     {
         \Validator::make($request->all(),[
             "name" => "required|min:1|max:30",
-            "lingkar_badan" => "min:1|max:4",
-            "lingkar_pinggang" => "min:1|max:4",
-            "lingkar_pinggul" => "min:1|max:4",
-            "lingkar_pipa" => "min:1|max:4",
-            "lingkar_paha" => "min:1|max:4",
-            "lingkar_lutut" => "min:1|max:4",
-            "lebar_muka" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_ban_lengan" => "min:1|max:4",
-            "panjang_punggung" => "min:1|max:4",
-            "panjang_muka" => "min:1|max:4",
-            "panjang_baju" => "min:1|max:4",
-            "panjang_lengan" => "min:1|max:4",
-            "panjang_rok" => "min:1|max:4",
-            "panjang_celana" => "min:1|max:4",
-            "panjang_krah" => "min:1|max:4",
-            "avatar" => "required"
+            "kategori" => "min:1|max:20",
+            "jenis_ukuran" => "min:1|max:20",
             ])->validate();
 
         $new_clothes = new \App\Models\Baju;
         $new_clothes->title = ucfirst($request->get('name'));
         $new_clothes->kategori = $request->get('kategori');
-        $new_clothes->status = $request->get('status');
+        $new_clothes->status = 'PROCESS';
         $new_clothes->jenis_ukuran = $request->get('jenis_ukuran');
         $new_clothes->lingkar_badan = $request->get('lingkar_badan');
         $new_clothes->lingkar_pinggang = $request->get('lingkar_pinggang');
@@ -150,23 +140,8 @@ class BajuController extends Controller
     {
         \Validator::make($request->all(),[
             "name" => "required|min:1|max:30",
-            "lingkar_badan" => "min:1|max:4",
-            "lingkar_pinggang" => "min:1|max:4",
-            "lingkar_pinggul" => "min:1|max:4",
-            "lingkar_pipa" => "min:1|max:4",
-            "lingkar_paha" => "min:1|max:4",
-            "lingkar_lutut" => "min:1|max:4",
-            "lebar_muka" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_ban_lengan" => "min:1|max:4",
-            "panjang_punggung" => "min:1|max:4",
-            "panjang_muka" => "min:1|max:4",
-            "panjang_baju" => "min:1|max:4",
-            "panjang_lengan" => "min:1|max:4",
-            "panjang_rok" => "min:1|max:4",
-            "panjang_celana" => "min:1|max:4",
-            "panjang_krah" => "min:1|max:4",
+            "kategori" => "min:1|max:20",
+            "jenis_ukuran" => "min:1|max:20",
             ])->validate();
 
         $title = $request->get('name');

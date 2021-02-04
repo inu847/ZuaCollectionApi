@@ -145,9 +145,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="" class="col-md-12 m-t-10">Suggestion</label>
-                                <div class="col-md-12">
-                                    <textarea id="" cols="77" rows="3" name="suggestion"></textarea>
-                                </div>
+                                <textarea id="" rows="3" name="suggestion" class="col-md-11 m-l-15"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">

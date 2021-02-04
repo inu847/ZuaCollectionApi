@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Checkout;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -13,6 +14,16 @@ class GaleriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        
+        $this->middleware('auth');
+
+        $this->middleware(function($request, $next){
+        if(Gate::allows('order')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     public function index(Request $request)
     {
         $product = Product::latest()->paginate(10);
@@ -155,14 +166,14 @@ class GaleriController extends Controller
             "address" => "min:1|max:50",
             "rt" => "min:1|max:5",
             "rw" => "min:1|max:5",
-            "ne" => "min:6|max:20",
+            "phone" => "min:6|max:20",
             "city" => "min:1|max:100",
             "state" => "min:1|max:100",
             "post_code" => "min:1|max:20",
             "country" => "min:1|max:100",
             "status" => "required",
             ])->validate();
-            
+
         $new_product = Checkout::findOrFail($id);
         $new_product->first_name = ucfirst($request->get('first_name'));
         $new_product->last_name = $request->get('last_name');

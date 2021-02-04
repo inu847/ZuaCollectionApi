@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Product;
+use Illuminate\Support\Facades\Gate;
 
 class PagesController extends Controller
 {
@@ -14,8 +15,12 @@ class PagesController extends Controller
      */
 
     public function __construct(){
-        
         $this->middleware('auth');
+        $this->middleware(function($request, $next){
+
+        if(Gate::allows('create-product')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
     }
     
     public function index(Request $request)

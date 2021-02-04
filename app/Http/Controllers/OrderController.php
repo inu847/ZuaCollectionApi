@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Baju;
-
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller
 {
@@ -15,8 +15,12 @@ class OrderController extends Controller
      */
 
     public function __construct(){
-        
         $this->middleware('auth');
+        $this->middleware(function($request, $next){
+
+        if(Gate::allows('create-product')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
     }
     
     public function index(Request $request)
@@ -82,24 +86,8 @@ class OrderController extends Controller
     {
         \Validator::make($request->all(),[
             "name" => "required|min:1|max:30",
-            "lingkar_badan" => "min:1|max:4",
-            "lingkar_pinggang" => "min:1|max:4",
-            "lingkar_pinggul" => "min:1|max:4",
-            "lingkar_pipa" => "min:1|max:4",
-            "lingkar_paha" => "min:1|max:4",
-            "lingkar_lutut" => "min:1|max:4",
-            "lebar_muka" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_punggung" => "min:1|max:4",
-            "lebar_ban_lengan" => "min:1|max:4",
-            "panjang_punggung" => "min:1|max:4",
-            "panjang_muka" => "min:1|max:4",
-            "panjang_baju" => "min:1|max:4",
-            "panjang_lengan" => "min:1|max:4",
-            "panjang_rok" => "min:1|max:4",
-            "panjang_celana" => "min:1|max:4",
-            "panjang_krah" => "min:1|max:4",
-            "invoice" => "min:5|max:15",
+            "kategori" => "min:1|max:20",
+            "invoice" => "min:1|max:20",
             ])->validate();
 
         $title = $request->get('name');
@@ -151,9 +139,7 @@ class OrderController extends Controller
         $order->invoice = $invoice;
 
         $order->save();
-        return view('order.index', ['order' => $order]);
-
-
+        return redirect()->route('baju.index');
     }
 
     /**

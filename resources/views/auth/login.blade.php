@@ -49,11 +49,11 @@
     <div class="form-group text-center m-t-20">
         <div class="col-xs-12">
             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">
-                {{ __('Login') }}
+                {{ __('Sign In') }}
             </button>
 
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Write Your Suggestion!!') }}
+                    <a class="btn btn-link" href="{{ route('register.create') }}">
+                        {{ __('Sign Up!!') }}
                     </a>
 
         </div>

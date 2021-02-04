@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Checkout;
+use Illuminate\Support\Facades\Gate;
 
 class ListorderController extends Controller
 {
@@ -12,6 +13,16 @@ class ListorderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware(function($request, $next){
+
+        if(Gate::allows('manage-order')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     public function index(Request $request)
     {
         $table = Checkout::latest()->paginate(10);

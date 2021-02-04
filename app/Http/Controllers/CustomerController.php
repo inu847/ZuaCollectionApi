@@ -4,29 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Gate;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware('auth');
-        $this->middleware(function($request, $next){
-
-        if(Gate::allows('user')) return $next($request);
-            abort(403, 'Anda tidak memiliki cukup hak akses');
-        });
-    }
-    
     public function index()
     {
-        $users = User::latest()->paginate(5);
-
-        return view('user.index', ['users' => $users]);
+        
     }
 
     /**
@@ -36,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('auth.register');
     }
 
     /**
@@ -49,15 +37,15 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'name' => 'required|min:3|max:20',
-            'roles' => 'required',
             'address' => 'required|min:4|max:25',
             'ne' => 'required|min:8|max:15',
             'email' => 'required|min:7|max:25',
             'password' => 'required|min:8|max:20'
         ])->validate();
-        $new_user = new \App\Models\User;
+
+        $new_user = new User;
         $new_user->name = $request->get('name');
-        $new_user->roles = $request->get('roles');
+        $new_user->roles = 'CUSTOMER';
         $new_user->address = $request->get('address');
         $pho = $request->get('pho');
         $ne = $request->get('ne');
@@ -67,7 +55,7 @@ class UserController extends Controller
         $new_user->password = \Hash::make($request->get('password'));
 
         $new_user->save();
-        return redirect()->route('dasboard.index')->with('status', 'Create Akun Success!!');
+        return redirect()->route('galeri.index')->with('status', 'Create Akun Success!!');
     }
 
     /**
@@ -78,9 +66,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-
-        return view('user.show', ['user' => $user]);
+        //
     }
 
     /**
@@ -91,9 +77,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = \App\Models\User::findOrFail($id);
-
-        return view('user.edit', ['user' => $user]);
+        //
     }
 
     /**
@@ -105,22 +89,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \Validator::make($request->all(), [
-            'name' => 'required|min:3|max:20',
-            'roles' => 'required',
-            'address' => 'required|min:4|max:25',
-            'phone' => 'required|min:8|max:15',
-        ])->validate();
-
-        $user = \App\Models\User::findOrFail($id);
-
-        $user->name = $request->get('name');
-        $user->roles = $request->get('roles');
-        $user->address = $request->get('address');
-        $user->phone = $request->get('phone');
-        
-        $user->save();
-        return redirect()->route('dasboard.index', [$id])->with('statusup', 'Update User Berhasil!!');
+        //
     }
 
     /**
@@ -131,9 +100,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = \App\Models\User::findOrFail($id);
-
-        $user->delete();
-        return redirect()->route('dasboard.index')->with('statusdel', 'User Berhasil Dihapus!!');
+        //
     }
 }

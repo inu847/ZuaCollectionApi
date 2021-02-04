@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScrapingController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\ListorderController;
+use App\Http\Controllers\CustomerController;
 
 
 /*
@@ -30,14 +31,14 @@ Route::get('/test', function () {
     return view('welcome');
 });
 
-Route::resource('galeri', GaleriController::class);
-Route::resource('suggestion', SuggestionController::class);
+Route::resource('register', CustomerController::class);
+Route::post('register/create', [CustomerController::class, 'store'])->name('register.createuser');
+
 
 Auth::routes();
-
-Route::match(["GET", "POST"], "/register", function(){
-    return redirect("/login");
-   })->name("register");
+// Route::match(["GET", "POST"], "/register", function(){
+//     return redirect("/login");
+//    })->name("register");
    
 Route::resource('scrapingformforme', ScrapingController::class);
 Route::resource('user', UserController::class);
@@ -47,3 +48,5 @@ Route::resource('order', OrderController::class);
 Route::resource('baju', BajuController::class);
 Route::post('/listorder/{id}/edit', [ListorderController::class, 'pesanan'])->name('listorder.pesanan');
 Route::resource('listorder', ListorderController::class);
+Route::resource('galeri', GaleriController::class);
+Route::resource('suggestion', SuggestionController::class);

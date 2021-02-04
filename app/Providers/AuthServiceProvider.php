@@ -25,6 +25,25 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('dasboard', function($user){
+            return count(array_intersect(["ADMIN", "MEMBER"], [$user->roles]));
+        });
+
+        Gate::define('manage-order', function($user){
+            return count(array_intersect(["ADMIN", "MEMBER"], [$user->roles]));
+        });
+
+        Gate::define('user', function($user){
+            return count(array_intersect([$user->email] , ['adin72978@gmail.com']));
+        });
+
+        Gate::define('create-product', function($user){
+            return count(array_intersect(["ADMIN", "MEMBER"], [$user->roles]));
+        });
+
+        Gate::define('order', function($user){
+            return count(array_intersect(["ADMIN", "MEMBER", "CUSTOMER"], [$user->roles]));
+        });
+        
     }
 }
