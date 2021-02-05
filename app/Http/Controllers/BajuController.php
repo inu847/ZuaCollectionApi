@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Baju;
 
 class BajuController extends Controller
 {
@@ -27,20 +30,20 @@ class BajuController extends Controller
 
     public function index(Request $request) {
 
-        $table = \App\Models\Baju::latest()->paginate(10);
+        $table = Baju::latest()->paginate(10);
         $filterKeyword = $request->get('keyword');
         $status = $request->get('status');
         
         if($status){
-            $table = \App\Models\Baju::where('status', $status)->paginate(10);
+            $table = Baju::where('status', $status)->paginate(10);
         }
 
         if($filterKeyword){
-            $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
+            $table = Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
             if($status){
-                $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
+                $table = Baju::where('title', 'LIKE', "%$filterKeyword%")->where('status', $status)->paginate(10);
             } else {
-                $table = \App\Models\Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
+                $table = Baju::where('title', 'LIKE', "%$filterKeyword%")->paginate(10);
                 }
            }
 
@@ -65,13 +68,14 @@ class BajuController extends Controller
      */
     public function store(Request $request)
     {
-        \Validator::make($request->all(),[
+        Validator::make($request->all(),[
             "name" => "required|min:1|max:30",
             "kategori" => "min:1|max:20",
             "jenis_ukuran" => "min:1|max:20",
+            "avatar" => 'file|image|max:2048',
             ])->validate();
 
-        $new_clothes = new \App\Models\Baju;
+        $new_clothes = new Baju;
         $new_clothes->title = ucfirst($request->get('name'));
         $new_clothes->kategori = $request->get('kategori');
         $new_clothes->status = 'PROCESS';
@@ -97,7 +101,7 @@ class BajuController extends Controller
         if($request->file('avatar')){
             $file = $request->file('avatar')->store('avatars', 'public');
             $new_clothes->avatar = $file;
-           }
+        }
 
         $new_clothes->save();
         return redirect()->route('baju.index')->with('status', 'ANDA TELAH MENAMBAHKAN PESANAN');
@@ -111,7 +115,7 @@ class BajuController extends Controller
      */
     public function show($id)
     {
-        $baju = \App\Models\Baju::findOrFail($id);
+        $baju = Baju::findOrFail($id);
 
         return view('baju.show', ['baju' => $baju]);
     }
@@ -124,7 +128,7 @@ class BajuController extends Controller
      */
     public function edit($id)
     {
-        $baju = \App\Models\Baju::findOrFail($id);
+        $baju = Baju::findOrFail($id);
         
         return view('baju.update', ['baju' => $baju]);
     }
@@ -138,65 +142,47 @@ class BajuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \Validator::make($request->all(),[
+        $baju = Baju::findOrFail($id);
+        
+        Validator::make($request->all(),[
             "name" => "required|min:1|max:30",
             "kategori" => "min:1|max:20",
             "jenis_ukuran" => "min:1|max:20",
+            "avatar" => 'file|image|max:2048',
             ])->validate();
 
-        $title = $request->get('name');
-        $kategori = $request->get('kategori');
-        $jenis_ukuran = $request->get('jenis_ukuran');
-        $status = $request->get('status');
-        $lingkar_badan = $request->get('lingkar_badan');
-        $lingkar_pinggang = $request->get('lingkar_pinggang');
-        $lingkar_pinggul = $request->get('lingkar_pinggul');
-        $lingkar_pipa = $request->get('lingkar_pipa');
-        $lingkar_paha = $request->get('lingkar_paha');
-        $lingkar_lutut = $request->get('lingkar_lutut');
-        $lebar_muka = $request->get('lebar_muka');
-        $lebar_punggung = $request->get('lebar_punggung');
-        $lebar_lengan = $request->get('lebar_lengan');
-        $lebar_ban_lengan = $request->get('lebar_ban_lengan');
-        $panjang_punggung = $request->get('panjang_punggung');
-        $panjang_muka = $request->get('panjang_muka');
-        $panjang_baju = $request->get('panjang_baju');
-        $panjang_lengan = $request->get('panjang_lengan');
-        $panjang_rok = $request->get('panjang_rok');
-        $panjang_celana = $request->get('panjang_celana');
-        $panjang_krah = $request->get('panjang_krah');
+        $baju->title = $request->get('name');
+        $baju->kategori = $request->get('kategori');
+        $baju->jenis_ukuran = $request->get('jenis_ukuran');
+        $baju->status = $request->get('status');
+        $baju->lingkar_badan = $request->get('lingkar_badan');
+        $baju->lingkar_pinggang = $request->get('lingkar_pinggang');
+        $baju->lingkar_pinggul = $request->get('lingkar_pinggul');
+        $baju->lingkar_pipa = $request->get('lingkar_pipa');
+        $baju->lingkar_paha = $request->get('lingkar_paha');
+        $baju->lingkar_lutut = $request->get('lingkar_lutut');
+        $baju->lebar_muka = $request->get('lebar_muka');
+        $baju->lebar_punggung = $request->get('lebar_punggung');
+        $baju->lebar_lengan = $request->get('lebar_lengan');
+        $baju->lebar_ban_lengan = $request->get('lebar_ban_lengan');
+        $baju->panjang_punggung = $request->get('panjang_punggung');
+        $baju->panjang_muka = $request->get('panjang_muka');
+        $baju->panjang_baju = $request->get('panjang_baju');
+        $baju->panjang_lengan = $request->get('panjang_lengan');
+        $baju->panjang_rok = $request->get('panjang_rok');
+        $baju->panjang_celana = $request->get('panjang_celana');
+        $baju->panjang_krah = $request->get('panjang_krah');
         
-        
-        
-
-        $baju = \App\Models\Baju::findOrFail($id);
-
-        $baju->title = $title;
-        $baju->kategori = $kategori;
-        $baju->jenis_ukuran = $jenis_ukuran;
-        $baju->status = $status;
-        $baju->lingkar_badan = $lingkar_badan;
-        $baju->lingkar_pinggang = $lingkar_pinggang;
-        $baju->lingkar_pinggul = $lingkar_pinggul;
-        $baju->lingkar_pipa = $lingkar_pipa;
-        $baju->lingkar_paha = $lingkar_paha;
-        $baju->lingkar_lutut = $lingkar_lutut;
-        $baju->lebar_muka = $lebar_muka;
-        $baju->lebar_punggung = $lebar_punggung;
-        $baju->lebar_lengan = $lebar_lengan;
-        $baju->lebar_ban_lengan = $lebar_ban_lengan;
-        $baju->panjang_punggung = $panjang_punggung;
-        $baju->panjang_muka = $panjang_muka;
-        $baju->panjang_baju = $panjang_baju;
-        $baju->panjang_lengan = $panjang_lengan;
-        $baju->panjang_rok = $panjang_rok;
-        $baju->panjang_celana = $panjang_celana;
-        $baju->panjang_krah = $panjang_krah;
-        if ($request->file('avatar')){
+        if($request->file('avatar')){
             if($baju->avatar && file_exists(storage_path('app/public/' . $baju->avatar))){
-                \Storage::delete('public/'.$baju->avatar);
+                Storage::delete('public/'.$baju->avatar);
                 $file = $request->file('avatar')->store('avatars', 'public');
                 $baju->avatar = $file;
+            }else{
+                if($request->file('avatar')){
+                    $file = $request->file('avatar')->store('avatars', 'public');
+                    $baju->avatar = $file;
+                }
             }
         }
                
@@ -217,6 +203,23 @@ class BajuController extends Controller
         $table->delete();
         return redirect()->route('baju.index')->with('statusdel', 'Data Berhasil Dihapus');
     }
+    
+    public function invoice(Request $request, $id)
+    {
+        $order = Baju::findOrFail($id);
 
+        Validator::make($request->all(),[
+            "name" => "required|min:1|max:30",
+            "kategori" => "min:1|max:20",
+            "invoice" => "min:1|max:20",
+            ])->validate();
+        
+        $order->title = $request->get('name');
+        $order->kategori = $request->get('kategori');
+        $order->status = 'SUCCESS';
+        $order->invoice = $request->get('invoice');
 
+        $order->save();
+        return view('order.index', ['order' => $order]);
+    }
 }

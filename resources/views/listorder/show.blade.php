@@ -20,7 +20,6 @@
                     <tr >
                         <th class="p-l-20">{{('Buyer : ')}} {{$baju->first_name}} {{$baju->last_name}} </th>
                         <th class="p-l-20">Ukuran</th>
-                        {{-- <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -40,9 +39,16 @@
                         <td class="p-l-20">Product Name</td>
                         <td class="p-l-20">{{$baju->product_name}}</td>
                     </tr>
+                    <tr >
+                        <td class="p-l-20">Size</td>
+                        <td class="p-l-20">{{$baju->size}}</td>
+                    </tr>
                     <tr>
                         <td class="p-l-20">Price</td>
-                        <td class="p-l-20 "><div class="label label-table label-success">Rp. {{$baju->price}}</div></td>
+                        <td class="p-l-20 ">
+                            <div class="label label-table label-info">{{$baju->price}} Pcs</div> 
+                            <div class="label label-table label-success">Rp. {{$baju->total}}</div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="p-l-20">Address</td>

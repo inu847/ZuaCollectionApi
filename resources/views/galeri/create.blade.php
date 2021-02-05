@@ -103,11 +103,28 @@
                                     <!--/row-->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 p-t-10" for="price">Count Price</label>
-                                            <div class="col-md-9 m-b-10">
-                                                <input value="{{old('price')}}" type="text" class="form-control {{$errors->first('price') ? "is-invalid": ""}}" id="price" placeholder="Many Price" name="price"> 
-                                                <span class="help-block">{{$errors->first('price')}}</span>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <label class="control-label col-md-4 p-t-10 m-r-20" for="price">Count Price</label>
+                                                    <div class="col-md-7 m-b-10">
+                                                        <input value="{{old('price')}}" type="text" class="form-control {{$errors->first('price') ? "is-invalid": ""}}" id="price" placeholder="Many Price" name="price"> 
+                                                        <span class="help-block">{{$errors->first('price')}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="size" class="col-md-4 m-t-10">Size</label>
+                                                    <div class="col-md-8">
+                                                        <select name="size" id="size" class="form-control">
+                                                            @foreach (json_decode($product->size) as $size)
+                                                                @if ($size!='None'))
+                                                                    <option value="{{$size}}">{{$size}}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <!--/row-->
@@ -203,7 +220,7 @@
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-offset-10 col-md-9">
-                                                <input type="submit" class="btn btn-success text-white" value="Submit">
+                                                <button type="submit" class="btn btn-success text-white" value="Submit">Submit</button>
                                                 <a type="button" class="btn btn-default" href="{{route('galeri.index')}}">Cancel</a>
                                             </div>
                                         </div>

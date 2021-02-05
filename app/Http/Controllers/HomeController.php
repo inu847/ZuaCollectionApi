@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dasboard.index');
+        $complain = \App\Models\Suggestion::count('suggestion');
+        $suggestion = \App\Models\Suggestion::latest()->paginate(2);
+        
+        return view('dasboard.index', ['complain', $complain],
+                                      ['suggestion', $suggestion]);
     }
 }

@@ -91,6 +91,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="invalid-feedback">
+                                {{$errors->first('price')}}
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-9">
                                     <div class="checkbox checkbox-success">

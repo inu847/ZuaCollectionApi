@@ -37,7 +37,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        
+        return redirect()->route('baju.index')->with('status', 'Invoice Success!!');
     }
 
     /**
@@ -84,62 +84,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \Validator::make($request->all(),[
-            "name" => "required|min:1|max:30",
-            "kategori" => "min:1|max:20",
-            "invoice" => "min:1|max:20",
-            ])->validate();
-
-        $title = $request->get('name');
-        $kategori = $request->get('kategori');
-        $jenis_ukuran = $request->get('jenis_ukuran');
-        $status = $request->get('status');
-        $lingkar_badan = $request->get('lingkar_badan');
-        $lingkar_pinggang = $request->get('lingkar_pinggang');
-        $lingkar_pinggul = $request->get('lingkar_pinggul');
-        $lingkar_pipa = $request->get('lingkar_pipa');
-        $lingkar_paha = $request->get('lingkar_paha');
-        $lingkar_lutut = $request->get('lingkar_lutut');
-        $lebar_muka = $request->get('lebar_muka');
-        $lebar_punggung = $request->get('lebar_punggung');
-        $lebar_lengan = $request->get('lebar_lengan');
-        $lebar_ban_lengan = $request->get('lebar_ban_lengan');
-        $panjang_punggung = $request->get('panjang_punggung');
-        $panjang_muka = $request->get('panjang_muka');
-        $panjang_baju = $request->get('panjang_baju');
-        $panjang_lengan = $request->get('panjang_lengan');
-        $panjang_rok = $request->get('panjang_rok');
-        $panjang_celana = $request->get('panjang_celana');
-        $panjang_krah = $request->get('panjang_krah');
-        $invoice = $request->get('invoice');
-
-        $order = Baju::findOrFail($id);
-        
-        $order->title = $title;
-        $order->kategori = $kategori;
-        $order->jenis_ukuran = $jenis_ukuran;
-        $order->status = $status;
-        $order->lingkar_badan = $lingkar_badan;
-        $order->lingkar_pinggang = $lingkar_pinggang;
-        $order->lingkar_pinggul = $lingkar_pinggul;
-        $order->lingkar_pipa = $lingkar_pipa;
-        $order->lingkar_paha = $lingkar_paha;
-        $order->lingkar_lutut = $lingkar_lutut;
-        $order->lebar_muka = $lebar_muka;
-        $order->lebar_punggung = $lebar_punggung;
-        $order->lebar_lengan = $lebar_lengan;
-        $order->lebar_ban_lengan = $lebar_ban_lengan;
-        $order->panjang_punggung = $panjang_punggung;
-        $order->panjang_muka = $panjang_muka;
-        $order->panjang_baju = $panjang_baju;
-        $order->panjang_lengan = $panjang_lengan;
-        $order->panjang_rok = $panjang_rok;
-        $order->panjang_celana = $panjang_celana;
-        $order->panjang_krah = $panjang_krah;
-        $order->invoice = $invoice;
-
-        $order->save();
-        return redirect()->route('baju.index');
+        // 
     }
 
     /**

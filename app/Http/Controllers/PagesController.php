@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Gate;
 
 class PagesController extends Controller
@@ -73,14 +74,15 @@ class PagesController extends Controller
         \Validator::make($request->all(),[
             "product_name" => "required|min:1|max:100",
             "deskripsi" => "required|min:1|max:300",
-            "tampak_depan" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
-            "tampak_belakang" => "required|dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
+            "tampak_depan" => 'required|file|image|max:2048',
+            "tampak_belakang" => 'required|file|image|max:2048',
             "price" => "required|min:1|max:10",
             ])->validate();
 
         $new_product = new Product;
         $new_product->product_name = ucfirst($request->get('product_name'));
         $new_product->deskripsi = ucfirst($request->get('deskripsi'));
+        $new_product->size = json_encode($request->get('size'));
         if($request->file('tampak_depan')){
             $file = $request->file('tampak_depan')->store('tampak_depan', 'public');
             $new_product->tampak_depan = $file;
@@ -130,21 +132,24 @@ class PagesController extends Controller
     {
         \Validator::make($request->all(),[
             "product_name" => "required|min:1|max:30",
-            "deskripsi" => "min:1|max:100",
-            "tampak_depan" => "dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
-            "tampak_belakang" => "dimensions:min_width=280,min_height=280,max_width=290,max_height=360",
-            "price" => "min:1|max:10",
+            "deskripsi" => "required|min:1|max:100",
+            "tampak_depan" => 'file|image|max:2048',
+            "tampak_belakang" => 'file|image|max:2048',
+            "price" => "required|min:1|max:10",
             ])->validate();
-
+        
         $product = Product::findOrFail($id);
+
         $product->product_name = ucfirst($request->get('product_name'));
         $product->deskripsi = ucfirst($request->get('deskripsi'));
+        $product->size = $request->get('size');
+
         if ($request->file('tampak_depan')){
             if($product->tampak_depan && file_exists(storage_path('app/public/' . $product->tampak_depan))){
                 \Storage::delete('public/'.$product->tampak_depan);
                 $file = $request->file('tampak_depan')->store('tampak_depan', 'public');
                 $product->tampak_depan = $file;
-               }
+            }
         }
         
         if ($request->file('tampak_belakang')){

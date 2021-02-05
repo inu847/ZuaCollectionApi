@@ -20,27 +20,6 @@
                             <div class="form-body">
                                 <h3 class="box-title">Person Info</h3>
                                 <hr class="m-t-0 m-b-20">
-                                {{-- <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="white-box p-10">
-                                                @if ($product->tampak_depan)
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <img src="{{ asset('storage/'. $product->tampak_depan)}}" alt="" width="70px" height="80px">
-                                                        </div>
-                                                        <div class="p-10">
-                                                            <span class="h5"><strong>{{Str::limit($product->product_name,100)}}</strong></span>
-                                                            <div><span>{{Str::limit($product->deskripsi, 100)}}</span></div>
-                                                            <div><span><strong>Rp.{{$product->price}}</strong></span></div>
-                                                        </div>
-                                                    </div>       
-                                                @else
-                                                    No Images
-                                                @endif      
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -104,10 +83,38 @@
                                     <!--/row-->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 p-t-10" for="price">Count Price</label>
-                                            <div class="col-md-9 m-b-10">
-                                                <input value="{{$product->price}}" type="text" class="form-control {{$errors->first('price') ? "is-invalid": ""}}" id="price" placeholder="Many Price" name="price"> 
-                                                <span class="help-block">{{$errors->first('price')}}</span>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label class="control-label col-md-4 p-t-10" for="price">Count Price</label>
+                                                    <div class="col-md-4 m-b-10">
+                                                        <div class="input-group">
+                                                            <input value="{{$product->price}}" type="text" class="form-control {{$errors->first('price') ? "is-invalid": ""}}" id="price" placeholder="Many Price" name="price"> 
+                                                            <div class="input-group-addon">Pcs</div>
+                                                        </div>
+                                                        <span class="help-block">{{$errors->first('price')}}</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="hidden" value="{{$product->product}}" name="product">
+                                                        <input type="number" class="form-control" name="potong_harga" placeholder="Cashback">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="size" class="col-md-4 m-t-10">Size</label>
+                                                    <div class="col-md-8">
+                                                        <select name="size" id="size" class="form-control">
+                                                            <option value="{{$product->size}}">{{$product->size}}</option>
+                                                            @foreach ($product_size as $size)
+                                                                @foreach (json_decode($size->size) as $sizea)
+                                                                    @if ($sizea!='None')
+                                                                        @if ($sizea!=$product->size)
+                                                                            <option value="{{$sizea}}">{{$sizea}}</option>
+                                                                        @endif
+                                                                    @endif
+                                                                @endforeach  
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -267,22 +267,25 @@
                             </a>
                             <ul class="dropdown-menu mailbox animated bounceInDown">
                                 <li>
-                                    <div class="drop-title">You have 4 new messages</div>
+                                    <div class="drop-title">You have {{$complain}} Complain</div>
                                 </li>
                                 <li>
+                                    @foreach ($suggestion as $suggest) 
                                     <div class="message-center">
-                                        <a href="javascript:void(0);">
+                                        <a href="{{ route('suggestion.show', [$suggest->id])}}">
                                             <div class="user-img">
                                                 <img src="{{ asset('template/plugins/images/users/1.jpg')}}" alt="user" class="img-circle">
                                                 <span class="profile-status online pull-right"></span>
                                             </div>
                                             <div class="mail-contnet">
-                                                <h5>Pavan kumar</h5>
-                                                <span class="mail-desc">Just see the my admin!</span>
-                                                <span class="time">9:30 AM</span>
+                                                <h5>{{$suggest->name}}</h5>
+                                                <span class="mail-desc">{{$suggest->suggestion}}</span>
+                                                <span class="time">{{$suggest->created_at->format('H:i')}} PM</span>
                                             </div>
                                         </a>
-                                    <a class="text-center" href="javascript:void(0);">
+                                    </div>
+                                    @endforeach
+                                    <a class="text-center" href="{{ route('suggestion.index')}}">
                                         <strong>See all notifications</strong>
                                         <i class="fa fa-angle-right"></i>
                                     </a>
@@ -440,7 +443,19 @@
         <script src="{{ asset('template/plugins/components/sparkline/jquery.sparkline.min.js')}}"></script>
         <!-- ===== Style Switcher JS ===== -->
         <script src="{{ asset('template/plugins/components/styleswitcher/jQuery.style.switcher.js')}}"></script>
-            
+        <script>
+            $(function() {
+                $("#print").on("click", function() {
+                    var mode = 'iframe'; //popup
+                    var close = mode == "popup";
+                    var options = {
+                        mode: mode,
+                        popClose: close
+                    };
+                    $("div.printableArea").printArea(options);
+                });
+            });
+            </script> 
         <script>
             // Get the modal
             var modal = document.getElementById("myModal");

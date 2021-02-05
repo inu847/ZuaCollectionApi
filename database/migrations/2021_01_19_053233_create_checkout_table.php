@@ -20,7 +20,10 @@ class CreateCheckoutTable extends Migration
             $table->enum('gender', ['Male', 'Female']);
             $table->string('birth');
             $table->string('product_name');
+            $table->string('product');
             $table->string('price');
+            $table->string('total');
+            $table->enum('size', ['X', 'M', 'L', 'XL', 'XXL', 'XXXL']);
             $table->string('address');
             $table->string('rt');
             $table->string('rw');

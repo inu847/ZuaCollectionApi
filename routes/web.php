@@ -50,3 +50,4 @@ Route::post('/listorder/{id}/edit', [ListorderController::class, 'pesanan'])->na
 Route::resource('listorder', ListorderController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('suggestion', SuggestionController::class);
+Route::match(['POST', 'PUT'], '/order/{id}/edit', [BajuController::class, 'invoice'])->name('baju.invoice');

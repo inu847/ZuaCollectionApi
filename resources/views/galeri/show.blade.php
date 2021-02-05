@@ -46,28 +46,21 @@
                                 </h2>
                             <hr>
                             <p>{{$galeri->deskripsi}}</p>
-                            {{-- <div class="row">
+                            <div class="row">
                                 <div class="col-sm-12">
-                                    <h6>Color</h6>
-                                    <div class="input-group">
-                                        <ul class="icolors">
-                                            <li class="red"></li>
-                                            <li class="blue"></li>
-                                            <li class="purple active"></li>
-                                        </ul>
-                                    </div>
                                     <h6 class="m-t-20">Available Size</h6>
                                     <p>
-                                        <span class="label label-rounded label-default text-dark">S</span>
-                                        <span class="label label-rounded label-default text-dark">M</span>
-                                        <span class="label label-rounded label-default text-dark">L</span>
+                                        @foreach (json_decode($galeri->size) as $role)
+                                            @if ($role!='None')
+                                                <span class="label label-rounded label-default text-dark">{{$role}}</span>
+                                            @endif
+                                        @endforeach
                                     </p>
                                 </div>
-                            </div> --}}
+                            </div>
                             <hr>
-                            <a class="btn btn-danger m-r-5" href="{{ route('galeri.create')}}"> Buy Now </a>
+                            <a class="btn btn-danger m-r-5" href="{{ route('galeri.edit', [$galeri->id])}}"> Buy Now </a>
                             <button class="btn btn-primary m-r-5"><i class="ti-shopping-cart"></i> Add to Cart</button>
-                            <button class="btn btn-info"><i class="ti-plus"></i> Add to Compare</button>
                             <h3 class="box-title m-t-40">Key Highlights</h3>
                             <ul class="list-icons">
                                 <li><i class="fa fa-check text-success"></i> Sturdy structure</li>
@@ -148,59 +141,65 @@
                 </div>
             </div>
         </div>
+        <div class="white-box">
+
+        
         <h4 class="box-title">Related Products</h4>
+        <hr>
         <div class="row">
             @foreach ($products as $product)
-                
-            
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="white-box">
-                    @if($galeri->tampak_depan)
-                    <div class="product-img">
-                        <img src="{{asset('storage/'. $galeri->tampak_depan)}}" class="img-responsive" />
-                    </div>
-                    @else
-                        No avatar
-                    @endif
-                    <div class="product-text">
-                        <h3 class="box-title m-b-0">{{$product->product_name}}</h3>
-                        <small class="text-muted db">{{$product->deskripsi}}</small>
-                        <span class="pro-dis bg-danger">28% <br> off</span>
-                        <h3 class="pro-price m-b-0">&#36;72
-                            <span class="old-price">&#36;100</span>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            {{-- <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="white-box">
-                    <div class="product-img">
-                        <img src="../plugins/images/chair2.jpg" class="img-responsive" />
-                    </div>
-                    <div class="product-text">
-                        <h3 class="box-title m-b-0">Rounded Chair</h3>
-                        <small class="text-muted db">globe type chair for rest</small>
-                        <span class="pro-dis bg-success">28% <br> off</span>
-                        <h3 class="pro-price m-b-0">&#36;72
-                            <span class="old-price">&#36;100</span>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="white-box">
-                    <div class="product-img">
-                        <img src="../plugins/images/chair4.jpg" class="img-responsive" />
-                    </div>
-                    <div class="product-text">
-                        <h3 class="box-title m-b-0">Rounded Chair</h3>
-                        <small class="text-muted db">globe type chair for rest</small>
-                        <span class="pro-dis bg-info">28% <br> off</span>
-                        <h3 class="pro-price m-b-0">&#36;72
-                            <span class="old-price">&#36;100</span>
-                        </h3>
+            <a href="{{ route('galeri.show', [$product->id])}}">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="white-box">
+                        <div class="product-img">
+                            <div class="container">
+                                @if($product->tampak_depan)
+                                    <img class="place-self-center" src="{{asset('storage/'. $product->tampak_depan)}}" width="200px" height="280px"/>    
+                                @else
+                                    No avatar
+                                    @endif </td>
+                                <div class="overlay">
+                                    @if($product->tampak_belakang)
+                                    <img class="text " src="{{asset('storage/'. $product->tampak_belakang)}}" class="place-self-center" width="200px" height="280px"/>
+                                    @else
+                                    No avatar
+                                    @endif </td>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="product-text">
+                            <h3 class="box-title m-b-0">{{Str::limit($product->product_name,25)}}</h3>
+                            <small class="text-muted db">{{Str::limit($product->deskripsi,40)}}</small>
+                            <a href="{{ route('galeri.edit', [$product->id])}}" class="pro-dis bg-danger">Buy <br> Now</a>
+                            @if (Str::limit($product->price,6)>Str::limit($product->price,7))
+                                <h3 class="pro-price m-b-0">Rp{{$product->price}}
+                                    <span class="old-price">Rp{{$product->price+20000}}</span>
+                                </h3>
+                            @else
+                                <h3 class="pro-price m-b-0">Rp{{Str::limit($product->price,8)}}
+                                    <span class="old-price">Rp{{Str::limit($product->price+20000,5)}}</span>
+                                </h3>
+                            @endif  
+                        </div>
                     </div>
                 </div>
-            </div> --}}
+            </a>
             @endforeach
+        </div>
+        <tfoot>
+            <div class="row">
+                <div class="col-md-5">
+                    
+                </div>
+                <div class="col-md-5">
+                    <tr class="text-right">
+                        <td colspan=10>
+                            {{$products->appends(Request::all())->links()}}
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </tfoot>
+    </div>
 @endsection

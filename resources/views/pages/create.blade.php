@@ -10,17 +10,53 @@
                 <div class="col-sm-12">
                     <div class="white-box">
                         <h3 class="box-title m-b-0">Create New Product</h3>
-                        <p class="text-muted m-b-30 font-13"> Upload your product to publish </p>
+                        <p class="text-muted m-b-30 font-13"> Upload your product to publish.</p>
                         <form class="form-horizontal"
                             enctype="multipart/form-data"
                             action="{{route('pages.store')}}"
                             method="POST">
                         @csrf
                             <div class="form-group">
-                                <label class="col-md-12">Product Name</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control {{$errors->first('product_name') ? "is-invalid": ""}}" value="{{old('product_name')}}" id="nama" name="product_name" placeholder="Product Name">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label class="col-md-12">Product Name</label>
+                                        <div class="col-md-12 m-b-5">
+                                            <input type="text" class="form-control {{$errors->first('product_name') ? "is-invalid": ""}}" value="{{old('product_name')}}" id="nama" name="product_name" placeholder="Product Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="col-md-12">Size</label>
+                                        <div class="col-md-3 m-b-5">
+                                            <select name="size[]" id="" class="form-control">
+                                                <option value="X">X</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 m-b-5">
+                                            <select name="size[]" id="" class="form-control">
+                                                <option value="M">M</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 m-b-5">
+                                            <select name="size[]" id="" class="form-control">
+                                                <option value="L">L</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 m-b-5">
+                                            <select name="size[]" id="" class="form-control">
+                                                <option value="XL">XL</option>
+                                                <option value="XXL">XXL</option>
+                                                <option value="XXXL">XXXL</option>
+                                                <option>None</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
+                                
                                 <div class="invalid-feedback p-l-15">
                                     {{$errors->first('product_name')}}
                                 </div>
@@ -38,7 +74,7 @@
                                 <label class="col-sm-12">Gambar Tampak Depan</label>
                                 <div class="col-sm-12">
                                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename text-muted">Select images with dimension 285 x 355</span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
+                                        <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename text-muted">Select images with max size 2mb</span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
                                         <input value="{{old('tampak_depan')}}" type="file" class="{{$errors->first('tampak_depan') ? "is-invalid": ""}}" id="tampak_depan" name="tampak_depan"> 
                                         </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
                                     </div>
@@ -53,7 +89,7 @@
                                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput"> 
                                             <i class="glyphicon glyphicon-file fileinput-exists"></i> 
-                                            <span class="fileinput-filename text-muted">Select images with dimension 285 x 355</span>
+                                            <span class="fileinput-filename text-muted">Select images with max size 2mb</span>
                                         </div> 
                                         <span class="input-group-addon btn btn-default btn-file"> 
                                             <span class="fileinput-new">Select file</span> 

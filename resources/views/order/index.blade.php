@@ -65,7 +65,7 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <a href="{{route('pages.index')}}" class="btn btn-danger btn-outline">Save</a>
+                        <a href="{{ route('order.create')}}" class="btn btn-danger btn-outline">Save</a>
                         <button onclick="window.print()" class="btn btn-danger btn-outline"> <span><i class="fa fa-print"></i> Print</span> </button>
                     </div>
                 </div>

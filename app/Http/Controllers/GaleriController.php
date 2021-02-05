@@ -98,8 +98,10 @@ class GaleriController extends Controller
         $new_product->product_name = $request->get('product_name');
         $product = $request->get('product');
         $price = $request->get('price');
-        $total = $product*$price;
-        $new_product->price = $total;
+        $new_product->product = $product;
+        $new_product->price = $price;
+        $new_product->total = $price*$product;
+        $new_product->size = $request->get('size');
 
         $new_product->address = $request->get('address');
         $new_product->rt = $request->get('rt');
@@ -127,7 +129,7 @@ class GaleriController extends Controller
     public function show($id)
     {
         $galeri = Product::findOrFail($id);
-        $products = Product::paginate(3);
+        $products = Product::paginate(6);
 
         return view('galeri.show', ['galeri' => $galeri,
                                     'products' => $products]);
@@ -181,6 +183,7 @@ class GaleriController extends Controller
         $new_product->birth = $request->get('birth');
         $new_product->product_name = $request->get('product_name');
         $new_product->price = $request->get('price');
+        $new_product->size = $request->get('size');
 
         $new_product->address = $request->get('address');
         $new_product->rt = $request->get('rt');

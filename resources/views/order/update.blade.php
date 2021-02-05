@@ -12,10 +12,10 @@
     <div class="white-box">
         <div class="row">
             <div class="m-l-40">
-                <h3 class="box-title m-b-0">Edit Data</h3>
-                <p class="text-muted m-b-30 font-13"> Use Bootstrap's predefined grid classes for horizontal form </p>
+                <h3 class="box-title m-b-0">Checkout</h3>
+                <p class="text-muted m-b-30 font-13">Form invoice. take a price in input invoice</p>
             </div>
-            <form action="{{route('order.update', [$order->id])}}"
+            <form action="{{route('baju.invoice', [$order->id])}}"
                   enctype="multipart/form-data"
                   method="POST">
                 @csrf
@@ -57,8 +57,6 @@
                     <input type="hidden" class="form-control {{$errors->first('kategori') ? "is-invalid" : "" }}" name="kategori" value="{{$order->kategori}}">
              
                     <input type="hidden" class="form-control {{$errors->first('jenis_ukuran') ? "is-invalid" : "" }}" name="jenis_ukuran" id="ukuran_badan" value="{{$order->jenis_ukuran}}">
-            
-                    <input {{$order->status == "SUCCESS" ? "checked" : ""}} value="SUCCESS" id="SUCCESS" type="hidden" name="status" checked>
             
                     <input value="{{$order->lingkar_badan}}" type="hidden" class="form-control {{$errors->first('lingkar_badan') ? "is-invalid": ""}}" id="lingkar_badan" name="lingkar_badan" placeholder="Lingkar Badan"> 
             

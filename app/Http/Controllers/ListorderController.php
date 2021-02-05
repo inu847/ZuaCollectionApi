@@ -90,8 +90,10 @@ class ListorderController extends Controller
     public function edit($id)
     {
         $product = Checkout::findOrFail($id);
+        $product_size = \App\Models\Product::get()->where('product_name', '=', $product->product_name);
 
-        return view('listorder.update', ['product' => $product]);
+        return view('listorder.update', ['product' => $product],
+                                        ['product_size' => $product_size]);
     }
 
     /**
@@ -148,8 +150,17 @@ class ListorderController extends Controller
         $product->gender = $request->get('gender');
         $product->birth = $request->get('birth');
         $product->product_name = $request->get('product_name');
-        $product->price = $request->get('price');
-
+        $harga = $request->get('product');
+        $price = $request->get('price');
+        $potong_harga = $request->get('potong_harga');
+        $product->product = $harga;
+        $product->price = $price;
+        if($potong_harga){
+            $product->total = $price*$harga-$potong_harga;
+        }else{
+            $product->total = $price*$harga;
+        }
+        $product->size = $request->get('size');
         $product->address = $request->get('address');
         $product->rt = $request->get('rt');
         $product->rw = $request->get('rw');

@@ -63,16 +63,16 @@
                         <div class="product-img">
                             <div class="container">
                                 @if($page->tampak_depan)
-                                    <img class="place-self-center image img-responsive" src="{{asset('storage/'. $page->tampak_depan)}}"/>
+                                    <img class="place-self-center" src="{{asset('storage/'. $page->tampak_depan)}}" width="200px" height="280px" />
                                 @else
                                     No avatar
-                                    @endif </td>
+                                    @endif
                                 <div class="overlay">
                                     @if($page->tampak_belakang)
-                                    <img class="text " src="{{asset('storage/'. $page->tampak_belakang)}}" class="img-responsive" />
+                                        <img src="{{asset('storage/'. $page->tampak_belakang)}}" class="place-self-center" width="200px" height="280px"/>
                                     @else
                                     No avatar
-                                    @endif </td>
+                                    @endif 
                                 </div>
                             </div>
                         </div>
@@ -81,9 +81,15 @@
                             <small class="text-muted db">{{Str::limit($page->deskripsi, 40)}}</small>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <h3 class="pro-price m-b-0">Rp{{$page->price}}
-                                        <span class="old-price">Rp{{$page->price+20000}}</span>
-                                    </h3>
+                                    @if (Str::limit($page->price,6)>Str::limit($page->price,7))
+                                        <h3 class="pro-price m-b-0">Rp{{$page->price}}
+                                            <span class="old-price">Rp{{$page->price+20000}}</span>
+                                        </h3>
+                                    @else
+                                        <h3 class="pro-price m-b-0">Rp{{Str::limit($page->price,5)}}
+                                            <span class="old-price">Rp{{Str::limit($page->price+20000,5)}}</span>
+                                        </h3>
+                                    @endif  
                                 </div>
                                 <div class="col-md-4">
                                     <form
