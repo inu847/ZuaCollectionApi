@@ -24,9 +24,9 @@
         </div>
     @endif
 
-<div class="alert alert-success">
+{{-- <div class="alert alert-success">
     {{ ('Welcome ') }}{{ Auth::user()->name }}{{(',')}} {{ __('You are logged in Zua Collection!') }}
-</div>
+</div> --}}
     <div class="row m-0">
         <div class="col-md-3 col-sm-6 info-box">
             <div class="media">

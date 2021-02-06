@@ -29,6 +29,7 @@ class DasboardController extends Controller
         $users = \App\Models\User::latest()->paginate(5);
         $suggestion = \App\Models\Suggestion::latest()->paginate(5);
         $complain = \App\Models\Suggestion::count('suggestion');
+        $msgToday = \App\Models\Suggestion::latest()->simplePaginate(3);
         // earning
         $persen = Baju::sum('invoice');
         $persen1 = $persen;
@@ -76,7 +77,8 @@ class DasboardController extends Controller
                                         'users' => $users,
                                         'complain' => $complain,
                                         'suggestion' => $suggestion,
-                                    ]);
+                                        'msgToday' => $msgToday,
+                                    ])->with('status', ' You are logged in Zua Collection!');
     }
 
     /**

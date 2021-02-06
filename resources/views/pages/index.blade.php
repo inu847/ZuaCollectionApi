@@ -86,8 +86,8 @@
                                             <span class="old-price">Rp{{$page->price+20000}}</span>
                                         </h3>
                                     @else
-                                        <h3 class="pro-price m-b-0">Rp{{Str::limit($page->price,5)}}
-                                            <span class="old-price">Rp{{Str::limit($page->price+20000,5)}}</span>
+                                        <h3 class="pro-price m-b-0">Rp{{Str::limit($page->price,6)}}
+                                            <span class="old-price">Rp{{Str::limit($page->price+20000,4)}}</span>
                                         </h3>
                                     @endif  
                                 </div>

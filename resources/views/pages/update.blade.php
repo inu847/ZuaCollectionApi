@@ -24,9 +24,66 @@
                             name="_method">
 
                             <div class="form-group">
-                                <label class="col-md-12">Product Name</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control {{$errors->first('product_name') ? "is-invalid": ""}}" value="{{$pages->product_name}}" id="nama" name="product_name">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label class="col-md-12">Product Name</label>
+                                        <div class="col-md-12 m-b-5">
+                                            <input type="text" class="form-control {{$errors->first('product_name') ? "is-invalid": ""}}" value="{{$pages->product_name}}" id="nama" name="product_name" placeholder="Product Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="col-md-12">Size</label>
+                                        @foreach (json_decode($pages->size) as $size)
+                                            
+                                        
+                                        <div class="col-md-3 m-b-5">
+                                            <select name="size[]" id="" class="form-control">
+                                                @if ($size =='X')
+                                                    <option value="X">X</option>
+                                                    <option>None</option>
+                                                @elseif($size =='M')
+                                                    <option value="M">M</option>
+                                                    <option>None</option>
+                                                @elseif($size =='L')
+                                                    <option value="L">L</option>
+                                                    <option>None</option>
+                                                @elseif($size =='XL'))
+                                                    <option value="XL">XL</option>
+                                                    <option value="XXL">XXL</option>
+                                                    <option value="XXXL">XXXL</option>
+                                                    <option>None</option>
+                                                @elseif($size =='XXL')  
+                                                    <option value="XXL">XXL</option>
+                                                    <option value="XL">XL</option>
+                                                    <option value="XXXL">XXXL</option>
+                                                    <option>None</option>
+                                                @elseif($size =='XXXL')
+                                                    <option value="XXXL">XXXL</option>
+                                                    <option value="XL">XL</option>
+                                                    <option value="XXL">XXL</option>
+                                                    <option>None</option>
+                                                {{-- None --}}
+                                                @elseif ($size !='X')
+                                                    <option>None</option>
+                                                    <option value="X">X</option>
+                                                @elseif($size !='M')
+                                                    <option>None</option>
+                                                    <option value="X">M</option>
+                                                @elseif($size !='L')
+                                                    <option>None</option>
+                                                    <option value="X">L</option>
+                                                @elseif($size !='XL')
+                                                    <option>None</option>
+                                                    <option value="XL">XL</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                
+                                <div class="invalid-feedback p-l-15">
+                                    {{$errors->first('product_name')}}
                                 </div>
                             </div>
                             <div class="form-group">

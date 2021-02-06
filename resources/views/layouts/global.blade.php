@@ -263,27 +263,32 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="icon-speech"></i>
-                                <span class="badge badge-xs badge-danger">6</span>
+                                <span class="badge badge-xs badge-danger">{{ count($count) }}</span>
                             </a>
                             <ul class="dropdown-menu mailbox animated bounceInDown">
                                 <li>
-                                    <div class="drop-title">You have {{$complain}} Complain</div>
+                                    <div class="drop-title">You have {{ count($count) }} Complain In Today</div>
                                 </li>
                                 <li>
-                                    @foreach ($suggestion as $suggest) 
-                                    <div class="message-center">
-                                        <a href="{{ route('suggestion.show', [$suggest->id])}}">
-                                            <div class="user-img">
-                                                <img src="{{ asset('template/plugins/images/users/1.jpg')}}" alt="user" class="img-circle">
-                                                <span class="profile-status online pull-right"></span>
-                                            </div>
-                                            <div class="mail-contnet">
-                                                <h5>{{$suggest->name}}</h5>
-                                                <span class="mail-desc">{{$suggest->suggestion}}</span>
-                                                <span class="time">{{$suggest->created_at->format('H:i')}} PM</span>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    @foreach ($msgToday as $day)
+                                        <div class="message-center">
+                                            <a href="{{ route('suggestion.show', [$day->id])}}">
+                                                <div class="user-img">
+                                                    <img src="{{ asset('template/plugins/images/users/1.jpg')}}" alt="user" class="img-circle">
+                                                    <span class="profile-status online pull-right"></span>
+                                                </div>
+                                                <div class="mail-contnet">
+                                                    <h5>{{$day->name}}</h5>
+                                                    <span class="mail-desc">{{$day->suggestion}}</span>
+                                                    @if ($day->created_at->format('H')>18)
+                                                        <span class="time">{{$day->created_at->format('H:i')}} PM</span>
+                                                    @elseif(($day->created_at->format('H')<18))
+                                                        <span class="time">{{$day->created_at->format('H:i')}} AM</span>
+                                                    @endif
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {{-- @endif --}}
                                     @endforeach
                                     <a class="text-center" href="{{ route('suggestion.index')}}">
                                         <strong>See all notifications</strong>

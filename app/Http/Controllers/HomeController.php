@@ -22,11 +22,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        $complain = \App\Models\Suggestion::count('suggestion');
-        $suggestion = \App\Models\Suggestion::latest()->paginate(2);
-        
-        return view('dasboard.index', ['complain', $complain],
-                                      ['suggestion', $suggestion]);
+    {        
+        return view('dasboard.index');
     }
 }
