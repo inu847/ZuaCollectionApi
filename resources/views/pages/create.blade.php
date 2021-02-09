@@ -53,8 +53,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
-                                    
                                 </div>
                                 
                                 <div class="invalid-feedback p-l-15">
