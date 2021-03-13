@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Baju;
+use App\Http\Resources\Scrap as ScrapResource;
 
 class ScrapingController extends Controller
 {
@@ -13,9 +15,9 @@ class ScrapingController extends Controller
      */
     public function index()
     {
-        $scraping = \App\Models\Baju::where('status', 'SUCCESS')->latest()->get();
-
-        return view('feature.scrapingformforme', ['scraping' => $scraping]);
+        $scraping = new ScrapResource(Baju::where('status', 'SUCCESS')->latest()->get());
+        return $scraping;
+        // return view('feature.scrapingformforme', ['scraping' => $scraping]);
     }
 
     /**
