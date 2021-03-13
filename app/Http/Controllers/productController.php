@@ -10,7 +10,7 @@ class productController extends Controller
 {
     public function index()
     {
-        $product = new ProductResource(Product::get());
+        $product = new ProductResource(Product::paginate(5));
         return $product;
     }
 }
