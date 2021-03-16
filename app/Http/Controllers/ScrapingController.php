@@ -15,7 +15,7 @@ class ScrapingController extends Controller
      */
     public function index()
     {
-        $scraping = new ScrapResource(Baju::where('status', 'SUCCESS')->latest()->get());
+        $scraping = new ScrapResource(Baju::latest()->paginate(6));
         return $scraping;
         // return view('feature.scrapingformforme', ['scraping' => $scraping]);
     }

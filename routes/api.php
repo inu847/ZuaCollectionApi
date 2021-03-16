@@ -28,6 +28,7 @@ Route::prefix('v1')->group(function () {
     // Route::get('categories/random/{count}', 'CategoryController@random');
     Route::get('scrap', [ScrapingController::class, 'index']);
     Route::get('product', [ProductController::class, 'index']);
+    Route::get('product/{id}', [ProductController::class, 'show']);
     // Private
     Route::middleware('auth:api')->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
